@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: scorpionRobot.ma
-//Last modified: Sun, Sep 20, 2015 10:25:32 PM
+//Last modified: Sun, Sep 20, 2015 10:26:04 PM
 //Codeset: 1252
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -15,8 +15,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "721A9AC8-4089-F270-BC63-3FABB6718047";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 9.2325704550917358 7.7588783883967603 15.614929386030211 ;
-	setAttr ".r" -type "double3" -21.338352575361867 -1048.199999998372 9.3557536962160448e-016 ;
+	setAttr ".t" -type "double3" -11.380853209716266 2.7802276084660953 16.211917774217632 ;
+	setAttr ".r" -type "double3" -6.338352575361089 -1114.1999999983645 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DB47549A-4646-7906-AAD1-21B4834644EE";
 	setAttr -k off ".v" no;
