@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: scorpionRobot.ma
-//Last modified: Tue, Sep 22, 2015 12:54:52 AM
+//Last modified: Tue, Sep 22, 2015 01:19:26 AM
 //Codeset: 1252
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -15,13 +15,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "721A9AC8-4089-F270-BC63-3FABB6718047";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.8062351783294286 1.5209757281084035 10.284833913871815 ;
-	setAttr ".r" -type "double3" -11.138352575378144 -1090.9999999969841 0 ;
+	setAttr ".t" -type "double3" 1.4719334233143329 4.6480020193713409 14.624617076729617 ;
+	setAttr ".r" -type "double3" -16.538352575387087 -1075.3999999965963 -9.9713523173908887e-017 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DB47549A-4646-7906-AAD1-21B4834644EE";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 11.038860833872659;
+	setAttr ".coi" 15.06089217278554;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -10516,8 +10516,9 @@ createNode joint -n "armRight_UpperJoint1" -p "bodyFrontJoint";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -180 -89.999999999999986 0 ;
-	setAttr ".bps" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
+	setAttr ".bps" -type "matrix" 0.99999999999867462 -1.9940366111735775e-022 1.6282544588186458e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 1.6282544585966012e-006 1.2246467991457299e-016 -0.99999999999867462 0
+		 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
 	setAttr ".radi" 0.51564230787620025;
 	setAttr -k on ".IK";
 	setAttr -k on ".FK";
@@ -10529,8 +10530,9 @@ createNode joint -n "armRight_MidJoint" -p "armRight_UpperJoint1";
 	setAttr ".t" -type "double3" -1.3024159999999996 0 -1.1102230246251565e-016 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -1.8772500000000001 -0.55409699999999995 0.59721100000000016 1;
+	setAttr ".bps" -type "matrix" 0.999999999998468 2.1438377327838792e-022 -1.7505763574121289e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -1.7505763576341735e-006 1.224646799145477e-016 -0.999999999998468 0
+		 -1.8772499999982735 -0.55409699999999995 0.59720887933534095 1;
 	setAttr ".radi" 0.51093804005597798;
 	setAttr -k on ".IK";
 	setAttr -k on ".FK";
@@ -10646,8 +10648,8 @@ createNode joint -n "armLeft_MidJoint" -p "armLeft_UpperJoint1";
 	setAttr ".t" -type "double3" 1.3024179522732053 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".bps" -type "matrix" 0.99999999999585198 0 2.8804338924369022e-006 0 0 1 0 0
+		 -2.8804338924369022e-006 0 0.99999999999585198 0 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
 	setAttr ".radi" 0.51093804005597798;
 	setAttr -k on ".IK";
 	setAttr -k on ".FK";
@@ -11034,6 +11036,51 @@ createNode nurbsCurve -n "smallClawLeft_ControlShape" -p "smallClawLeft_Control"
 		-2.7961198840036365 -0.80640292242641332 1.1412967804000842
 		-2.9573932897022575 -0.80640292242641332 0.82409251749567436
 		-3.0768150448857448 -0.80640292242641332 0.7606784890182231
+		;
+createNode transform -n "bigClawLeft_IKControl" -p "armControls";
+	rename -uid "E6C44C5C-4043-1C9A-07D1-2DB6E7B2FA79";
+	setAttr ".rp" -type "double3" 3.0887199999999995 -0.554097 0.59721100000000027 ;
+	setAttr ".sp" -type "double3" 3.0887199999999995 -0.554097 0.59721100000000027 ;
+createNode nurbsCurve -n "bigClawLeft_IKControlShape" -p "bigClawLeft_IKControl";
+	rename -uid "B9E93CAC-44A4-C1CF-A7FE-219F7EE162D6";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 7 0 no 3
+		12 0 0 0 1 2 3 4 5 6 7 7 7
+		10
+		2.841915920413602 -0.55422330931917707 -0.095346634373445913
+		2.9232297607817221 -0.55422330931917707 1.0202613324603675
+		2.9232297607817221 -0.55422330931917707 1.0202613324603675
+		3.5145842795190751 -0.55422330931917707 1.2390002332627927
+		3.6584555924615461 -0.55422330931917707 2.1708661122200956
+		3.6584555924615461 -0.55422330931917707 2.1708661122200956
+		4.1739534134856626 -0.55422330931917707 1.6370394552376593
+		4.1191164311665043 -0.55422330931917707 0.55795540914519315
+		3.3452403122658341 -0.55422330931917707 0.11122461884918353
+		2.8434381491898475 -0.55422330931917707 -0.092931818774380628
+		;
+createNode transform -n "bigClawRight_IKControl" -p "armControls";
+	rename -uid "20367FE9-474C-89F9-15AA-36BAA160AA1E";
+	setAttr ".t" -type "double3" -4.4408920985006262e-016 0 0 ;
+	setAttr ".rp" -type "double3" -3.0887199999999995 -0.554097 0.59721100000000016 ;
+	setAttr ".sp" -type "double3" -3.0887199999999995 -0.554097 0.59721100000000016 ;
+createNode nurbsCurve -n "bigClawRight_IKControlShape" -p "bigClawRight_IKControl";
+	rename -uid "E193ED7E-4B99-BE52-CDC2-B18ECB16DAA7";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 7 0 no 3
+		12 0 0 0 1 2 3 4 5 6 7 7 7
+		10
+		-2.841915920413602 -0.55422330931917707 -0.095346634373446038
+		-2.9232297607817221 -0.55422330931917707 1.0202613324603673
+		-2.9232297607817221 -0.55422330931917707 1.0202613324603673
+		-3.5145842795190751 -0.55422330931917707 1.2390002332627925
+		-3.6584555924615465 -0.55422330931917707 2.1708661122200952
+		-3.6584555924615465 -0.55422330931917707 2.1708661122200952
+		-4.1739534134856626 -0.55422330931917707 1.637039455237659
+		-4.1191164311665043 -0.55422330931917707 0.55795540914519282
+		-3.3452403122658341 -0.55422330931917707 0.11122461884918333
+		-2.8434381491898475 -0.55422330931917707 -0.092931818774380753
 		;
 createNode transform -n "bodyFront_Node" -p "root_Control";
 	rename -uid "9CC9EDA5-4118-65CD-6C98-998FF6656E8D";
@@ -11563,6 +11610,7 @@ createNode parentConstraint -n "ikHandle6_parentConstraint1" -p "frontLeftLeg_IK
 createNode joint -n "FK_armRight_UpperJoint";
 	rename -uid "52B87A52-44EB-43D5-D90A-DEBAC2AA8FEC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -180 6.3611093629270304e-015 0 ;
@@ -11572,6 +11620,7 @@ createNode joint -n "FK_armRight_UpperJoint";
 createNode joint -n "FK_armRight_MidJoint" -p "FK_armRight_UpperJoint";
 	rename -uid "9CDFD50C-42A8-161F-5EEF-BFB3EFBBEA95";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
@@ -11580,6 +11629,7 @@ createNode joint -n "FK_armRight_MidJoint" -p "FK_armRight_UpperJoint";
 createNode joint -n "FK_armRight_BigPincerJoint" -p "FK_armRight_MidJoint";
 	rename -uid "0E29BD16-42D1-E2E7-227A-039928C73EE3";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -3.0486366638671336e-019 -0.53409173853833325 6.540926835928689e-017 ;
@@ -11587,6 +11637,7 @@ createNode joint -n "FK_armRight_BigPincerJoint" -p "FK_armRight_MidJoint";
 createNode joint -n "FK_armRight_SmallPincerJoint" -p "FK_armRight_BigPincerJoint";
 	rename -uid "636A4C9A-4B4B-CF53-FC48-9192E907C27F";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 2.5444437451708134e-014 240.52917086771421 0 ;
@@ -11597,7 +11648,7 @@ createNode parentConstraint -n "FK_armRight_SmallPincerJoint_parentConstraint1" 
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "smallClawRight_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11622,7 +11673,7 @@ createNode parentConstraint -n "FK_armRight_BigPincerJoint_parentConstraint1" -p
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "bigClawRight_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11645,7 +11696,7 @@ createNode parentConstraint -n "FK_armRight_MidJoint_parentConstraint1" -p "FK_a
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "elbowRight_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11665,7 +11716,7 @@ createNode parentConstraint -n "FK_armRight_UpperJoint_parentConstraint1" -p "FK
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "shoulderRight_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11682,6 +11733,7 @@ createNode parentConstraint -n "FK_armRight_UpperJoint_parentConstraint1" -p "FK
 createNode joint -n "FK_armLeft_UpperJoint";
 	rename -uid "9D4CDFF2-40D8-276D-5D08-CEAE9A9871CE";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 6.3611093629270304e-015 0 ;
@@ -11691,6 +11743,7 @@ createNode joint -n "FK_armLeft_UpperJoint";
 createNode joint -n "FK_armLeft_MidJoint" -p "FK_armLeft_UpperJoint";
 	rename -uid "4CB04B79-4B15-014A-931F-E0A155F0BDF3";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
@@ -11699,6 +11752,7 @@ createNode joint -n "FK_armLeft_MidJoint" -p "FK_armLeft_UpperJoint";
 createNode joint -n "FK_armLeft_BigPincerJoint" -p "FK_armLeft_MidJoint";
 	rename -uid "06C6D87A-46EE-AE69-88C5-F092C1FD1B40";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 4.0303629314719351e-017 -0.53409173853833325 -8.6472452980201819e-015 ;
@@ -11706,6 +11760,7 @@ createNode joint -n "FK_armLeft_BigPincerJoint" -p "FK_armLeft_MidJoint";
 createNode joint -n "FK_armLeft_SmallPincerJoint" -p "FK_armLeft_BigPincerJoint";
 	rename -uid "38C147E4-456F-BB52-1507-7BA2DAC3B2BA";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 5.0888874903416268e-014 240.52917086771421 -2.5444437451708134e-014 ;
@@ -11716,7 +11771,7 @@ createNode parentConstraint -n "FK_armLeft_SmallPincerJoint_parentConstraint1" -
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "smallClawLeft_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11741,7 +11796,7 @@ createNode parentConstraint -n "FK_armLeft_BigPincerJoint_parentConstraint1" -p 
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "bigClawLeft_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11766,7 +11821,7 @@ createNode parentConstraint -n "FK_armLeft_MidJoint_parentConstraint1" -p "FK_ar
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "elbowLeft_ControlW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11787,7 +11842,7 @@ createNode parentConstraint -n "FK_armLeft_UpperJoint_parentConstraint1" -p "FK_
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "shoulderLeft_ControlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
-	setAttr -k off ".v";
+	setAttr -k off ".v" no;
 	setAttr -k off ".tx";
 	setAttr -k off ".ty";
 	setAttr -k off ".tz";
@@ -11808,8 +11863,9 @@ createNode parentConstraint -n "FK_armLeft_UpperJoint_parentConstraint1" -p "FK_
 createNode joint -n "IK_armRight_UpperJoint1";
 	rename -uid "2E58ED0C-41E5-5D98-4EB5-B99739D7CDBB";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" -0.574834 -0.554097 0.597211 ;
-	setAttr ".r" -type "double3" 1.4033419702756028e-014 9.3292108466176281e-005 1.358194785708021e-015 ;
+	setAttr ".r" -type "double3" 1.4033419702755913e-014 9.3292108466176268e-005 1.3581949291712957e-015 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -180 0 0 ;
@@ -11820,6 +11876,7 @@ createNode joint -n "IK_armRight_UpperJoint1";
 createNode joint -n "IK_armRight_MidJoint" -p "IK_armRight_UpperJoint1";
 	rename -uid "7617845D-4683-428C-97EE-068691C8829D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" -1.302416 0 0 ;
 	setAttr ".r" -type "double3" -1.0605143446420404e-031 -0.00019359274545885884 -2.0586102085823778e-017 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11831,6 +11888,7 @@ createNode joint -n "IK_armRight_MidJoint" -p "IK_armRight_UpperJoint1";
 createNode joint -n "IK_armRight_BigPincerJoint" -p "IK_armRight_MidJoint";
 	rename -uid "B99AC5B3-43BF-8C3A-6AC2-1FA079DB635D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" -1.2114699999999998 0 -2.2204460492503131e-016 ;
 	setAttr ".r" -type "double3" 3.0485042117259368e-019 -9.9392333795734899e-017 6.5406426565198732e-017 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11841,6 +11899,7 @@ createNode joint -n "IK_armRight_BigPincerJoint" -p "IK_armRight_MidJoint";
 createNode joint -n "IK_armRight_SmallPincerJoint" -p "IK_armRight_BigPincerJoint";
 	rename -uid "5CDC3934-4DCE-8067-6435-31B79CC425E8";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" -0.18167318672058208 0.252375 -0.28592895153654618 ;
 	setAttr ".r" -type "double3" 9.5852236963576352e-015 -6.3611093629270335e-015 2.567470632952918e-015 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11855,6 +11914,7 @@ createNode ikEffector -n "effector7" -p "IK_armRight_MidJoint";
 createNode joint -n "IK_armLeft_UpperJoint1";
 	rename -uid "0E618E53-4FDB-0642-F519-9E9485DC707D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.57483424126870253 -0.55409681031022373 0.59721143145241162 ;
 	setAttr ".r" -type "double3" -1.4033418597056232e-014 2.9347428587830701e-030 -1.9479953327811233e-020 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11866,6 +11926,7 @@ createNode joint -n "IK_armLeft_UpperJoint1";
 createNode joint -n "IK_armLeft_MidJoint" -p "IK_armLeft_UpperJoint1";
 	rename -uid "1ABA5D6B-403A-9E6D-58F7-50B620CCB68E";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.3024179522732058 0 -1.1102230246251565e-016 ;
 	setAttr ".r" -type "double3" 3.9330132619460707e-015 -0.00016503670520330233 2.0794352303083497e-014 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11877,6 +11938,7 @@ createNode joint -n "IK_armLeft_MidJoint" -p "IK_armLeft_UpperJoint1";
 createNode joint -n "IK_armLeft_BigPincerJoint" -p "IK_armLeft_MidJoint";
 	rename -uid "4BA9436A-41E7-D872-3A66-D7BFC3E47D8F";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.2114687744155761 -4.4408920985006262e-016 5.5511151231257827e-016 ;
 	setAttr ".r" -type "double3" -3.0485042117259368e-019 -9.9392333795734899e-017 -6.5406426565198732e-017 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11888,6 +11950,7 @@ createNode joint -n "IK_armLeft_BigPincerJoint" -p "IK_armLeft_MidJoint";
 createNode joint -n "IK_armLeft_SmallPincerJoint" -p "IK_armLeft_BigPincerJoint";
 	rename -uid "A28E98A3-43DD-99D2-2E9F-98A4D1713A03";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.18167255742808663 -0.25237544835041925 0.28592895558875941 ;
 	setAttr ".r" -type "double3" -9.5852236963576337e-015 6.3611093629270335e-015 -2.5674706329529211e-015 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11948,53 +12011,21 @@ createNode parentConstraint -n "IKHandle_Left_parentConstraint1" -p "IKHandle_Le
 		3.9210081292928578e-006 ;
 	setAttr ".rst" -type "double3" 3.0887209679524585 -0.55409681031022417 0.59721492100812956 ;
 	setAttr -k on ".w0";
-createNode transform -n "bigClawRight_IKControl";
-	rename -uid "20367FE9-474C-89F9-15AA-36BAA160AA1E";
-	setAttr ".rp" -type "double3" -3.0887199999999995 -0.554097 0.59721100000000016 ;
-	setAttr ".sp" -type "double3" -3.0887199999999995 -0.554097 0.59721100000000016 ;
-createNode nurbsCurve -n "bigClawRight_IKControlShape" -p "bigClawRight_IKControl";
-	rename -uid "E193ED7E-4B99-BE52-CDC2-B18ECB16DAA7";
-	setAttr -k off ".v";
-	setAttr ".cc" -type "nurbsCurve" 
-		3 7 0 no 3
-		12 0 0 0 1 2 3 4 5 6 7 7 7
-		10
-		-2.841915920413602 -0.55422330931917707 -0.095346634373446038
-		-2.9232297607817221 -0.55422330931917707 1.0202613324603673
-		-2.9232297607817221 -0.55422330931917707 1.0202613324603673
-		-3.5145842795190751 -0.55422330931917707 1.2390002332627925
-		-3.6584555924615465 -0.55422330931917707 2.1708661122200952
-		-3.6584555924615465 -0.55422330931917707 2.1708661122200952
-		-4.1739534134856626 -0.55422330931917707 1.637039455237659
-		-4.1191164311665043 -0.55422330931917707 0.55795540914519282
-		-3.3452403122658341 -0.55422330931917707 0.11122461884918333
-		-2.8434381491898475 -0.55422330931917707 -0.092931818774380753
-		;
-createNode transform -n "bigClawLeft_IKControl";
-	rename -uid "E6C44C5C-4043-1C9A-07D1-2DB6E7B2FA79";
-	setAttr ".rp" -type "double3" 3.0887199999999995 -0.554097 0.59721100000000027 ;
-	setAttr ".sp" -type "double3" 3.0887199999999995 -0.554097 0.59721100000000027 ;
-createNode nurbsCurve -n "bigClawLeft_IKControlShape" -p "bigClawLeft_IKControl";
-	rename -uid "B9E93CAC-44A4-C1CF-A7FE-219F7EE162D6";
-	setAttr -k off ".v";
-	setAttr ".cc" -type "nurbsCurve" 
-		3 7 0 no 3
-		12 0 0 0 1 2 3 4 5 6 7 7 7
-		10
-		2.841915920413602 -0.55422330931917707 -0.095346634373445913
-		2.9232297607817221 -0.55422330931917707 1.0202613324603675
-		2.9232297607817221 -0.55422330931917707 1.0202613324603675
-		3.5145842795190751 -0.55422330931917707 1.2390002332627927
-		3.6584555924615461 -0.55422330931917707 2.1708661122200956
-		3.6584555924615461 -0.55422330931917707 2.1708661122200956
-		4.1739534134856626 -0.55422330931917707 1.6370394552376593
-		4.1191164311665043 -0.55422330931917707 0.55795540914519315
-		3.3452403122658341 -0.55422330931917707 0.11122461884918353
-		2.8434381491898475 -0.55422330931917707 -0.092931818774380628
-		;
 createNode transform -n "IKFK_Switch_RightArm";
 	rename -uid "119185F0-4279-C19E-E763-11A22139FF23";
 	addAttr -ci true -sn "IKFKSwitch" -ln "IKFKSwitch" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "FKControlVisibility" -ln "FKControlVisibility" -min 0 -max 
+		1 -at "bool";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
 	setAttr ".rp" -type "double3" -3.0862006100112422 0.64202722012662561 0.70973020330385672 ;
 	setAttr ".sp" -type "double3" -3.0862006100112422 0.64202722012662561 0.70973020330385672 ;
 	setAttr -k on ".IKFKSwitch" 1;
@@ -12043,6 +12074,18 @@ createNode parentConstraint -n "IKFK_Switch_RightArm_parentConstraint1" -p "IKFK
 createNode transform -n "IKFK_Switch_LeftArm";
 	rename -uid "4F822F55-428F-BE3C-52D3-9B85091107BE";
 	addAttr -ci true -sn "IKFKSwitch" -ln "IKFKSwitch" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "FKControlVisibility" -ln "FKControlVisibility" -min 0 -max 
+		1 -at "bool";
+	setAttr -l on -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
 	setAttr ".rp" -type "double3" 3.086341936981392 0.64202740981640138 0.7065529560197007 ;
 	setAttr ".sp" -type "double3" 3.086341936981392 0.64202740981640138 0.7065529560197007 ;
 	setAttr -k on ".IKFKSwitch" 1;
@@ -12094,9 +12137,9 @@ createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 2 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	rename -uid "6697C03A-447D-ECD0-FA31-16B76D69540E";
-	setAttr ".cdl" 1;
-	setAttr -s 2 ".dli[1]"  1;
-	setAttr -s 2 ".dli";
+	setAttr ".cdl" 3;
+	setAttr -s 4 ".dli[1:3]"  1 2 3;
+	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "2105F25E-46E3-53B1-979D-47A9D0D459AA";
 createNode renderLayerManager -n "renderLayerManager";
@@ -12152,26 +12195,27 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -ignoreOutlinerColor 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n"
-		+ "                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 0.47327\n                -animateTransition 0\n                -showRelationships 1\n"
-		+ "                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 5\n                -currentNode \"bigClawRight_IKControl\" \n                -opaqueContainers 0\n                -dropNode \"bigClawLeft_Control1\" \n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
-		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 0.47327\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 5\n                -currentNode \"bigClawRight_IKControl\" \n                -opaqueContainers 0\n                -dropNode \"bigClawLeft_Control1\" \n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n"
-		+ "                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n"
-		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"profilerPanel\" -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
-		+ "                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
-		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
-		+ "                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
-		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n"
-		+ "                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
-		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
-		+ "                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n"
-		+ "                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n"
-		+ "                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 0.0934813\n                -animateTransition 0\n                -showRelationships 1\n"
+		+ "                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 5\n                -currentNode \"IKFK_Switch_LeftArm\" \n                -opaqueContainers 0\n                -dropTargetNode \"armControls\" \n                -dropNode \"bigClawRight_IKControl\" \n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n"
+		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 0.0934813\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 5\n                -currentNode \"IKFK_Switch_LeftArm\" \n                -opaqueContainers 0\n                -dropTargetNode \"armControls\" \n                -dropNode \"bigClawRight_IKControl\" \n"
+		+ "                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"profilerPanel\" -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
+		+ "                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n"
+		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
+		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n"
+		+ "                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n"
+		+ "                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n"
+		+ "                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
+		+ "                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n"
+		+ "                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n"
+		+ "                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n"
+		+ "\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1545\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1545\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
@@ -12184,7 +12228,7 @@ createNode ikRPsolver -n "ikRPsolver";
 	rename -uid "5F73558D-47C9-D732-9491-D98FCCBB466E";
 createNode displayLayer -n "scorpionMesh";
 	rename -uid "EC8205A1-40AD-7BC5-2D89-CC8E4922AA0D";
-	setAttr ".v" no;
+	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode unitConversion -n "unitConversion1";
 	rename -uid "03B78168-456E-D200-57F3-BFBBC7EF74F9";
@@ -15398,1452 +15442,6 @@ createNode groupParts -n "groupParts60";
 	rename -uid "E1EEDE6B-47F7-5A79-882F-FF9D7094AF03";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster31";
-	rename -uid "5B6E2686-460D-A1C8-AF63-7FBAEF555AD7";
-	setAttr -s 56 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".wl[41].w[0]"  1;
-	setAttr ".wl[42].w[0]"  1;
-	setAttr ".wl[43].w[0]"  1;
-	setAttr ".wl[44].w[0]"  1;
-	setAttr ".wl[45].w[0]"  1;
-	setAttr ".wl[46].w[0]"  1;
-	setAttr ".wl[47].w[0]"  1;
-	setAttr ".wl[48].w[0]"  1;
-	setAttr ".wl[49].w[0]"  1;
-	setAttr ".wl[50].w[0]"  1;
-	setAttr ".wl[51].w[0]"  1;
-	setAttr ".wl[52].w[0]"  1;
-	setAttr ".wl[53].w[0]"  1;
-	setAttr ".wl[54].w[0]"  1;
-	setAttr ".wl[55].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 0.57483399999999973 -0.55409699999999984 0.59721099999999983 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak31";
-	rename -uid "2D7E9172-4755-48B8-8BE0-719BFC5CAA2D";
-createNode objectSet -n "skinCluster31Set";
-	rename -uid "302525D2-48BF-6B7F-1C16-27971668E26F";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster31GroupId";
-	rename -uid "1AAF1595-4693-8A00-45FD-64B5C14F9D06";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster31GroupParts";
-	rename -uid "3EFD9759-4462-D10B-35EE-39A57AFB1692";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet31";
-	rename -uid "75E1A38E-4FE7-746E-11E6-AA9F23C60412";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId62";
-	rename -uid "B290E1CC-491F-6F81-501C-30BAEA9B2980";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts62";
-	rename -uid "61F6C5CA-4873-D890-4962-7DBBD68AF40A";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose54";
-	rename -uid "75868BD0-434B-71DE-DEA9-478AE9C90B22";
-	setAttr -s 3 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
-	setAttr -s 3 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.6006861950215443 -0.71382005797357506
-		 -0.57483399999999973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
-		 1 1 yes;
-	setAttr -s 3 ".m";
-	setAttr -s 3 ".p";
-	setAttr -s 3 ".g[0:2]" yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster32";
-	rename -uid "FB0B8E5F-4897-9297-B300-42BF53526047";
-	setAttr -s 33 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 0.57483399999999973 -0.55409699999999984 0.59721099999999983 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak32";
-	rename -uid "C6367A0F-4E02-2776-817A-EE84CC7503EC";
-createNode objectSet -n "skinCluster32Set";
-	rename -uid "6C2AB238-4BE8-A131-F94A-3E8F80493B9D";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster32GroupId";
-	rename -uid "495A343B-4D88-564E-2307-4180D514F1DE";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster32GroupParts";
-	rename -uid "A3B5DDD1-4390-9A1E-D403-2BB542E2701E";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet32";
-	rename -uid "0CFDC5DA-487F-C6DD-CAC2-BA9A3BD784D5";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId64";
-	rename -uid "0CD10F24-42A0-DC3B-19BE-508C53D06689";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts64";
-	rename -uid "50454108-4233-6F02-285C-3BB776229DD5";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster33";
-	rename -uid "2525538C-4C02-8498-6BF6-5BAF754A7802";
-	setAttr -s 32 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 0.57483399999999973 -0.55409699999999984 0.59721099999999983 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak33";
-	rename -uid "F5E91DDE-4D24-3999-2D69-E6BDAE1994E8";
-createNode objectSet -n "skinCluster33Set";
-	rename -uid "9D44D263-4055-160B-651D-05934F923351";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster33GroupId";
-	rename -uid "9A706303-4565-8F34-C865-91B75CF03D03";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster33GroupParts";
-	rename -uid "0FCD9DF9-4392-94D2-0AD8-9193096FE6D3";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet33";
-	rename -uid "522B8037-49E4-ED13-C92A-4C90BEE3C70F";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId66";
-	rename -uid "C0C6537C-413C-735F-1AF4-838B56B966A9";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts66";
-	rename -uid "D92DC1D1-46E4-749B-3DBD-6AB9EF8C07EB";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster34";
-	rename -uid "EC38B8DD-4E30-0787-138F-BAA58F3726E8";
-	setAttr -s 32 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 1.8772499999999994 -0.55409699999999984 0.59721099999999994 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak34";
-	rename -uid "905C88D9-4212-4D1C-8E40-4FBD082F1F5F";
-createNode objectSet -n "skinCluster34Set";
-	rename -uid "7096CECE-4E8E-C7BC-38FE-4B917CCEC953";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster34GroupId";
-	rename -uid "8239D62F-4366-7A91-88A5-458AAB40ADD4";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster34GroupParts";
-	rename -uid "4FF3B5BF-4488-85F3-0F3C-7DAB4FDD4EDC";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet34";
-	rename -uid "5AD1E990-482F-A3CA-4793-3DA0CC1D5357";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId68";
-	rename -uid "529D3901-4C1D-17B8-026B-3288192FEA1F";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts68";
-	rename -uid "8F2FFA7D-4D1A-D095-FA62-B0B46A1FE7AE";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose55";
-	rename -uid "F26ECD81-4102-6FAB-7498-57A55D808516";
-	setAttr -s 4 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -1.8772500000000001 -0.55409699999999995 0.59721100000000016 1;
-	setAttr -s 4 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.6006861950215443 -0.71382005797357506
-		 -0.57483399999999973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.3024159999999996 0
-		 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr -s 4 ".m";
-	setAttr -s 4 ".p";
-	setAttr -s 4 ".g[0:3]" yes yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster35";
-	rename -uid "571D2C88-4A3E-AC6B-0BBD-D5B9CB743594";
-	setAttr -s 94 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".wl[41].w[0]"  1;
-	setAttr ".wl[42].w[0]"  1;
-	setAttr ".wl[43].w[0]"  1;
-	setAttr ".wl[44].w[0]"  1;
-	setAttr ".wl[45].w[0]"  1;
-	setAttr ".wl[46].w[0]"  1;
-	setAttr ".wl[47].w[0]"  1;
-	setAttr ".wl[48].w[0]"  1;
-	setAttr ".wl[49].w[0]"  1;
-	setAttr ".wl[50].w[0]"  1;
-	setAttr ".wl[51].w[0]"  1;
-	setAttr ".wl[52].w[0]"  1;
-	setAttr ".wl[53].w[0]"  1;
-	setAttr ".wl[54].w[0]"  1;
-	setAttr ".wl[55].w[0]"  1;
-	setAttr ".wl[56].w[0]"  1;
-	setAttr ".wl[57].w[0]"  1;
-	setAttr ".wl[58].w[0]"  1;
-	setAttr ".wl[59].w[0]"  1;
-	setAttr ".wl[60].w[0]"  1;
-	setAttr ".wl[61].w[0]"  1;
-	setAttr ".wl[62].w[0]"  1;
-	setAttr ".wl[63].w[0]"  1;
-	setAttr ".wl[64].w[0]"  1;
-	setAttr ".wl[65].w[0]"  1;
-	setAttr ".wl[66].w[0]"  1;
-	setAttr ".wl[67].w[0]"  1;
-	setAttr ".wl[68].w[0]"  1;
-	setAttr ".wl[69].w[0]"  1;
-	setAttr ".wl[70].w[0]"  1;
-	setAttr ".wl[71].w[0]"  1;
-	setAttr ".wl[72].w[0]"  1;
-	setAttr ".wl[73].w[0]"  1;
-	setAttr ".wl[74].w[0]"  1;
-	setAttr ".wl[75].w[0]"  1;
-	setAttr ".wl[76].w[0]"  1;
-	setAttr ".wl[77].w[0]"  1;
-	setAttr ".wl[78].w[0]"  1;
-	setAttr ".wl[79].w[0]"  1;
-	setAttr ".wl[80].w[0]"  1;
-	setAttr ".wl[81].w[0]"  1;
-	setAttr ".wl[82].w[0]"  1;
-	setAttr ".wl[83].w[0]"  1;
-	setAttr ".wl[84].w[0]"  1;
-	setAttr ".wl[85].w[0]"  1;
-	setAttr ".wl[86].w[0]"  1;
-	setAttr ".wl[87].w[0]"  1;
-	setAttr ".wl[88].w[0]"  1;
-	setAttr ".wl[89].w[0]"  1;
-	setAttr ".wl[90].w[0]"  1;
-	setAttr ".wl[91].w[0]"  1;
-	setAttr ".wl[92].w[0]"  1;
-	setAttr ".wl[93].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 1.8772499999999994 -0.55409699999999984 0.59721099999999994 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak35";
-	rename -uid "06569F69-4496-7B3C-EA6A-20A29B6A72E3";
-createNode objectSet -n "skinCluster35Set";
-	rename -uid "5CCF04A9-4E7E-504F-9FCD-DCB79D76D520";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster35GroupId";
-	rename -uid "E848A76F-431C-3ACA-53C8-9CB9E811E147";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster35GroupParts";
-	rename -uid "40AFB163-462C-562C-5219-FAB31D2873A5";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet35";
-	rename -uid "0C589E99-4567-A885-755E-6483FA3A5AFE";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId70";
-	rename -uid "228C7E1D-40B7-9EBE-8086-E1889DA4AC17";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts70";
-	rename -uid "E47C833A-4271-0A4C-CA5C-C2932743AE14";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster36";
-	rename -uid "E9C8054F-4072-F5E7-BC17-C09FB46E2117";
-	setAttr -s 41 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -1.2325951644078304e-032 1.5094937227365551e-048 0
-		 1.7407388005640703e-032 -1 1.2246467991473532e-016 0 -2.2204460492503116e-016 -1.224646799147353e-016 -0.99999999999999956 0
-		 1.8772499999999994 -0.55409699999999984 0.59721099999999994 1;
-	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak36";
-	rename -uid "EE3D22E6-4460-0405-D897-F892F9273F88";
-createNode objectSet -n "skinCluster36Set";
-	rename -uid "F9BD5F2D-4734-2DD2-5949-F98C1A6690E8";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster36GroupId";
-	rename -uid "D1449358-49FE-003F-1525-DDB0BCAF0A06";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster36GroupParts";
-	rename -uid "051B918F-4C83-483E-D43F-6F999664EA3A";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet36";
-	rename -uid "3E148308-4C9C-A952-AA92-289CA8A7A80B";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId72";
-	rename -uid "F4F5B70D-4173-111C-DCBA-B29F4AAB4E8B";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts72";
-	rename -uid "EA190226-4411-05D0-21D6-A2B51BD6AD87";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster37";
-	rename -uid "64687AF5-4989-8465-2E72-ACA28C8DF2A0";
-	setAttr -s 25 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99995655364812686 -1.2133358649639575e-032 -0.0093215243474396008 0
-		 1.1415574955266207e-018 -1 1.2245935927115976e-016 0 -0.0093215243474398229 -1.224646799147353e-016 -0.99995655364812686 0
-		 3.0941527232611006 -0.55409699999999984 0.56839347467832835 1;
-	setAttr ".gm" -type "matrix" 0.61743253744486759 0 0.78662383748802833 0 0 1 0 0
-		 -0.78662383748802833 0 0.61743253744486759 0 0.0099986561145946062 -0.018687062151020895 0.94042835611571696 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak37";
-	rename -uid "52B176E0-43C2-A276-EB24-2B80ED85704A";
-createNode objectSet -n "skinCluster37Set";
-	rename -uid "900211D3-4B16-9553-811D-149CC722297A";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster37GroupId";
-	rename -uid "18D50276-41B7-DCB4-14AC-5CBB0E3A3517";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster37GroupParts";
-	rename -uid "49F9987D-4EA5-254D-44E5-008896CEF27D";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet37";
-	rename -uid "4F05CD78-4B43-0F1A-B105-1D9B74698856";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId74";
-	rename -uid "FA52B581-454F-EB8D-A575-0787F37DE446";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts74";
-	rename -uid "752C9DEC-4CEF-A413-BCC5-58A70816D0B9";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose56";
-	rename -uid "CC3C9A03-4474-2855-5849-8A9AF79DE321";
-	setAttr -s 5 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -1.8772500000000001 -0.55409699999999995 0.59721100000000016 1;
-	setAttr ".wm[4]" -type "matrix" 0.99995655364812774 1.1415574955265914e-018 -0.0093215243474396095 0
-		 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0 -0.0093215243474398315 1.2245935927115979e-016 -0.99995655364812774 0
-		 -3.0887199999999995 -0.55409699999999995 0.59721100000000038 1;
-	setAttr -s 5 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.6006861950215443 -0.71382005797357506
-		 -0.57483399999999973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.3024159999999996 0
-		 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 5.320643575553192e-021 -1.7347234759768071e-018
-		 1.1415574955266035e-018 0 -1.2114699999999992 0 -2.2204460492503131e-016 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229399 0 0.99998913835304415 1
-		 1 1 yes;
-	setAttr -s 5 ".m";
-	setAttr -s 5 ".p";
-	setAttr -s 5 ".g[0:4]" yes yes yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster38";
-	rename -uid "582E927F-4AA8-A48B-18DC-898035C386C4";
-	setAttr -s 21 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" -0.50007437709226843 0 -0.86598245789148565 0 1.0605226451745657e-016 -1 -6.1241448524165352e-017 0
-		 -0.86598245789148554 -1.224646799147353e-016 0.50007437709226865 0 -0.86786357913794498 -0.80647199999999997 -3.2722645077143233 1;
-	setAttr ".gm" -type "matrix" 0.61743253744486759 0 0.78662383748802833 0 0 1 0 0
-		 -0.78662383748802833 0 0.61743253744486759 0 0.0099986561145946062 -0.018687062151020895 0.94042835611571696 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak38";
-	rename -uid "3B35E9C7-4713-7166-5EA7-6EBFEF7A33DE";
-createNode objectSet -n "skinCluster38Set";
-	rename -uid "91635738-4570-2D3A-1043-5D9F41151079";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster38GroupId";
-	rename -uid "2ED411CC-4E00-A320-E40C-5CA211DC981A";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster38GroupParts";
-	rename -uid "F6F142F8-43E8-C1C7-69F0-63A8E88D9A6A";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet38";
-	rename -uid "10EB34DE-4459-EB05-0AAB-2FB58E7CCA60";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId76";
-	rename -uid "7E9237B6-4AD1-A11A-3206-1B84D3D6ADA8";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts76";
-	rename -uid "127F6230-4BF4-6E2E-7E2F-5FBCD6B15F0E";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose57";
-	rename -uid "21BEB40D-45EF-6319-2251-499F8FE3BD7B";
-	setAttr -s 6 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 -1.2325951644078309e-032 0 0 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0
-		 -2.2204460492503136e-016 1.2246467991473535e-016 -1.0000000000000004 0 -1.8772500000000001 -0.55409699999999995 0.59721100000000016 1;
-	setAttr ".wm[4]" -type "matrix" 0.99995655364812774 1.1415574955265914e-018 -0.0093215243474396095 0
-		 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0 -0.0093215243474398315 1.2245935927115979e-016 -0.99995655364812774 0
-		 -3.0887199999999995 -0.55409699999999995 0.59721100000000038 1;
-	setAttr ".wm[5]" -type "matrix" -0.5000743770922691 1.0605226451745661e-016 -0.86598245789148642 0
-		 -9.7852334632971127e-033 -1 -1.2246467991473537e-016 0 -0.86598245789148631 -6.1241448524165339e-017 0.50007437709226887 0
-		 -3.2677199999999997 -0.80647200000000008 0.88482100000000008 1;
-	setAttr -s 6 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.6006861950215443 -0.71382005797357506
-		 -0.57483399999999973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.3024159999999996 0
-		 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 5.320643575553192e-021 -1.7347234759768071e-018
-		 1.1415574955266035e-018 0 -1.2114699999999992 0 -2.2204460492503131e-016 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229399 0 0.99998913835304415 1
-		 1 1 yes;
-	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 1.6729371304162194e-016 -1.1102230246251565e-016
-		 4.4810815993291241e-017 0 -0.18167318672058208 0.25237500000000002 -0.28592895153654585 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.86370723457640086 0 -0.50399386200665774 1
-		 1 1 yes;
-	setAttr -s 6 ".m";
-	setAttr -s 6 ".p";
-	setAttr -s 6 ".g[0:5]" yes yes yes yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster39";
-	rename -uid "856A649F-4125-5F52-263A-A98EA0EBE5C2";
-	setAttr -s 32 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak39";
-	rename -uid "4C14189F-4064-27CD-4BD6-9A8F20BA3109";
-createNode objectSet -n "skinCluster39Set";
-	rename -uid "A74C4398-4AEE-3BBD-740E-E4B735E09AE0";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster39GroupId";
-	rename -uid "F4743394-4E6C-D1BB-F17D-A6AC9C33F178";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster39GroupParts";
-	rename -uid "F2DF538F-4AFC-A8F2-F703-AC8DEF29323D";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet39";
-	rename -uid "AC9FC61F-4F4D-97D4-B2AE-D4B457D89F23";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId78";
-	rename -uid "D912BE9C-44A0-AFA5-0FD8-F182387D893F";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts78";
-	rename -uid "8F2429C4-4122-5C8A-3D62-B7AC16AF264F";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose58";
-	rename -uid "BA2E66A3-4C05-6241-7D60-5D9039F1558B";
-	setAttr -s 3 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
-	setAttr -s 3 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 -2.2204460492503131e-016 0 0 -0.60068662647395565
-		 -0.71381986828379884 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr -s 3 ".m";
-	setAttr -s 3 ".p";
-	setAttr -s 3 ".g[0:2]" yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster40";
-	rename -uid "9BA0B0A3-41A1-58C0-CE01-DA84A4D6D2A1";
-	setAttr -s 33 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak40";
-	rename -uid "C4B2E039-4DB9-93FC-65A1-49BFB119D8BA";
-createNode objectSet -n "skinCluster40Set";
-	rename -uid "FF0B4FDF-4D5F-3949-A0E4-4597733E6D53";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster40GroupId";
-	rename -uid "6DF1E28F-4DD6-664A-EDDB-00BA3541192F";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster40GroupParts";
-	rename -uid "A83B0B08-4BE3-0C8E-072E-A6B0F3865CE1";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet40";
-	rename -uid "66B226C9-44B6-DA2A-A8FE-15AD869F2C7F";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId80";
-	rename -uid "320F272B-46A7-B888-424D-148D14C8112B";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts80";
-	rename -uid "B3A28111-4324-26DD-3FF7-6EA3CA851AA1";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster41";
-	rename -uid "6295DF2A-4BA8-7F5F-A1E2-3585B83BFD3B";
-	setAttr -s 56 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".wl[41].w[0]"  1;
-	setAttr ".wl[42].w[0]"  1;
-	setAttr ".wl[43].w[0]"  1;
-	setAttr ".wl[44].w[0]"  1;
-	setAttr ".wl[45].w[0]"  1;
-	setAttr ".wl[46].w[0]"  1;
-	setAttr ".wl[47].w[0]"  1;
-	setAttr ".wl[48].w[0]"  1;
-	setAttr ".wl[49].w[0]"  1;
-	setAttr ".wl[50].w[0]"  1;
-	setAttr ".wl[51].w[0]"  1;
-	setAttr ".wl[52].w[0]"  1;
-	setAttr ".wl[53].w[0]"  1;
-	setAttr ".wl[54].w[0]"  1;
-	setAttr ".wl[55].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak41";
-	rename -uid "BBFFFD6F-4A7E-CB1D-C027-019084A85E47";
-createNode objectSet -n "skinCluster41Set";
-	rename -uid "24165620-4AE5-9CA2-B2F7-7499B7557BE6";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster41GroupId";
-	rename -uid "2D5DD198-42D1-D8DC-E0E7-FD980C5B1AE0";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster41GroupParts";
-	rename -uid "B7FAFA0C-4A63-C10B-33C0-83AA6C584EA0";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet41";
-	rename -uid "5CCB9F38-4180-9728-0E18-76AAB33370C7";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId82";
-	rename -uid "C796183E-4657-1633-217E-B2861D687974";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts82";
-	rename -uid "75B005EC-4144-EB7B-B9C1-CDB7A02B6ADD";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster42";
-	rename -uid "8A50007B-4249-1075-7BDF-BFA7D5B13C84";
-	setAttr -s 94 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".wl[41].w[0]"  1;
-	setAttr ".wl[42].w[0]"  1;
-	setAttr ".wl[43].w[0]"  1;
-	setAttr ".wl[44].w[0]"  1;
-	setAttr ".wl[45].w[0]"  1;
-	setAttr ".wl[46].w[0]"  1;
-	setAttr ".wl[47].w[0]"  1;
-	setAttr ".wl[48].w[0]"  1;
-	setAttr ".wl[49].w[0]"  1;
-	setAttr ".wl[50].w[0]"  1;
-	setAttr ".wl[51].w[0]"  1;
-	setAttr ".wl[52].w[0]"  1;
-	setAttr ".wl[53].w[0]"  1;
-	setAttr ".wl[54].w[0]"  1;
-	setAttr ".wl[55].w[0]"  1;
-	setAttr ".wl[56].w[0]"  1;
-	setAttr ".wl[57].w[0]"  1;
-	setAttr ".wl[58].w[0]"  1;
-	setAttr ".wl[59].w[0]"  1;
-	setAttr ".wl[60].w[0]"  1;
-	setAttr ".wl[61].w[0]"  1;
-	setAttr ".wl[62].w[0]"  1;
-	setAttr ".wl[63].w[0]"  1;
-	setAttr ".wl[64].w[0]"  1;
-	setAttr ".wl[65].w[0]"  1;
-	setAttr ".wl[66].w[0]"  1;
-	setAttr ".wl[67].w[0]"  1;
-	setAttr ".wl[68].w[0]"  1;
-	setAttr ".wl[69].w[0]"  1;
-	setAttr ".wl[70].w[0]"  1;
-	setAttr ".wl[71].w[0]"  1;
-	setAttr ".wl[72].w[0]"  1;
-	setAttr ".wl[73].w[0]"  1;
-	setAttr ".wl[74].w[0]"  1;
-	setAttr ".wl[75].w[0]"  1;
-	setAttr ".wl[76].w[0]"  1;
-	setAttr ".wl[77].w[0]"  1;
-	setAttr ".wl[78].w[0]"  1;
-	setAttr ".wl[79].w[0]"  1;
-	setAttr ".wl[80].w[0]"  1;
-	setAttr ".wl[81].w[0]"  1;
-	setAttr ".wl[82].w[0]"  1;
-	setAttr ".wl[83].w[0]"  1;
-	setAttr ".wl[84].w[0]"  1;
-	setAttr ".wl[85].w[0]"  1;
-	setAttr ".wl[86].w[0]"  1;
-	setAttr ".wl[87].w[0]"  1;
-	setAttr ".wl[88].w[0]"  1;
-	setAttr ".wl[89].w[0]"  1;
-	setAttr ".wl[90].w[0]"  1;
-	setAttr ".wl[91].w[0]"  1;
-	setAttr ".wl[92].w[0]"  1;
-	setAttr ".wl[93].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -1.8772521935419078 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak42";
-	rename -uid "71115005-4FA2-AE14-2D51-9890135DD903";
-createNode objectSet -n "skinCluster42Set";
-	rename -uid "3FA913F6-4F6E-4021-9ED3-C7B4CA2A6ACB";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster42GroupId";
-	rename -uid "D9D7C3AE-4693-1AE5-3235-E899CD913FD3";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster42GroupParts";
-	rename -uid "0EA49DC0-4958-ABFE-97FF-D4B016C73FF1";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet42";
-	rename -uid "A2F77802-43EC-B568-D5AD-22B718D83DDD";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId84";
-	rename -uid "0EF12F30-49DE-2C00-9F09-2E98321DE73E";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts84";
-	rename -uid "47153914-447D-D9C0-3559-A0AB71E23276";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose59";
-	rename -uid "EDAF0820-44E3-F46F-B239-1988ABA3224B";
-	setAttr -s 4 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
-	setAttr -s 4 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 -2.2204460492503131e-016 0 0 -0.60068662647395565
-		 -0.71381986828379884 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.3024179522732053 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr -s 4 ".m";
-	setAttr -s 4 ".p";
-	setAttr -s 4 ".g[0:3]" yes yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster43";
-	rename -uid "677F897C-4F63-9F13-326C-75A1C2EE0E8E";
-	setAttr -s 41 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".wl[32].w[0]"  1;
-	setAttr ".wl[33].w[0]"  1;
-	setAttr ".wl[34].w[0]"  1;
-	setAttr ".wl[35].w[0]"  1;
-	setAttr ".wl[36].w[0]"  1;
-	setAttr ".wl[37].w[0]"  1;
-	setAttr ".wl[38].w[0]"  1;
-	setAttr ".wl[39].w[0]"  1;
-	setAttr ".wl[40].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -1.8772521935419078 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak43";
-	rename -uid "D63CFC3D-43E6-88DE-8650-3CA9258B8077";
-createNode objectSet -n "skinCluster43Set";
-	rename -uid "26CD60A6-4244-BE66-408A-B7B1BDE037B0";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster43GroupId";
-	rename -uid "D5F9953B-4505-3F32-A883-08B66C63CE24";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster43GroupParts";
-	rename -uid "16D5C4F9-4750-DBE8-3957-1B9927547398";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet43";
-	rename -uid "D5346F4D-4976-96A5-2BB0-07A7EF721A27";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId86";
-	rename -uid "CC7A1504-48DD-231F-3345-4FA8FF32DA74";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts86";
-	rename -uid "2283CABE-4941-C337-D07A-16A762316E99";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster44";
-	rename -uid "09165D9F-448F-06F1-323F-1A875402826B";
-	setAttr -s 32 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".wl[25].w[0]"  1;
-	setAttr ".wl[26].w[0]"  1;
-	setAttr ".wl[27].w[0]"  1;
-	setAttr ".wl[28].w[0]"  1;
-	setAttr ".wl[29].w[0]"  1;
-	setAttr ".wl[30].w[0]"  1;
-	setAttr ".wl[31].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 0 0 0 0 1 0 0 0 0 0.99999999999999956 0
-		 -1.8772521935419078 0.55409681031022373 -0.59721143145241129 1;
-	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak44";
-	rename -uid "32170EB2-42AB-C0DF-63B4-7397A1D0EA1E";
-createNode objectSet -n "skinCluster44Set";
-	rename -uid "1D3BCDDE-4E7F-3549-A2E5-F984E6FB4D41";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster44GroupId";
-	rename -uid "E746DCD3-452E-748A-31D0-04AF77CBC616";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster44GroupParts";
-	rename -uid "0539C540-4E6F-2819-6CC3-7C816FA424C9";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet44";
-	rename -uid "378B9851-416E-DAF2-594B-83AB22854E3F";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId88";
-	rename -uid "FE9D229F-4678-CC75-2B32-6F88F6942792";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts88";
-	rename -uid "9C470547-4404-6DC6-97C5-81975E9F23C5";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode skinCluster -n "skinCluster45";
-	rename -uid "AFE64765-4E7C-CCFA-BA7B-EEB500AFD767";
-	setAttr -s 25 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".wl[21].w[0]"  1;
-	setAttr ".wl[22].w[0]"  1;
-	setAttr ".wl[23].w[0]"  1;
-	setAttr ".wl[24].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" 0.99995655364812686 0 -0.0093215243474396008 0 0 1 0 0
-		 0.0093215243474396008 0 0.99995655364812686 0 -3.0941536951983255 0.55409681031022417 -0.56839389708915566 1;
-	setAttr ".gm" -type "matrix" -0.61743253744486759 0 0.78662383748802833 0 0 1 0 0
-		 0.78662383748802833 0 0.61743253744486759 0 -0.0099986561145946062 -0.018687062151020895 0.94042835611571696 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak45";
-	rename -uid "4764BFEB-4FD8-72A1-FD86-8F8F7125F222";
-createNode objectSet -n "skinCluster45Set";
-	rename -uid "B8DA697C-4BA0-8B5D-6E08-12B0580EB764";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster45GroupId";
-	rename -uid "A56F6ABB-4C9F-C340-2AC1-478555AEDB95";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster45GroupParts";
-	rename -uid "4FD2D6C9-4315-5557-5DE4-BBB8FAF6A2AC";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet45";
-	rename -uid "E36BD3A7-40D0-45EF-81E2-5D955CF4FDBB";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId90";
-	rename -uid "1F54F31A-41CF-6D43-9DFB-0A96FCA223B2";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts90";
-	rename -uid "57C981E6-40B7-3DAE-0AAF-1A8156C22277";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose60";
-	rename -uid "EBD99FC0-49D7-B5A6-AC07-3C97CFC122FB";
-	setAttr -s 5 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
-	setAttr ".wm[4]" -type "matrix" 0.99995655364812774 0 0.0093215243474396095 0 0 1 0 0
-		 -0.0093215243474396095 0 0.99995655364812774 0 3.0887209679574843 -0.55409681031022417 0.59721143145241218 1;
-	setAttr -s 5 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 -2.2204460492503131e-016 0 0 -0.60068662647395565
-		 -0.71381986828379884 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.3024179522732053 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 -5.320643575553192e-021 -1.7347234759768071e-018
-		 -1.1415574955266035e-018 0 1.2114687744155752 -4.4408920985006262e-016 5.5511151231257827e-016 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229399 0 0.99998913835304415 1
-		 1 1 yes;
-	setAttr -s 5 ".m";
-	setAttr -s 5 ".p";
-	setAttr -s 5 ".g[0:4]" yes yes yes yes no;
-	setAttr ".bp" yes;
-createNode skinCluster -n "skinCluster46";
-	rename -uid "3FF62051-49EA-27CD-B5F1-278824059A2C";
-	setAttr -s 21 ".wl";
-	setAttr ".wl[0].w[0]"  1;
-	setAttr ".wl[1].w[0]"  1;
-	setAttr ".wl[2].w[0]"  1;
-	setAttr ".wl[3].w[0]"  1;
-	setAttr ".wl[4].w[0]"  1;
-	setAttr ".wl[5].w[0]"  1;
-	setAttr ".wl[6].w[0]"  1;
-	setAttr ".wl[7].w[0]"  1;
-	setAttr ".wl[8].w[0]"  1;
-	setAttr ".wl[9].w[0]"  1;
-	setAttr ".wl[10].w[0]"  1;
-	setAttr ".wl[11].w[0]"  1;
-	setAttr ".wl[12].w[0]"  1;
-	setAttr ".wl[13].w[0]"  1;
-	setAttr ".wl[14].w[0]"  1;
-	setAttr ".wl[15].w[0]"  1;
-	setAttr ".wl[16].w[0]"  1;
-	setAttr ".wl[17].w[0]"  1;
-	setAttr ".wl[18].w[0]"  1;
-	setAttr ".wl[19].w[0]"  1;
-	setAttr ".wl[20].w[0]"  1;
-	setAttr ".pm[0]" -type "matrix" -0.50007437709226854 0 -0.86598245789148587 0 0 1 0 0
-		 0.86598245789148587 0 -0.50007437709226854 0 0.86786337643102152 0.80647225866064354 3.2722650158344266 1;
-	setAttr ".gm" -type "matrix" -0.61743253744486759 0 0.78662383748802833 0 0 1 0 0
-		 0.78662383748802833 0 0.61743253744486759 0 -0.0099986561145946062 -0.018687062151020895 0.94042835611571696 1;
-	setAttr ".dpf[0]"  4;
-	setAttr ".mi" 1;
-	setAttr ".ucm" yes;
-createNode tweak -n "tweak46";
-	rename -uid "79E59A67-4853-CFFA-43BF-62BEB318DBC4";
-createNode objectSet -n "skinCluster46Set";
-	rename -uid "CA96489F-4AF3-D5DA-A49E-C7915F1EFEA1";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "skinCluster46GroupId";
-	rename -uid "A5FF8A19-4800-B0A7-52BB-D28F8B00B4A3";
-	setAttr ".ihi" 0;
-createNode groupParts -n "skinCluster46GroupParts";
-	rename -uid "9BA234E3-4056-F2F3-28D1-2D91753E4AEB";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode objectSet -n "tweakSet46";
-	rename -uid "B25DBA5E-4149-141E-BE60-FFB3C753D06E";
-	setAttr ".ihi" 0;
-	setAttr ".vo" yes;
-createNode groupId -n "groupId92";
-	rename -uid "E8187154-44B7-C486-4829-CEA97AE02CEA";
-	setAttr ".ihi" 0;
-createNode groupParts -n "groupParts92";
-	rename -uid "80F6E561-4E12-1367-B0BA-959EC3A17B60";
-	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode dagPose -n "bindPose61";
-	rename -uid "8385CCE1-4B2E-A715-0234-5590A809534B";
-	setAttr -s 6 ".wm";
-	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
-	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
-		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
-	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
-	setAttr ".wm[3]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
-		 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
-	setAttr ".wm[4]" -type "matrix" 0.99995655364812774 0 0.0093215243474396095 0 0 1 0 0
-		 -0.0093215243474396095 0 0.99995655364812774 0 3.0887209679574843 -0.55409681031022417 0.59721143145241218 1;
-	setAttr ".wm[5]" -type "matrix" -0.50007437709226887 0 0.86598245789148642 0 0 1 0 0
-		 -0.86598245789148642 0 -0.50007437709226887 0 3.2677203386545566 -0.80647225866064343 0.88482142963848398 1;
-	setAttr -s 6 ".xm";
-	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
-		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 -2.2204460492503131e-016 0 0 -0.60068662647395565
-		 -0.71381986828379884 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
-		 1 1 yes;
-	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.3024179522732053 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 -5.320643575553192e-021 -1.7347234759768071e-018
-		 -1.1415574955266035e-018 0 1.2114687744155752 -4.4408920985006262e-016 5.5511151231257827e-016 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229399 0 0.99998913835304415 1
-		 1 1 yes;
-	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 -1.6729371304162191e-016 1.1102230246251565e-016
-		 -4.4810815993291296e-017 0 0.18167255742808663 -0.25237544835041925 0.2859289555887593 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.86370723457640086 0 -0.50399386200665774 1
-		 1 1 yes;
-	setAttr -s 6 ".m";
-	setAttr -s 6 ".p";
-	setAttr -s 6 ".g[0:5]" yes yes yes yes yes no;
-	setAttr ".bp" yes;
 createNode expression -n "expression1";
 	rename -uid "C149FE96-4150-5D4C-A479-138574735D3E";
 	setAttr -k on ".nds";
@@ -16881,8 +15479,1476 @@ createNode expression -n "expression9";
 	rename -uid "FBC63F69-4D47-35F7-C67C-C5BCD43F1C00";
 	setAttr -k on ".nds";
 	setAttr ".ixp" -type "string" ".O[0] = 1 - .I[0];";
+createNode expression -n "expression10";
+	rename -uid "89F02502-44FC-DB69-481E-B693315EA0D7";
+	setAttr -k on ".nds";
+	setAttr ".ixp" -type "string" ".O[0] = 1 - .I[0];";
+createNode expression -n "expression11";
+	rename -uid "266E0FC5-4F1F-0461-4AD8-B3B0E1A620A7";
+	setAttr -k on ".nds";
+	setAttr ".ixp" -type "string" "if (.I[0] == 1){\n\t.O[0] = 0;\n} else {\n\t.O[0] = 1;\n}";
+createNode displayLayer -n "joints";
+	rename -uid "7F01CE14-4244-39C3-67F8-9290447D3B6F";
+	setAttr ".do" 2;
+createNode displayLayer -n "controls";
+	rename -uid "BDEF6ED9-4762-07F2-7F59-30926400CE91";
+	setAttr ".do" 3;
+createNode skinCluster -n "skinCluster31";
+	rename -uid "1D40F415-40C8-0B7B-0317-16A7E5688275";
+	setAttr -s 33 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999867417 1.6082643510210202e-033 1.6282544588186452e-006 -0
+		 -1.9940366111388459e-022 -1 1.2246467991457301e-016 0 1.6282544585966006e-006 -1.2246467991473532e-016 -0.99999999999867417 -0
+		 0.57483302758776444 -0.55409699999999984 0.59721193597523192 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak31";
+	rename -uid "072238B2-4D67-41BA-B7C3-B1A4BB4479E9";
+createNode objectSet -n "skinCluster31Set";
+	rename -uid "E492212F-4964-EA95-E4CD-EEAA8334E9EB";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster31GroupId";
+	rename -uid "0B5F0D81-4F46-BFCD-93D7-FC897B34C4F8";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster31GroupParts";
+	rename -uid "96C06E97-4E89-E20A-478F-598BB45EC693";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet31";
+	rename -uid "EF685A3E-478C-6274-A2E2-8884CB0483C6";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId62";
+	rename -uid "9D38C1C8-4C23-81AE-F3D3-60B8B7E5DB2B";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts62";
+	rename -uid "ACCC9184-4D33-2BB5-CE33-82B084385679";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose54";
+	rename -uid "06B3C925-49D8-6900-5DAA-06B1FE05408B";
+	setAttr -s 3 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 0.99999999999867462 -1.9940366111735775e-022 1.6282544588186458e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 1.6282544585966012e-006 1.2246467991457299e-016 -0.99999999999867462 0
+		 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
+	setAttr -s 3 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 2.4651893253288263e-032 1.6282544588188252e-006
+		 -1.2325931574304839e-032 0 -0.6006861950215443 -0.71382005797357506 -0.57483399999999973 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
+		 1 1 yes;
+	setAttr -s 3 ".m";
+	setAttr -s 3 ".p";
+	setAttr -s 3 ".g[0:2]" yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster32";
+	rename -uid "6466B92C-4F99-9D64-9DE7-52BADD1DE05F";
+	setAttr -s 56 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".wl[41].w[0]"  1;
+	setAttr ".wl[42].w[0]"  1;
+	setAttr ".wl[43].w[0]"  1;
+	setAttr ".wl[44].w[0]"  1;
+	setAttr ".wl[45].w[0]"  1;
+	setAttr ".wl[46].w[0]"  1;
+	setAttr ".wl[47].w[0]"  1;
+	setAttr ".wl[48].w[0]"  1;
+	setAttr ".wl[49].w[0]"  1;
+	setAttr ".wl[50].w[0]"  1;
+	setAttr ".wl[51].w[0]"  1;
+	setAttr ".wl[52].w[0]"  1;
+	setAttr ".wl[53].w[0]"  1;
+	setAttr ".wl[54].w[0]"  1;
+	setAttr ".wl[55].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999867417 1.6082643510210202e-033 1.6282544588186452e-006 -0
+		 -1.9940366111388459e-022 -1 1.2246467991457301e-016 0 1.6282544585966006e-006 -1.2246467991473532e-016 -0.99999999999867417 -0
+		 0.57483302758776444 -0.55409699999999984 0.59721193597523192 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak32";
+	rename -uid "A59CB6BE-4349-3F44-2A23-01AA71B35439";
+createNode objectSet -n "skinCluster32Set";
+	rename -uid "358BA8F4-4336-58E3-FF12-B194BDE4103B";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster32GroupId";
+	rename -uid "4C4FE274-43E0-6610-CF5B-CEBB381BA566";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster32GroupParts";
+	rename -uid "F1C8057D-43E8-E43D-8C36-939E953A16C3";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet32";
+	rename -uid "AD6E5711-4D06-1327-1A94-A0895B079ECC";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId64";
+	rename -uid "814A9CD0-4DFE-D03C-1770-AB898A2FC62E";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts64";
+	rename -uid "9B6A7077-4732-CDCC-E484-ED806EB1E38B";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster33";
+	rename -uid "59B42BB1-4F7D-4F91-721D-7BBA775FD1FC";
+	setAttr -s 32 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999867417 1.6082643510210202e-033 1.6282544588186452e-006 -0
+		 -1.9940366111388459e-022 -1 1.2246467991457301e-016 0 1.6282544585966006e-006 -1.2246467991473532e-016 -0.99999999999867417 -0
+		 0.57483302758776444 -0.55409699999999984 0.59721193597523192 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak33";
+	rename -uid "D9E0F251-40E8-9B76-3E3D-2DA9E6C810FF";
+createNode objectSet -n "skinCluster33Set";
+	rename -uid "3A187C6E-44D4-3A1D-5151-43BD0CF906A1";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster33GroupId";
+	rename -uid "FE3F7530-4349-FB95-0846-FC9983BE04A7";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster33GroupParts";
+	rename -uid "376B4551-42B1-71D2-F21B-C7A38093D845";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet33";
+	rename -uid "387C3ED9-45E0-5BA8-EE27-DEB9144DD47A";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId66";
+	rename -uid "33F12F90-4C78-036C-BD16-2E85395D4255";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts66";
+	rename -uid "4983B9A5-4899-7D60-68DF-08B91307E87F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster34";
+	rename -uid "A887B3D0-4506-C94C-2BBD-8C8D3773A2DF";
+	setAttr -s 41 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999846756 1.6082643510210202e-033 -1.750576357412128e-006 -0
+		 2.1438377328186108e-022 -1 1.224646799145477e-016 0 -1.7505763576341726e-006 -1.2246467991473532e-016 -0.99999999999846756 0
+		 1.8772510454551414 -0.55409699999999995 0.59720559306495891 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak34";
+	rename -uid "36B0932E-45CC-66CC-FF2E-A6A79C6992F1";
+createNode objectSet -n "skinCluster34Set";
+	rename -uid "4EDE93B1-4FF6-EBAA-18E6-BC9CAB35FAE4";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster34GroupId";
+	rename -uid "32A4E33B-418F-4ED4-88BF-9BBD212FF5B5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster34GroupParts";
+	rename -uid "AB75B72C-4038-6458-9F94-AD9A3B6345E6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet34";
+	rename -uid "17CDA325-4553-4159-F3A0-3B86B313A09F";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId68";
+	rename -uid "F15E96B7-40E2-19B7-4605-DA9CE2341002";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts68";
+	rename -uid "50474360-4C10-AFFB-236C-48B1A75C6E5F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose55";
+	rename -uid "FC69177E-4DCE-3EBA-742E-2EB5781540AC";
+	setAttr -s 4 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 0.99999999999867462 -1.9940366111735775e-022 1.6282544588186458e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 1.6282544585966012e-006 1.2246467991457299e-016 -0.99999999999867462 0
+		 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
+	setAttr ".wm[3]" -type "matrix" 0.999999999998468 2.1438377327838792e-022 -1.7505763574121289e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -1.7505763576341735e-006 1.224646799145477e-016 -0.999999999998468 0
+		 -1.8772499999982735 -0.55409699999999995 0.59720887933534095 1;
+	setAttr -s 4 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 2.4651893253288263e-032 1.6282544588188252e-006
+		 -1.2325931574304839e-032 0 -0.6006861950215443 -0.71382005797357506 -0.57483399999999973 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -3.3788308162323874e-006 0 0 -1.3024159999999996
+		 0 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr -s 4 ".m";
+	setAttr -s 4 ".p";
+	setAttr -s 4 ".g[0:3]" yes yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster35";
+	rename -uid "67974B32-4776-B0C0-8405-60B0D789DC22";
+	setAttr -s 32 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999846756 1.6082643510210202e-033 -1.750576357412128e-006 -0
+		 2.1438377328186108e-022 -1 1.224646799145477e-016 0 -1.7505763576341726e-006 -1.2246467991473532e-016 -0.99999999999846756 0
+		 1.8772510454551414 -0.55409699999999995 0.59720559306495891 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak35";
+	rename -uid "4B721CE1-4E1C-D7FC-98F6-749279EDBA38";
+createNode objectSet -n "skinCluster35Set";
+	rename -uid "5D13118B-4B19-EEC9-070B-829B6BDF4B66";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster35GroupId";
+	rename -uid "36473996-43D1-8D6E-F808-F2A2771046C5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster35GroupParts";
+	rename -uid "D296F0EE-4E23-730A-5705-149AE916350C";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet35";
+	rename -uid "8E6E737E-45C0-4D88-9D2E-5DBE7F6DE097";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId70";
+	rename -uid "764FEFCC-463C-3CFA-B602-52B8F62DEC95";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts70";
+	rename -uid "FADBB637-4BD4-AAC2-F962-419F220D960E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster36";
+	rename -uid "BEB20B00-4FE1-A3FB-34CB-7F9B9E15F426";
+	setAttr -s 94 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".wl[41].w[0]"  1;
+	setAttr ".wl[42].w[0]"  1;
+	setAttr ".wl[43].w[0]"  1;
+	setAttr ".wl[44].w[0]"  1;
+	setAttr ".wl[45].w[0]"  1;
+	setAttr ".wl[46].w[0]"  1;
+	setAttr ".wl[47].w[0]"  1;
+	setAttr ".wl[48].w[0]"  1;
+	setAttr ".wl[49].w[0]"  1;
+	setAttr ".wl[50].w[0]"  1;
+	setAttr ".wl[51].w[0]"  1;
+	setAttr ".wl[52].w[0]"  1;
+	setAttr ".wl[53].w[0]"  1;
+	setAttr ".wl[54].w[0]"  1;
+	setAttr ".wl[55].w[0]"  1;
+	setAttr ".wl[56].w[0]"  1;
+	setAttr ".wl[57].w[0]"  1;
+	setAttr ".wl[58].w[0]"  1;
+	setAttr ".wl[59].w[0]"  1;
+	setAttr ".wl[60].w[0]"  1;
+	setAttr ".wl[61].w[0]"  1;
+	setAttr ".wl[62].w[0]"  1;
+	setAttr ".wl[63].w[0]"  1;
+	setAttr ".wl[64].w[0]"  1;
+	setAttr ".wl[65].w[0]"  1;
+	setAttr ".wl[66].w[0]"  1;
+	setAttr ".wl[67].w[0]"  1;
+	setAttr ".wl[68].w[0]"  1;
+	setAttr ".wl[69].w[0]"  1;
+	setAttr ".wl[70].w[0]"  1;
+	setAttr ".wl[71].w[0]"  1;
+	setAttr ".wl[72].w[0]"  1;
+	setAttr ".wl[73].w[0]"  1;
+	setAttr ".wl[74].w[0]"  1;
+	setAttr ".wl[75].w[0]"  1;
+	setAttr ".wl[76].w[0]"  1;
+	setAttr ".wl[77].w[0]"  1;
+	setAttr ".wl[78].w[0]"  1;
+	setAttr ".wl[79].w[0]"  1;
+	setAttr ".wl[80].w[0]"  1;
+	setAttr ".wl[81].w[0]"  1;
+	setAttr ".wl[82].w[0]"  1;
+	setAttr ".wl[83].w[0]"  1;
+	setAttr ".wl[84].w[0]"  1;
+	setAttr ".wl[85].w[0]"  1;
+	setAttr ".wl[86].w[0]"  1;
+	setAttr ".wl[87].w[0]"  1;
+	setAttr ".wl[88].w[0]"  1;
+	setAttr ".wl[89].w[0]"  1;
+	setAttr ".wl[90].w[0]"  1;
+	setAttr ".wl[91].w[0]"  1;
+	setAttr ".wl[92].w[0]"  1;
+	setAttr ".wl[93].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999846756 1.6082643510210202e-033 -1.750576357412128e-006 -0
+		 2.1438377328186108e-022 -1 1.224646799145477e-016 0 -1.7505763576341726e-006 -1.2246467991473532e-016 -0.99999999999846756 0
+		 1.8772510454551414 -0.55409699999999995 0.59720559306495891 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak36";
+	rename -uid "E8A7D6B1-4BCF-041A-C050-D6B4D4DF5783";
+createNode objectSet -n "skinCluster36Set";
+	rename -uid "479E7E4A-48C3-82DE-2169-ADB0C4E0DE03";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster36GroupId";
+	rename -uid "A58BC0DB-46C6-66F9-1A99-80899123616E";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster36GroupParts";
+	rename -uid "2F0B686B-4921-2B25-1471-B996C5A98C9E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet36";
+	rename -uid "B8580554-4756-E597-B0C6-9CA64AE26514";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId72";
+	rename -uid "D95FC80D-4FCE-1B1F-5C05-CAAAA9456A15";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts72";
+	rename -uid "1AC907E5-4554-6E49-0C92-27A76AC65465";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster37";
+	rename -uid "276AF851-4252-4CA1-3D90-66AC65B7221A";
+	setAttr -s 25 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99995653732855461 1.5407439555097877e-033 -0.0093232748477265776 -0
+		 1.1417718699839436e-018 -1 1.2245935727258857e-016 0 -0.0093232748477267997 -1.2246467991473532e-016 -0.99995653732855461 0
+		 3.0941537182699448 -0.55409699999999984 0.56838805823296323 1;
+	setAttr ".gm" -type "matrix" 0.61743253744486748 0 0.78662383748802844 0 0 1 0 0
+		 -0.78662383748802844 0 0.61743253744486748 0 0.0099986561145950503 -0.018687062151020895 0.94042835611571718 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak37";
+	rename -uid "9021AC19-49BB-C665-18DE-A1A5C0B560C0";
+createNode objectSet -n "skinCluster37Set";
+	rename -uid "A9AA57FF-4681-C60B-A433-FCB42A41E1A9";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster37GroupId";
+	rename -uid "C1B0FB83-4019-628D-37FE-0482B2D0A38A";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster37GroupParts";
+	rename -uid "8F712C8E-49B6-EE18-FAB1-CEB09D4AB03D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet37";
+	rename -uid "D9DCF85E-446E-7458-446F-CFA4627AF7E4";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId74";
+	rename -uid "805C81A3-44BF-2B40-2621-B0A61C74C329";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts74";
+	rename -uid "108C89FF-481C-13C2-7023-168B86400993";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose56";
+	rename -uid "D7A28A1B-4517-4DD4-3B39-418CF7401651";
+	setAttr -s 5 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 0.99999999999867462 -1.9940366111735775e-022 1.6282544588186458e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 1.6282544585966012e-006 1.2246467991457299e-016 -0.99999999999867462 0
+		 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
+	setAttr ".wm[3]" -type "matrix" 0.999999999998468 2.1438377327838792e-022 -1.7505763574121289e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -1.7505763576341735e-006 1.224646799145477e-016 -0.999999999998468 0
+		 -1.8772499999982735 -0.55409699999999995 0.59720887933534095 1;
+	setAttr ".wm[4]" -type "matrix" 0.99995653732855527 1.1417718699839403e-018 -0.0093232748477265846 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -0.0093232748477268066 1.224593572725886e-016 -0.99995653732855527 0
+		 -3.0887199999964166 -0.55409699999999995 0.59721100010608086 1;
+	setAttr -s 5 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 2.4651893253288263e-032 1.6282544588188252e-006
+		 -1.2325931574304839e-032 0 -0.6006861950215443 -0.71382005797357506 -0.57483399999999973 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -3.3788308162323874e-006 0 0 -1.3024159999999996
+		 0 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.2114699999999992 0
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229417 0 0.99998913835304415 1
+		 1 1 yes;
+	setAttr -s 5 ".m";
+	setAttr -s 5 ".p";
+	setAttr -s 5 ".g[0:4]" yes yes yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster38";
+	rename -uid "6310CDDD-4FED-936B-0923-A9B18D4ED11D";
+	setAttr -s 21 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" -0.50007589305991906 1.2325951644078304e-032 -0.86598158247177759 -0
+		 1.0605215730946225e-016 -1 -6.1241634176658427e-017 0 -0.86598158247177748 -1.2246467991473532e-016 0.50007589305991929 0
+		 -0.86786878425417058 -0.80647200000000008 -3.272262709190465 1;
+	setAttr ".gm" -type "matrix" 0.61743253744486748 0 0.78662383748802844 0 0 1 0 0
+		 -0.78662383748802844 0 0.61743253744486748 0 0.0099986561145950503 -0.018687062151020895 0.94042835611571718 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak38";
+	rename -uid "B3F1DA93-4BDC-251F-4C3A-C789AF3B3453";
+createNode objectSet -n "skinCluster38Set";
+	rename -uid "2B5193DC-46A8-4123-2D00-17B70A192EAC";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster38GroupId";
+	rename -uid "37EC2A51-4B48-5408-50B6-E4BC6DEF492C";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster38GroupParts";
+	rename -uid "C380F1A0-4A80-61FB-05C3-AF852918B6FD";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet38";
+	rename -uid "4322982A-46B5-3B0A-BA53-6EB6597F191C";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId76";
+	rename -uid "1476702E-443B-1FBB-932C-6A8169E87E92";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts76";
+	rename -uid "7433A499-4FAC-2B19-0B67-8097FE90197D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose57";
+	rename -uid "4B7E6501-40D6-549B-0D6C-57A654EC5FAE";
+	setAttr -s 6 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 0.99999999999867462 -1.9940366111735775e-022 1.6282544588186458e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 1.6282544585966012e-006 1.2246467991457299e-016 -0.99999999999867462 0
+		 -0.57483399999999996 -0.55409699999999995 0.59721100000000005 1;
+	setAttr ".wm[3]" -type "matrix" 0.999999999998468 2.1438377327838792e-022 -1.7505763574121289e-006 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -1.7505763576341735e-006 1.224646799145477e-016 -0.999999999998468 0
+		 -1.8772499999982735 -0.55409699999999995 0.59720887933534095 1;
+	setAttr ".wm[4]" -type "matrix" 0.99995653732855527 1.1417718699839403e-018 -0.0093232748477265846 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -0.0093232748477268066 1.224593572725886e-016 -0.99995653732855527 0
+		 -3.0887199999964166 -0.55409699999999995 0.59721100010608086 1;
+	setAttr ".wm[5]" -type "matrix" -0.50007589305991951 1.0605215730946223e-016 -0.86598158247177792 0
+		 -2.2111185107375422e-032 -1 -1.2246467991473537e-016 0 -0.86598158247177781 -6.1241634176658427e-017 0.50007589305991929 0
+		 -3.2677194965128762 -0.80647200000000008 0.88482131345880788 1;
+	setAttr -s 6 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 2.4651893253288263e-032 1.6282544588188252e-006
+		 -1.2325931574304839e-032 0 -0.6006861950215443 -0.71382005797357506 -0.57483399999999973 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654768 -4.3297802811774658e-017 -0.70710678118654746 4.3297802811774677e-017 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -3.3788308162323874e-006 0 0 -1.3024159999999996
+		 0 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.2114699999999992 0
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229417 0 0.99998913835304415 1
+		 1 1 yes;
+	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 1.6729371304162194e-016 -1.1102230246251565e-016
+		 4.4810815993291241e-017 0 -0.18167318672058208 0.25237500000000002 -0.28592895153654585 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.86370723457640086 0 -0.50399386200665774 1
+		 1 1 yes;
+	setAttr -s 6 ".m";
+	setAttr -s 6 ".p";
+	setAttr -s 6 ".g[0:5]" yes yes yes yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster39";
+	rename -uid "C7C6F404-4484-40EB-B6DF-16998E9E81B2";
+	setAttr -s 33 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -0 0 -0 -0 1 -0 0 0 -0 0.99999999999999956 -0
+		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak39";
+	rename -uid "FCA989C2-4AA0-8C75-341E-9C84F25D8A81";
+createNode objectSet -n "skinCluster39Set";
+	rename -uid "881BF3CA-4463-E6FD-51BD-82A6024D63B5";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster39GroupId";
+	rename -uid "7803DB0E-4B43-E0C8-991C-67A7B348FFBD";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster39GroupParts";
+	rename -uid "E1A8C7EF-486A-817A-276C-1DB06F47BDF2";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet39";
+	rename -uid "AFCE65E4-45D9-2F51-136A-3FA7F83C90EB";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId78";
+	rename -uid "84CA91DA-4FCE-8C97-99E8-138FD2F4ED5E";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts78";
+	rename -uid "CA33BCF3-4F68-98C8-7BC3-9FA9DDFF1D48";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose58";
+	rename -uid "D44E403B-44D6-CC11-2F19-B3B7A0E538AC";
+	setAttr -s 3 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
+		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
+	setAttr -s 3 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.60068662647395565 -0.71381986828379884
+		 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr -s 3 ".m";
+	setAttr -s 3 ".p";
+	setAttr -s 3 ".g[0:2]" yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster40";
+	rename -uid "8DA64633-4B97-4F84-9BF5-FAA5B3BB4DB2";
+	setAttr -s 56 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".wl[41].w[0]"  1;
+	setAttr ".wl[42].w[0]"  1;
+	setAttr ".wl[43].w[0]"  1;
+	setAttr ".wl[44].w[0]"  1;
+	setAttr ".wl[45].w[0]"  1;
+	setAttr ".wl[46].w[0]"  1;
+	setAttr ".wl[47].w[0]"  1;
+	setAttr ".wl[48].w[0]"  1;
+	setAttr ".wl[49].w[0]"  1;
+	setAttr ".wl[50].w[0]"  1;
+	setAttr ".wl[51].w[0]"  1;
+	setAttr ".wl[52].w[0]"  1;
+	setAttr ".wl[53].w[0]"  1;
+	setAttr ".wl[54].w[0]"  1;
+	setAttr ".wl[55].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -0 0 -0 -0 1 -0 0 0 -0 0.99999999999999956 -0
+		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak40";
+	rename -uid "029D8D89-4E4F-C5F3-C4E6-5185C7525975";
+createNode objectSet -n "skinCluster40Set";
+	rename -uid "75560AB2-4058-CF29-DF78-57BF1843D00A";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster40GroupId";
+	rename -uid "18FCA202-4C31-969D-6AF2-06945288027F";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster40GroupParts";
+	rename -uid "5BD212F7-45F7-BEF6-5B30-799433AAD2DC";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet40";
+	rename -uid "BA0AADC7-4349-B968-B6EF-28B75E239F3D";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId80";
+	rename -uid "4489ADFC-4759-C0A3-BFCE-73A259D89EC0";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts80";
+	rename -uid "FE96B4B9-4E7E-ABCD-E66B-688AAF5FD41A";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster41";
+	rename -uid "9C9B7889-4388-8F9B-1777-B2800BAB0900";
+	setAttr -s 32 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99999999999999956 -0 0 -0 -0 1 -0 0 0 -0 0.99999999999999956 -0
+		 -0.5748342412687022 0.55409681031022373 -0.59721143145241129 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak41";
+	rename -uid "148FEF17-414B-0D06-1E26-9B80816FEA40";
+createNode objectSet -n "skinCluster41Set";
+	rename -uid "DA52AE32-4E5D-A87B-3CC6-90B26E1274F5";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster41GroupId";
+	rename -uid "E055EDAE-42FB-9144-A108-A9AC12AF3A0A";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster41GroupParts";
+	rename -uid "823D3EC0-45BA-FCBA-7572-9699131A024D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet41";
+	rename -uid "CC2352D5-4319-3DF3-6DFB-38B5614BE33F";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId82";
+	rename -uid "6C08BDC3-4A7A-F464-B5C9-F9B3FA193486";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts82";
+	rename -uid "EFF6FDCF-4683-FB07-1710-FBB16CE2345F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster42";
+	rename -uid "9BD1AEBA-4C8F-026D-0504-A98052A089F5";
+	setAttr -s 41 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.9999999999958511 -0 -2.8804338924368997e-006 -0
+		 -0 1 -0 0 2.8804338924368997e-006 -0 0.9999999999958511 -0 -1.877253913762168 0.55409681031022384 -0.59720602414909085 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak42";
+	rename -uid "352C8EA5-478D-EAD4-78EB-4A927B5B1DA8";
+createNode objectSet -n "skinCluster42Set";
+	rename -uid "AB5B6AEB-49B8-F52B-A7F1-C4A938075C7E";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster42GroupId";
+	rename -uid "D841A345-46B8-3F2F-5E0E-B9BF7B7850F1";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster42GroupParts";
+	rename -uid "3FB5AAA5-4B3B-8E0F-AEE5-A8B8A7D6AC1E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet42";
+	rename -uid "A65D2DA6-46FD-7EC9-6AE2-6A9583BEDC66";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId84";
+	rename -uid "118472D8-47A1-C332-81B8-418ABE232DEE";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts84";
+	rename -uid "65D35488-42FB-8AA3-CC8F-D5A7AAF7ACE5";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose59";
+	rename -uid "345D983B-4B58-11AA-615C-28B92739736B";
+	setAttr -s 4 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
+		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".wm[3]" -type "matrix" 0.99999999999585198 0 2.8804338924369022e-006 0 0 1 0 0
+		 -2.8804338924369022e-006 0 0.99999999999585198 0 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
+	setAttr -s 4 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.60068662647395565 -0.71381986828379884
+		 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -2.8804338924408837e-006 0 0 1.3024179522732053
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr -s 4 ".m";
+	setAttr -s 4 ".p";
+	setAttr -s 4 ".g[0:3]" yes yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster43";
+	rename -uid "F3C801DD-4A2E-66AC-3C56-8BA9DDF73970";
+	setAttr -s 94 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".wl[32].w[0]"  1;
+	setAttr ".wl[33].w[0]"  1;
+	setAttr ".wl[34].w[0]"  1;
+	setAttr ".wl[35].w[0]"  1;
+	setAttr ".wl[36].w[0]"  1;
+	setAttr ".wl[37].w[0]"  1;
+	setAttr ".wl[38].w[0]"  1;
+	setAttr ".wl[39].w[0]"  1;
+	setAttr ".wl[40].w[0]"  1;
+	setAttr ".wl[41].w[0]"  1;
+	setAttr ".wl[42].w[0]"  1;
+	setAttr ".wl[43].w[0]"  1;
+	setAttr ".wl[44].w[0]"  1;
+	setAttr ".wl[45].w[0]"  1;
+	setAttr ".wl[46].w[0]"  1;
+	setAttr ".wl[47].w[0]"  1;
+	setAttr ".wl[48].w[0]"  1;
+	setAttr ".wl[49].w[0]"  1;
+	setAttr ".wl[50].w[0]"  1;
+	setAttr ".wl[51].w[0]"  1;
+	setAttr ".wl[52].w[0]"  1;
+	setAttr ".wl[53].w[0]"  1;
+	setAttr ".wl[54].w[0]"  1;
+	setAttr ".wl[55].w[0]"  1;
+	setAttr ".wl[56].w[0]"  1;
+	setAttr ".wl[57].w[0]"  1;
+	setAttr ".wl[58].w[0]"  1;
+	setAttr ".wl[59].w[0]"  1;
+	setAttr ".wl[60].w[0]"  1;
+	setAttr ".wl[61].w[0]"  1;
+	setAttr ".wl[62].w[0]"  1;
+	setAttr ".wl[63].w[0]"  1;
+	setAttr ".wl[64].w[0]"  1;
+	setAttr ".wl[65].w[0]"  1;
+	setAttr ".wl[66].w[0]"  1;
+	setAttr ".wl[67].w[0]"  1;
+	setAttr ".wl[68].w[0]"  1;
+	setAttr ".wl[69].w[0]"  1;
+	setAttr ".wl[70].w[0]"  1;
+	setAttr ".wl[71].w[0]"  1;
+	setAttr ".wl[72].w[0]"  1;
+	setAttr ".wl[73].w[0]"  1;
+	setAttr ".wl[74].w[0]"  1;
+	setAttr ".wl[75].w[0]"  1;
+	setAttr ".wl[76].w[0]"  1;
+	setAttr ".wl[77].w[0]"  1;
+	setAttr ".wl[78].w[0]"  1;
+	setAttr ".wl[79].w[0]"  1;
+	setAttr ".wl[80].w[0]"  1;
+	setAttr ".wl[81].w[0]"  1;
+	setAttr ".wl[82].w[0]"  1;
+	setAttr ".wl[83].w[0]"  1;
+	setAttr ".wl[84].w[0]"  1;
+	setAttr ".wl[85].w[0]"  1;
+	setAttr ".wl[86].w[0]"  1;
+	setAttr ".wl[87].w[0]"  1;
+	setAttr ".wl[88].w[0]"  1;
+	setAttr ".wl[89].w[0]"  1;
+	setAttr ".wl[90].w[0]"  1;
+	setAttr ".wl[91].w[0]"  1;
+	setAttr ".wl[92].w[0]"  1;
+	setAttr ".wl[93].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.9999999999958511 -0 -2.8804338924368997e-006 -0
+		 -0 1 -0 0 2.8804338924368997e-006 -0 0.9999999999958511 -0 -1.877253913762168 0.55409681031022384 -0.59720602414909085 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak43";
+	rename -uid "255AD966-41A0-4036-6D11-FCBB4FA36526";
+createNode objectSet -n "skinCluster43Set";
+	rename -uid "BD8977E0-46B1-03FF-36D0-38886F843FB9";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster43GroupId";
+	rename -uid "19DD312A-4A87-FBF3-B4CD-8DBA6AD10C94";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster43GroupParts";
+	rename -uid "CF9509CD-4C58-4260-956E-FFBB27DB3DB1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet43";
+	rename -uid "FAE9AB79-48C8-0051-B4B1-97B4CB8586AA";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId86";
+	rename -uid "0C10122E-4510-9A33-2CC1-EAA7588DE877";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts86";
+	rename -uid "3E0011C9-4539-1245-79C2-8FBA1CDBEEAE";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster44";
+	rename -uid "DD0DF0F6-47F0-5056-1ED5-A3AF2FE465DB";
+	setAttr -s 32 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".wl[25].w[0]"  1;
+	setAttr ".wl[26].w[0]"  1;
+	setAttr ".wl[27].w[0]"  1;
+	setAttr ".wl[28].w[0]"  1;
+	setAttr ".wl[29].w[0]"  1;
+	setAttr ".wl[30].w[0]"  1;
+	setAttr ".wl[31].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.9999999999958511 -0 -2.8804338924368997e-006 -0
+		 -0 1 -0 0 2.8804338924368997e-006 -0 0.9999999999958511 -0 -1.877253913762168 0.55409681031022384 -0.59720602414909085 1;
+	setAttr ".gm" -type "matrix" -1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak44";
+	rename -uid "E190ABCC-4130-B3E0-B9D7-879BDD64277B";
+createNode objectSet -n "skinCluster44Set";
+	rename -uid "B4E3C8A1-474D-83B9-2E1F-D79BCB9E0928";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster44GroupId";
+	rename -uid "7B40BFF1-4471-CF26-C7EA-FAAB19C04A5D";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster44GroupParts";
+	rename -uid "AF9A560D-4CA7-97E6-8A87-1E8003F55E58";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet44";
+	rename -uid "00D7DDF1-41DD-9A58-8AAA-36A977AB741D";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId88";
+	rename -uid "F6101A73-4982-51F4-53AA-D78CD4D95B29";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts88";
+	rename -uid "5C510044-48DB-6A35-CE99-1590DEFD2861";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster45";
+	rename -uid "7FD72730-4882-E224-6B2C-E0AB51069705";
+	setAttr -s 25 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".wl[21].w[0]"  1;
+	setAttr ".wl[22].w[0]"  1;
+	setAttr ".wl[23].w[0]"  1;
+	setAttr ".wl[24].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" 0.99995652679394376 -0 -0.0093244046561490272 -0
+		 -0 1 -0 0 0.0093244046561490272 -0 0.99995652679394376 -0 -3.0941553649395388 0.55409681031022406 -0.56838847398568781 1;
+	setAttr ".gm" -type "matrix" -0.61743253744486748 0 0.78662383748802844 0 0 1 0 0
+		 0.78662383748802844 0 0.61743253744486748 0 -0.0099986561145950503 -0.018687062151020895 0.94042835611571718 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak45";
+	rename -uid "7139B749-4CE2-A591-56F3-3A871F9F6B34";
+createNode objectSet -n "skinCluster45Set";
+	rename -uid "AF4AC962-493C-B704-44C6-13A4203D9FFD";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster45GroupId";
+	rename -uid "FA8C6E34-4398-52F5-0AEF-968CF8CD38D7";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster45GroupParts";
+	rename -uid "6DD3942E-416E-0E1D-5ABA-B3BBE275AC1B";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet45";
+	rename -uid "03E279B2-4328-AC20-D866-F2BBFF46E338";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId90";
+	rename -uid "217C8BB2-427F-1613-DD3C-4A9D84C277EF";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts90";
+	rename -uid "0B6A63CC-4115-508F-FCF6-4BA3055C159C";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose60";
+	rename -uid "AC5218DF-4FB5-DBF1-A6DF-688DC01894E9";
+	setAttr -s 5 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
+		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".wm[3]" -type "matrix" 0.99999999999585198 0 2.8804338924369022e-006 0 0 1 0 0
+		 -2.8804338924369022e-006 0 0.99999999999585198 0 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".wm[4]" -type "matrix" 0.99995652679394487 0 0.0093244046561490376 0 0 1 0 0
+		 -0.0093244046561490376 0 0.99995652679394487 0 3.088720967952459 -0.55409681031022417 0.59721492100812967 1;
+	setAttr -s 5 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.60068662647395565 -0.71381986828379884
+		 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -2.8804338924408837e-006 0 0 1.3024179522732053
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.2114687744155752 -4.4408920985006262e-016
+		 5.5511151231257827e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229417 0 0.99998913835304415 1
+		 1 1 yes;
+	setAttr -s 5 ".m";
+	setAttr -s 5 ".p";
+	setAttr -s 5 ".g[0:4]" yes yes yes yes no;
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster46";
+	rename -uid "1CCA1E00-4077-80A2-522D-84A5D58680E4";
+	setAttr -s 21 ".wl";
+	setAttr ".wl[0].w[0]"  1;
+	setAttr ".wl[1].w[0]"  1;
+	setAttr ".wl[2].w[0]"  1;
+	setAttr ".wl[3].w[0]"  1;
+	setAttr ".wl[4].w[0]"  1;
+	setAttr ".wl[5].w[0]"  1;
+	setAttr ".wl[6].w[0]"  1;
+	setAttr ".wl[7].w[0]"  1;
+	setAttr ".wl[8].w[0]"  1;
+	setAttr ".wl[9].w[0]"  1;
+	setAttr ".wl[10].w[0]"  1;
+	setAttr ".wl[11].w[0]"  1;
+	setAttr ".wl[12].w[0]"  1;
+	setAttr ".wl[13].w[0]"  1;
+	setAttr ".wl[14].w[0]"  1;
+	setAttr ".wl[15].w[0]"  1;
+	setAttr ".wl[16].w[0]"  1;
+	setAttr ".wl[17].w[0]"  1;
+	setAttr ".wl[18].w[0]"  1;
+	setAttr ".wl[19].w[0]"  1;
+	setAttr ".wl[20].w[0]"  1;
+	setAttr ".pm[0]" -type "matrix" -0.50007687149541591 0 -0.86598101745670863 -0 -0 1 -0 0
+		 0.86598101745670863 -0 -0.50007687149541591 -0 0.86786891929891674 0.80647225866064343 3.2722638014611563 1;
+	setAttr ".gm" -type "matrix" -0.61743253744486748 0 0.78662383748802844 0 0 1 0 0
+		 0.78662383748802844 0 0.61743253744486748 0 -0.0099986561145950503 -0.018687062151020895 0.94042835611571718 1;
+	setAttr ".dpf[0]"  4;
+	setAttr ".mi" 1;
+	setAttr ".ucm" yes;
+createNode tweak -n "tweak46";
+	rename -uid "D2F12856-4F31-5480-9F1B-D1B8315C1B2C";
+createNode objectSet -n "skinCluster46Set";
+	rename -uid "DC21EF6D-441F-3743-B519-1CA1F24BB6F8";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster46GroupId";
+	rename -uid "C554A000-420E-722F-BBBC-D59133165C10";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster46GroupParts";
+	rename -uid "960414B5-4BBA-2249-922E-5BAEA9502C29";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet46";
+	rename -uid "644A22E6-4BE0-FA36-57C1-7FAB99C7BD4A";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId92";
+	rename -uid "AAAE605C-4E33-E309-FECA-C796B49D2AED";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts92";
+	rename -uid "57A7E12E-4C69-23A1-9EFA-15A13AE0216F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose61";
+	rename -uid "1A88D1CF-48AC-AE86-C2C2-D9A51789E18D";
+	setAttr -s 6 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357511 -0.0034751950215442507 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 0 -1.0000000000000002 0 0 1 0 0
+		 1.0000000000000002 0 2.2204460492503131e-016 0 0 0.15972305797357514 -0.0034751950215442507 1;
+	setAttr ".wm[2]" -type "matrix" 1.0000000000000004 0 0 0 0 1 0 0 0 0 1.0000000000000004 0
+		 0.57483424126870253 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".wm[3]" -type "matrix" 0.99999999999585198 0 2.8804338924369022e-006 0 0 1 0 0
+		 -2.8804338924369022e-006 0 0.99999999999585198 0 1.8772521935419086 -0.55409681031022373 0.59721143145241162 1;
+	setAttr ".wm[4]" -type "matrix" 0.99995652679394487 0 0.0093244046561490376 0 0 1 0 0
+		 -0.0093244046561490376 0 0.99995652679394487 0 3.088720967952459 -0.55409681031022417 0.59721492100812967 1;
+	setAttr ".wm[5]" -type "matrix" -0.50007687149541635 0 0.86598101745670941 0 0 1 0 0
+		 -0.86598101745670941 0 -0.50007687149541635 0 3.2677195102072023 -0.80647225866064343 0.88482543478886244 1;
+	setAttr -s 6 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.15972305797357511
+		 -0.0034751950215442507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 2.7755575615628914e-017
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.60068662647395565 -0.71381986828379884
+		 0.57483424126870253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.70710678118654746 0 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 -2.8804338924408837e-006 0 0 1.3024179522732053
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.2114687744155752 -4.4408920985006262e-016
+		 5.5511151231257827e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0046608127978229417 0 0.99998913835304415 1
+		 1 1 yes;
+	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 -1.6729371304162191e-016 1.1102230246251565e-016
+		 -4.4810815993291296e-017 0 0.18167255742808663 -0.25237544835041925 0.2859289555887593 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.86370723457640086 0 -0.50399386200665774 1
+		 1 1 yes;
+	setAttr -s 6 ".m";
+	setAttr -s 6 ".p";
+	setAttr -s 6 ".g[0:5]" yes yes yes yes yes no;
+	setAttr ".bp" yes;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "1FA3C8DD-4683-6129-E9AD-1B9D44911400";
+	rename -uid "D1A698A2-4C91-E562-C346-96A60393390A";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -566.25373465201983 -342.32031926360048 ;
 	setAttr ".tgi[0].vh" -type "double2" 405.17625709119625 321.01315863384684 ;
@@ -16988,100 +17054,100 @@ connectAttr "groupId54.id" "bodyFrontShape.iog.og[13].gid";
 connectAttr "tweakSet27.mwc" "bodyFrontShape.iog.og[13].gco";
 connectAttr "skinCluster27.og[0]" "bodyFrontShape.i";
 connectAttr "tweak27.vl[0].vt[0]" "bodyFrontShape.twl";
-connectAttr "skinCluster32GroupId.id" "innerArmUpperRightShape.iog.og[4].gid";
-connectAttr "skinCluster32Set.mwc" "innerArmUpperRightShape.iog.og[4].gco";
-connectAttr "groupId64.id" "innerArmUpperRightShape.iog.og[5].gid";
-connectAttr "tweakSet32.mwc" "innerArmUpperRightShape.iog.og[5].gco";
-connectAttr "skinCluster32.og[0]" "innerArmUpperRightShape.i";
-connectAttr "tweak32.vl[0].vt[0]" "innerArmUpperRightShape.twl";
-connectAttr "skinCluster33GroupId.id" "armJointUpperRightShape.iog.og[4].gid";
-connectAttr "skinCluster33Set.mwc" "armJointUpperRightShape.iog.og[4].gco";
-connectAttr "groupId66.id" "armJointUpperRightShape.iog.og[5].gid";
-connectAttr "tweakSet33.mwc" "armJointUpperRightShape.iog.og[5].gco";
+connectAttr "skinCluster31GroupId.id" "innerArmUpperRightShape.iog.og[6].gid";
+connectAttr "skinCluster31Set.mwc" "innerArmUpperRightShape.iog.og[6].gco";
+connectAttr "groupId62.id" "innerArmUpperRightShape.iog.og[7].gid";
+connectAttr "tweakSet31.mwc" "innerArmUpperRightShape.iog.og[7].gco";
+connectAttr "skinCluster31.og[0]" "innerArmUpperRightShape.i";
+connectAttr "tweak31.vl[0].vt[0]" "innerArmUpperRightShape.twl";
+connectAttr "skinCluster33GroupId.id" "armJointUpperRightShape.iog.og[6].gid";
+connectAttr "skinCluster33Set.mwc" "armJointUpperRightShape.iog.og[6].gco";
+connectAttr "groupId66.id" "armJointUpperRightShape.iog.og[7].gid";
+connectAttr "tweakSet33.mwc" "armJointUpperRightShape.iog.og[7].gco";
 connectAttr "skinCluster33.og[0]" "armJointUpperRightShape.i";
 connectAttr "tweak33.vl[0].vt[0]" "armJointUpperRightShape.twl";
-connectAttr "skinCluster36GroupId.id" "innerArmLowerRightShape.iog.og[4].gid";
-connectAttr "skinCluster36Set.mwc" "innerArmLowerRightShape.iog.og[4].gco";
-connectAttr "groupId72.id" "innerArmLowerRightShape.iog.og[5].gid";
-connectAttr "tweakSet36.mwc" "innerArmLowerRightShape.iog.og[5].gco";
-connectAttr "skinCluster36.og[0]" "innerArmLowerRightShape.i";
-connectAttr "tweak36.vl[0].vt[0]" "innerArmLowerRightShape.twl";
-connectAttr "skinCluster34GroupId.id" "armJointRightShape.iog.og[4].gid";
-connectAttr "skinCluster34Set.mwc" "armJointRightShape.iog.og[4].gco";
-connectAttr "groupId68.id" "armJointRightShape.iog.og[5].gid";
-connectAttr "tweakSet34.mwc" "armJointRightShape.iog.og[5].gco";
-connectAttr "skinCluster34.og[0]" "armJointRightShape.i";
-connectAttr "tweak34.vl[0].vt[0]" "armJointRightShape.twl";
-connectAttr "skinCluster35GroupId.id" "lowerArmRightShape.iog.og[4].gid";
-connectAttr "skinCluster35Set.mwc" "lowerArmRightShape.iog.og[4].gco";
-connectAttr "groupId70.id" "lowerArmRightShape.iog.og[5].gid";
-connectAttr "tweakSet35.mwc" "lowerArmRightShape.iog.og[5].gco";
-connectAttr "skinCluster35.og[0]" "lowerArmRightShape.i";
-connectAttr "tweak35.vl[0].vt[0]" "lowerArmRightShape.twl";
-connectAttr "skinCluster31GroupId.id" "upperArmRightShape.iog.og[2].gid";
-connectAttr "skinCluster31Set.mwc" "upperArmRightShape.iog.og[2].gco";
-connectAttr "groupId62.id" "upperArmRightShape.iog.og[3].gid";
-connectAttr "tweakSet31.mwc" "upperArmRightShape.iog.og[3].gco";
-connectAttr "skinCluster31.og[0]" "upperArmRightShape.i";
-connectAttr "tweak31.vl[0].vt[0]" "upperArmRightShape.twl";
-connectAttr "skinCluster37GroupId.id" "clawBigRightShape.iog.og[4].gid";
-connectAttr "skinCluster37Set.mwc" "clawBigRightShape.iog.og[4].gco";
-connectAttr "groupId74.id" "clawBigRightShape.iog.og[5].gid";
-connectAttr "tweakSet37.mwc" "clawBigRightShape.iog.og[5].gco";
+connectAttr "skinCluster34GroupId.id" "innerArmLowerRightShape.iog.og[6].gid";
+connectAttr "skinCluster34Set.mwc" "innerArmLowerRightShape.iog.og[6].gco";
+connectAttr "groupId68.id" "innerArmLowerRightShape.iog.og[7].gid";
+connectAttr "tweakSet34.mwc" "innerArmLowerRightShape.iog.og[7].gco";
+connectAttr "skinCluster34.og[0]" "innerArmLowerRightShape.i";
+connectAttr "tweak34.vl[0].vt[0]" "innerArmLowerRightShape.twl";
+connectAttr "skinCluster35GroupId.id" "armJointRightShape.iog.og[6].gid";
+connectAttr "skinCluster35Set.mwc" "armJointRightShape.iog.og[6].gco";
+connectAttr "groupId70.id" "armJointRightShape.iog.og[7].gid";
+connectAttr "tweakSet35.mwc" "armJointRightShape.iog.og[7].gco";
+connectAttr "skinCluster35.og[0]" "armJointRightShape.i";
+connectAttr "tweak35.vl[0].vt[0]" "armJointRightShape.twl";
+connectAttr "skinCluster36GroupId.id" "lowerArmRightShape.iog.og[6].gid";
+connectAttr "skinCluster36Set.mwc" "lowerArmRightShape.iog.og[6].gco";
+connectAttr "groupId72.id" "lowerArmRightShape.iog.og[7].gid";
+connectAttr "tweakSet36.mwc" "lowerArmRightShape.iog.og[7].gco";
+connectAttr "skinCluster36.og[0]" "lowerArmRightShape.i";
+connectAttr "tweak36.vl[0].vt[0]" "lowerArmRightShape.twl";
+connectAttr "skinCluster32GroupId.id" "upperArmRightShape.iog.og[4].gid";
+connectAttr "skinCluster32Set.mwc" "upperArmRightShape.iog.og[4].gco";
+connectAttr "groupId64.id" "upperArmRightShape.iog.og[5].gid";
+connectAttr "tweakSet32.mwc" "upperArmRightShape.iog.og[5].gco";
+connectAttr "skinCluster32.og[0]" "upperArmRightShape.i";
+connectAttr "tweak32.vl[0].vt[0]" "upperArmRightShape.twl";
+connectAttr "skinCluster37GroupId.id" "clawBigRightShape.iog.og[6].gid";
+connectAttr "skinCluster37Set.mwc" "clawBigRightShape.iog.og[6].gco";
+connectAttr "groupId74.id" "clawBigRightShape.iog.og[7].gid";
+connectAttr "tweakSet37.mwc" "clawBigRightShape.iog.og[7].gco";
 connectAttr "skinCluster37.og[0]" "clawBigRightShape.i";
 connectAttr "tweak37.vl[0].vt[0]" "clawBigRightShape.twl";
-connectAttr "skinCluster38GroupId.id" "clawSmallRightShape.iog.og[4].gid";
-connectAttr "skinCluster38Set.mwc" "clawSmallRightShape.iog.og[4].gco";
-connectAttr "groupId76.id" "clawSmallRightShape.iog.og[5].gid";
-connectAttr "tweakSet38.mwc" "clawSmallRightShape.iog.og[5].gco";
+connectAttr "skinCluster38GroupId.id" "clawSmallRightShape.iog.og[6].gid";
+connectAttr "skinCluster38Set.mwc" "clawSmallRightShape.iog.og[6].gco";
+connectAttr "groupId76.id" "clawSmallRightShape.iog.og[7].gid";
+connectAttr "tweakSet38.mwc" "clawSmallRightShape.iog.og[7].gco";
 connectAttr "skinCluster38.og[0]" "clawSmallRightShape.i";
 connectAttr "tweak38.vl[0].vt[0]" "clawSmallRightShape.twl";
-connectAttr "skinCluster40GroupId.id" "innerArmUpperLeftShape.iog.og[4].gid";
-connectAttr "skinCluster40Set.mwc" "innerArmUpperLeftShape.iog.og[4].gco";
-connectAttr "groupId80.id" "innerArmUpperLeftShape.iog.og[5].gid";
-connectAttr "tweakSet40.mwc" "innerArmUpperLeftShape.iog.og[5].gco";
-connectAttr "skinCluster40.og[0]" "innerArmUpperLeftShape.i";
-connectAttr "tweak40.vl[0].vt[0]" "innerArmUpperLeftShape.twl";
-connectAttr "skinCluster39GroupId.id" "armJointUpperLeftShape.iog.og[4].gid";
-connectAttr "skinCluster39Set.mwc" "armJointUpperLeftShape.iog.og[4].gco";
-connectAttr "groupId78.id" "armJointUpperLeftShape.iog.og[5].gid";
-connectAttr "tweakSet39.mwc" "armJointUpperLeftShape.iog.og[5].gco";
-connectAttr "skinCluster39.og[0]" "armJointUpperLeftShape.i";
-connectAttr "tweak39.vl[0].vt[0]" "armJointUpperLeftShape.twl";
-connectAttr "skinCluster43GroupId.id" "innerArmLowerLeftShape.iog.og[4].gid";
-connectAttr "skinCluster43Set.mwc" "innerArmLowerLeftShape.iog.og[4].gco";
-connectAttr "groupId86.id" "innerArmLowerLeftShape.iog.og[5].gid";
-connectAttr "tweakSet43.mwc" "innerArmLowerLeftShape.iog.og[5].gco";
-connectAttr "skinCluster43.og[0]" "innerArmLowerLeftShape.i";
-connectAttr "tweak43.vl[0].vt[0]" "innerArmLowerLeftShape.twl";
-connectAttr "skinCluster44GroupId.id" "armJointLeftShape.iog.og[4].gid";
-connectAttr "skinCluster44Set.mwc" "armJointLeftShape.iog.og[4].gco";
-connectAttr "groupId88.id" "armJointLeftShape.iog.og[5].gid";
-connectAttr "tweakSet44.mwc" "armJointLeftShape.iog.og[5].gco";
+connectAttr "skinCluster39GroupId.id" "innerArmUpperLeftShape.iog.og[6].gid";
+connectAttr "skinCluster39Set.mwc" "innerArmUpperLeftShape.iog.og[6].gco";
+connectAttr "groupId78.id" "innerArmUpperLeftShape.iog.og[7].gid";
+connectAttr "tweakSet39.mwc" "innerArmUpperLeftShape.iog.og[7].gco";
+connectAttr "skinCluster39.og[0]" "innerArmUpperLeftShape.i";
+connectAttr "tweak39.vl[0].vt[0]" "innerArmUpperLeftShape.twl";
+connectAttr "skinCluster41GroupId.id" "armJointUpperLeftShape.iog.og[6].gid";
+connectAttr "skinCluster41Set.mwc" "armJointUpperLeftShape.iog.og[6].gco";
+connectAttr "groupId82.id" "armJointUpperLeftShape.iog.og[7].gid";
+connectAttr "tweakSet41.mwc" "armJointUpperLeftShape.iog.og[7].gco";
+connectAttr "skinCluster41.og[0]" "armJointUpperLeftShape.i";
+connectAttr "tweak41.vl[0].vt[0]" "armJointUpperLeftShape.twl";
+connectAttr "skinCluster42GroupId.id" "innerArmLowerLeftShape.iog.og[6].gid";
+connectAttr "skinCluster42Set.mwc" "innerArmLowerLeftShape.iog.og[6].gco";
+connectAttr "groupId84.id" "innerArmLowerLeftShape.iog.og[7].gid";
+connectAttr "tweakSet42.mwc" "innerArmLowerLeftShape.iog.og[7].gco";
+connectAttr "skinCluster42.og[0]" "innerArmLowerLeftShape.i";
+connectAttr "tweak42.vl[0].vt[0]" "innerArmLowerLeftShape.twl";
+connectAttr "skinCluster44GroupId.id" "armJointLeftShape.iog.og[6].gid";
+connectAttr "skinCluster44Set.mwc" "armJointLeftShape.iog.og[6].gco";
+connectAttr "groupId88.id" "armJointLeftShape.iog.og[7].gid";
+connectAttr "tweakSet44.mwc" "armJointLeftShape.iog.og[7].gco";
 connectAttr "skinCluster44.og[0]" "armJointLeftShape.i";
 connectAttr "tweak44.vl[0].vt[0]" "armJointLeftShape.twl";
-connectAttr "skinCluster42GroupId.id" "lowerArmLeftShape.iog.og[4].gid";
-connectAttr "skinCluster42Set.mwc" "lowerArmLeftShape.iog.og[4].gco";
-connectAttr "groupId84.id" "lowerArmLeftShape.iog.og[5].gid";
-connectAttr "tweakSet42.mwc" "lowerArmLeftShape.iog.og[5].gco";
-connectAttr "skinCluster42.og[0]" "lowerArmLeftShape.i";
-connectAttr "tweak42.vl[0].vt[0]" "lowerArmLeftShape.twl";
-connectAttr "skinCluster41GroupId.id" "upperArmLeftShape.iog.og[4].gid";
-connectAttr "skinCluster41Set.mwc" "upperArmLeftShape.iog.og[4].gco";
-connectAttr "groupId82.id" "upperArmLeftShape.iog.og[5].gid";
-connectAttr "tweakSet41.mwc" "upperArmLeftShape.iog.og[5].gco";
-connectAttr "skinCluster41.og[0]" "upperArmLeftShape.i";
-connectAttr "tweak41.vl[0].vt[0]" "upperArmLeftShape.twl";
-connectAttr "skinCluster45GroupId.id" "clawBigLeftShape.iog.og[4].gid";
-connectAttr "skinCluster45Set.mwc" "clawBigLeftShape.iog.og[4].gco";
-connectAttr "groupId90.id" "clawBigLeftShape.iog.og[5].gid";
-connectAttr "tweakSet45.mwc" "clawBigLeftShape.iog.og[5].gco";
+connectAttr "skinCluster43GroupId.id" "lowerArmLeftShape.iog.og[6].gid";
+connectAttr "skinCluster43Set.mwc" "lowerArmLeftShape.iog.og[6].gco";
+connectAttr "groupId86.id" "lowerArmLeftShape.iog.og[7].gid";
+connectAttr "tweakSet43.mwc" "lowerArmLeftShape.iog.og[7].gco";
+connectAttr "skinCluster43.og[0]" "lowerArmLeftShape.i";
+connectAttr "tweak43.vl[0].vt[0]" "lowerArmLeftShape.twl";
+connectAttr "skinCluster40GroupId.id" "upperArmLeftShape.iog.og[6].gid";
+connectAttr "skinCluster40Set.mwc" "upperArmLeftShape.iog.og[6].gco";
+connectAttr "groupId80.id" "upperArmLeftShape.iog.og[7].gid";
+connectAttr "tweakSet40.mwc" "upperArmLeftShape.iog.og[7].gco";
+connectAttr "skinCluster40.og[0]" "upperArmLeftShape.i";
+connectAttr "tweak40.vl[0].vt[0]" "upperArmLeftShape.twl";
+connectAttr "skinCluster45GroupId.id" "clawBigLeftShape.iog.og[6].gid";
+connectAttr "skinCluster45Set.mwc" "clawBigLeftShape.iog.og[6].gco";
+connectAttr "groupId90.id" "clawBigLeftShape.iog.og[7].gid";
+connectAttr "tweakSet45.mwc" "clawBigLeftShape.iog.og[7].gco";
 connectAttr "skinCluster45.og[0]" "clawBigLeftShape.i";
 connectAttr "tweak45.vl[0].vt[0]" "clawBigLeftShape.twl";
-connectAttr "skinCluster46GroupId.id" "clawSmallLeftShape.iog.og[4].gid";
-connectAttr "skinCluster46Set.mwc" "clawSmallLeftShape.iog.og[4].gco";
-connectAttr "groupId92.id" "clawSmallLeftShape.iog.og[5].gid";
-connectAttr "tweakSet46.mwc" "clawSmallLeftShape.iog.og[5].gco";
+connectAttr "skinCluster46GroupId.id" "clawSmallLeftShape.iog.og[6].gid";
+connectAttr "skinCluster46Set.mwc" "clawSmallLeftShape.iog.og[6].gco";
+connectAttr "groupId92.id" "clawSmallLeftShape.iog.og[7].gid";
+connectAttr "tweakSet46.mwc" "clawSmallLeftShape.iog.og[7].gco";
 connectAttr "skinCluster46.og[0]" "clawSmallLeftShape.i";
 connectAttr "tweak46.vl[0].vt[0]" "clawSmallLeftShape.twl";
 connectAttr "skinCluster24GroupId.id" "footBackRightShape.iog.og[4].gid";
@@ -17198,6 +17264,7 @@ connectAttr "rootJoint_parentConstraint1.ctz" "rootJoint.tz";
 connectAttr "rootJoint_parentConstraint1.crx" "rootJoint.rx";
 connectAttr "rootJoint_parentConstraint1.cry" "rootJoint.ry";
 connectAttr "rootJoint_parentConstraint1.crz" "rootJoint.rz";
+connectAttr "joints.di" "rootJoint.do";
 connectAttr "rootJoint.s" "bodyFrontJoint.is";
 connectAttr "bodyFrontJoint_parentConstraint1.ctx" "bodyFrontJoint.tx";
 connectAttr "bodyFrontJoint_parentConstraint1.cty" "bodyFrontJoint.ty";
@@ -17205,6 +17272,7 @@ connectAttr "bodyFrontJoint_parentConstraint1.ctz" "bodyFrontJoint.tz";
 connectAttr "bodyFrontJoint_parentConstraint1.crx" "bodyFrontJoint.rx";
 connectAttr "bodyFrontJoint_parentConstraint1.cry" "bodyFrontJoint.ry";
 connectAttr "bodyFrontJoint_parentConstraint1.crz" "bodyFrontJoint.rz";
+connectAttr "joints.di" "bodyFrontJoint.do";
 connectAttr "bodyFrontJoint.s" "bodyMidJoint.is";
 connectAttr "bodyMidJoint_parentConstraint1.ctx" "bodyMidJoint.tx";
 connectAttr "bodyMidJoint_parentConstraint1.cty" "bodyMidJoint.ty";
@@ -17212,6 +17280,7 @@ connectAttr "bodyMidJoint_parentConstraint1.ctz" "bodyMidJoint.tz";
 connectAttr "bodyMidJoint_parentConstraint1.crx" "bodyMidJoint.rx";
 connectAttr "bodyMidJoint_parentConstraint1.cry" "bodyMidJoint.ry";
 connectAttr "bodyMidJoint_parentConstraint1.crz" "bodyMidJoint.rz";
+connectAttr "joints.di" "bodyMidJoint.do";
 connectAttr "bodyMidJoint.s" "bodyBackJoint.is";
 connectAttr "bodyBackJoint_parentConstraint1.ctx" "bodyBackJoint.tx";
 connectAttr "bodyBackJoint_parentConstraint1.cty" "bodyBackJoint.ty";
@@ -17219,20 +17288,29 @@ connectAttr "bodyBackJoint_parentConstraint1.ctz" "bodyBackJoint.tz";
 connectAttr "bodyBackJoint_parentConstraint1.crx" "bodyBackJoint.rx";
 connectAttr "bodyBackJoint_parentConstraint1.cry" "bodyBackJoint.ry";
 connectAttr "bodyBackJoint_parentConstraint1.crz" "bodyBackJoint.rz";
+connectAttr "joints.di" "bodyBackJoint.do";
 connectAttr "bodyBackJoint.s" "tailFrontJoint.is";
 connectAttr "unitConversion1.o" "tailFrontJoint.rz";
+connectAttr "joints.di" "tailFrontJoint.do";
 connectAttr "tailFrontJoint.s" "tailFront2Joint.is";
 connectAttr "unitConversion2.o" "tailFront2Joint.rz";
+connectAttr "joints.di" "tailFront2Joint.do";
 connectAttr "tailFront2Joint.s" "tailMidJoint.is";
 connectAttr "unitConversion3.o" "tailMidJoint.rz";
+connectAttr "joints.di" "tailMidJoint.do";
 connectAttr "tailMidJoint.s" "tailMid2Joint.is";
 connectAttr "unitConversion4.o" "tailMid2Joint.rz";
+connectAttr "joints.di" "tailMid2Joint.do";
 connectAttr "tailMid2Joint.s" "tailEndJoint.is";
 connectAttr "unitConversion5.o" "tailEndJoint.rz";
+connectAttr "joints.di" "tailEndJoint.do";
 connectAttr "tailEndJoint.s" "tailEnd2Joint.is";
 connectAttr "unitConversion6.o" "tailEnd2Joint.rz";
+connectAttr "joints.di" "tailEnd2Joint.do";
 connectAttr "bodyBackJoint.s" "legUpperBackLeft_Joint.is";
+connectAttr "joints.di" "legUpperBackLeft_Joint.do";
 connectAttr "legUpperBackLeft_Joint.s" "legMidbackLeft_Joint.is";
+connectAttr "joints.di" "legMidbackLeft_Joint.do";
 connectAttr "legMidbackLeft_Joint.s" "legEndBackLeft_Joint.is";
 connectAttr "legEndBackLeft_Joint_orientConstraint1.crx" "legEndBackLeft_Joint.rx"
 		;
@@ -17240,6 +17318,7 @@ connectAttr "legEndBackLeft_Joint_orientConstraint1.cry" "legEndBackLeft_Joint.r
 		;
 connectAttr "legEndBackLeft_Joint_orientConstraint1.crz" "legEndBackLeft_Joint.rz"
 		;
+connectAttr "joints.di" "legEndBackLeft_Joint.do";
 connectAttr "legEndBackLeft_Joint.ro" "legEndBackLeft_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndBackLeft_Joint.pim" "legEndBackLeft_Joint_orientConstraint1.cpim"
@@ -17256,11 +17335,15 @@ connectAttr "|root_Control|legControls|backLegControls|legBackRight_Node1|legBac
 		;
 connectAttr "legEndBackLeft_Joint_orientConstraint1.w0" "legEndBackLeft_Joint_orientConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "legEndBackLeft_Joint_orientConstraint1.do";
 connectAttr "legEndBackLeft_Joint.tx" "effector4.tx";
 connectAttr "legEndBackLeft_Joint.ty" "effector4.ty";
 connectAttr "legEndBackLeft_Joint.tz" "effector4.tz";
+connectAttr "joints.di" "effector4.do";
 connectAttr "bodyBackJoint.s" "legUpperBackRight_Joint.is";
+connectAttr "joints.di" "legUpperBackRight_Joint.do";
 connectAttr "legUpperBackRight_Joint.s" "legMidbackRight_Joint.is";
+connectAttr "joints.di" "legMidbackRight_Joint.do";
 connectAttr "legMidbackRight_Joint.s" "legEndBackRight_Joint.is";
 connectAttr "legEndBackRight_Joint_orientConstraint1.crx" "legEndBackRight_Joint.rx"
 		;
@@ -17268,6 +17351,7 @@ connectAttr "legEndBackRight_Joint_orientConstraint1.cry" "legEndBackRight_Joint
 		;
 connectAttr "legEndBackRight_Joint_orientConstraint1.crz" "legEndBackRight_Joint.rz"
 		;
+connectAttr "joints.di" "legEndBackRight_Joint.do";
 connectAttr "legEndBackRight_Joint.ro" "legEndBackRight_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndBackRight_Joint.pim" "legEndBackRight_Joint_orientConstraint1.cpim"
@@ -17284,9 +17368,11 @@ connectAttr "|root_Control|legControls|backLegControls|legBackRight_Node|legBack
 		;
 connectAttr "legEndBackRight_Joint_orientConstraint1.w0" "legEndBackRight_Joint_orientConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "legEndBackRight_Joint_orientConstraint1.do";
 connectAttr "legEndBackRight_Joint.tx" "effector1.tx";
 connectAttr "legEndBackRight_Joint.ty" "effector1.ty";
 connectAttr "legEndBackRight_Joint.tz" "effector1.tz";
+connectAttr "joints.di" "effector1.do";
 connectAttr "bodyBackJoint.ro" "bodyBackJoint_parentConstraint1.cro";
 connectAttr "bodyBackJoint.pim" "bodyBackJoint_parentConstraint1.cpim";
 connectAttr "bodyBackJoint.rp" "bodyBackJoint_parentConstraint1.crp";
@@ -17308,8 +17394,11 @@ connectAttr "|root_Control|bodyFront_Node2|bodyFront_Control.pm" "bodyBackJoint_
 		;
 connectAttr "bodyBackJoint_parentConstraint1.w0" "bodyBackJoint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "bodyBackJoint_parentConstraint1.do";
 connectAttr "bodyMidJoint.s" "legUpperMidLeft_Joint.is";
+connectAttr "joints.di" "legUpperMidLeft_Joint.do";
 connectAttr "legUpperMidLeft_Joint.s" "legMidMidLeft_Joint.is";
+connectAttr "joints.di" "legMidMidLeft_Joint.do";
 connectAttr "legMidMidLeft_Joint.s" "legEndMidLeft_Joint.is";
 connectAttr "legEndMidLeft_Joint_orientConstraint1.crx" "legEndMidLeft_Joint.rx"
 		;
@@ -17317,6 +17406,7 @@ connectAttr "legEndMidLeft_Joint_orientConstraint1.cry" "legEndMidLeft_Joint.ry"
 		;
 connectAttr "legEndMidLeft_Joint_orientConstraint1.crz" "legEndMidLeft_Joint.rz"
 		;
+connectAttr "joints.di" "legEndMidLeft_Joint.do";
 connectAttr "legEndMidLeft_Joint.ro" "legEndMidLeft_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndMidLeft_Joint.pim" "legEndMidLeft_Joint_orientConstraint1.cpim"
@@ -17340,11 +17430,15 @@ connectAttr "|root_Control|legControls|middleLegControls|legMidRight_Node1|legMi
 		;
 connectAttr "legEndMidLeft_Joint_orientConstraint1.w1" "legEndMidLeft_Joint_orientConstraint1.tg[1].tw"
 		;
+connectAttr "joints.di" "legEndMidLeft_Joint_orientConstraint1.do";
 connectAttr "legEndMidLeft_Joint.tx" "effector5.tx";
 connectAttr "legEndMidLeft_Joint.ty" "effector5.ty";
 connectAttr "legEndMidLeft_Joint.tz" "effector5.tz";
+connectAttr "joints.di" "effector5.do";
 connectAttr "bodyMidJoint.s" "legUpperMidRight_Joint.is";
+connectAttr "joints.di" "legUpperMidRight_Joint.do";
 connectAttr "legUpperMidRight_Joint.s" "legMidMidRight_Joint.is";
+connectAttr "joints.di" "legMidMidRight_Joint.do";
 connectAttr "legMidMidRight_Joint.s" "legEndMidRight_Joint.is";
 connectAttr "legEndMidRight_Joint_orientConstraint1.crx" "legEndMidRight_Joint.rx"
 		;
@@ -17352,6 +17446,7 @@ connectAttr "legEndMidRight_Joint_orientConstraint1.cry" "legEndMidRight_Joint.r
 		;
 connectAttr "legEndMidRight_Joint_orientConstraint1.crz" "legEndMidRight_Joint.rz"
 		;
+connectAttr "joints.di" "legEndMidRight_Joint.do";
 connectAttr "legEndMidRight_Joint.ro" "legEndMidRight_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndMidRight_Joint.pim" "legEndMidRight_Joint_orientConstraint1.cpim"
@@ -17376,9 +17471,11 @@ connectAttr "|root_Control|legControls|middleLegControls|legMidRight_Node|legMid
 		;
 connectAttr "legEndMidRight_Joint_orientConstraint1.w1" "legEndMidRight_Joint_orientConstraint1.tg[1].tw"
 		;
+connectAttr "joints.di" "legEndMidRight_Joint_orientConstraint1.do";
 connectAttr "legEndMidRight_Joint.tx" "effector2.tx";
 connectAttr "legEndMidRight_Joint.ty" "effector2.ty";
 connectAttr "legEndMidRight_Joint.tz" "effector2.tz";
+connectAttr "joints.di" "effector2.do";
 connectAttr "bodyMidJoint.ro" "bodyMidJoint_parentConstraint1.cro";
 connectAttr "bodyMidJoint.pim" "bodyMidJoint_parentConstraint1.cpim";
 connectAttr "bodyMidJoint.rp" "bodyMidJoint_parentConstraint1.crp";
@@ -17400,8 +17497,11 @@ connectAttr "|root_Control|bodyFront_Node1|bodyFront_Control.pm" "bodyMidJoint_p
 		;
 connectAttr "bodyMidJoint_parentConstraint1.w0" "bodyMidJoint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "bodyMidJoint_parentConstraint1.do";
 connectAttr "bodyFrontJoint.s" "legUpperFrontLeft_Joint.is";
+connectAttr "joints.di" "legUpperFrontLeft_Joint.do";
 connectAttr "legUpperFrontLeft_Joint.s" "legMidFrontLeft_Joint.is";
+connectAttr "joints.di" "legMidFrontLeft_Joint.do";
 connectAttr "legMidFrontLeft_Joint.s" "legEndFrontLeft_Joint.is";
 connectAttr "legEndFrontLeft_Joint_orientConstraint1.crx" "legEndFrontLeft_Joint.rx"
 		;
@@ -17409,6 +17509,7 @@ connectAttr "legEndFrontLeft_Joint_orientConstraint1.cry" "legEndFrontLeft_Joint
 		;
 connectAttr "legEndFrontLeft_Joint_orientConstraint1.crz" "legEndFrontLeft_Joint.rz"
 		;
+connectAttr "joints.di" "legEndFrontLeft_Joint.do";
 connectAttr "legEndFrontLeft_Joint.ro" "legEndFrontLeft_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndFrontLeft_Joint.pim" "legEndFrontLeft_Joint_orientConstraint1.cpim"
@@ -17433,11 +17534,15 @@ connectAttr "|root_Control|legControls|frontLegControls|legFrontRight_Node1|legF
 		;
 connectAttr "legEndFrontLeft_Joint_orientConstraint1.w1" "legEndFrontLeft_Joint_orientConstraint1.tg[1].tw"
 		;
+connectAttr "joints.di" "legEndFrontLeft_Joint_orientConstraint1.do";
 connectAttr "legEndFrontLeft_Joint.tx" "effector6.tx";
 connectAttr "legEndFrontLeft_Joint.ty" "effector6.ty";
 connectAttr "legEndFrontLeft_Joint.tz" "effector6.tz";
+connectAttr "joints.di" "effector6.do";
 connectAttr "bodyFrontJoint.s" "legUpperFrontRight_Joint.is";
+connectAttr "joints.di" "legUpperFrontRight_Joint.do";
 connectAttr "legUpperFrontRight_Joint.s" "legMidFrontRight_Joint.is";
+connectAttr "joints.di" "legMidFrontRight_Joint.do";
 connectAttr "legMidFrontRight_Joint.s" "legEndFrontRight_Joint.is";
 connectAttr "legEndFrontRight_Joint_orientConstraint1.crx" "legEndFrontRight_Joint.rx"
 		;
@@ -17445,6 +17550,7 @@ connectAttr "legEndFrontRight_Joint_orientConstraint1.cry" "legEndFrontRight_Joi
 		;
 connectAttr "legEndFrontRight_Joint_orientConstraint1.crz" "legEndFrontRight_Joint.rz"
 		;
+connectAttr "joints.di" "legEndFrontRight_Joint.do";
 connectAttr "legEndFrontRight_Joint.ro" "legEndFrontRight_Joint_orientConstraint1.cro"
 		;
 connectAttr "legEndFrontRight_Joint.pim" "legEndFrontRight_Joint_orientConstraint1.cpim"
@@ -17469,9 +17575,11 @@ connectAttr "|root_Control|legControls|frontLegControls|legFrontRight_Node|legFr
 		;
 connectAttr "legEndFrontRight_Joint_orientConstraint1.w1" "legEndFrontRight_Joint_orientConstraint1.tg[1].tw"
 		;
+connectAttr "joints.di" "legEndFrontRight_Joint_orientConstraint1.do";
 connectAttr "legEndFrontRight_Joint.tx" "effector3.tx";
 connectAttr "legEndFrontRight_Joint.ty" "effector3.ty";
 connectAttr "legEndFrontRight_Joint.tz" "effector3.tz";
+connectAttr "joints.di" "effector3.do";
 connectAttr "bodyFrontJoint.ro" "bodyFrontJoint_parentConstraint1.cro";
 connectAttr "bodyFrontJoint.pim" "bodyFrontJoint_parentConstraint1.cpim";
 connectAttr "bodyFrontJoint.rp" "bodyFrontJoint_parentConstraint1.crp";
@@ -17493,6 +17601,7 @@ connectAttr "|root_Control|bodyFront_Node|bodyFront_Control.pm" "bodyFrontJoint_
 		;
 connectAttr "bodyFrontJoint_parentConstraint1.w0" "bodyFrontJoint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "bodyFrontJoint_parentConstraint1.do";
 connectAttr "bodyFrontJoint.s" "armRight_UpperJoint1.is";
 connectAttr "armRight_UpperJoint1_orientConstraint1.crx" "armRight_UpperJoint1.rx"
 		;
@@ -17502,12 +17611,14 @@ connectAttr "armRight_UpperJoint1_orientConstraint1.crz" "armRight_UpperJoint1.r
 		;
 connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "armRight_UpperJoint1.IK";
 connectAttr "expression4.out[0]" "armRight_UpperJoint1.FK";
+connectAttr "joints.di" "armRight_UpperJoint1.do";
 connectAttr "armRight_UpperJoint1.s" "armRight_MidJoint.is";
 connectAttr "armRight_MidJoint_orientConstraint1.crx" "armRight_MidJoint.rx";
 connectAttr "armRight_MidJoint_orientConstraint1.cry" "armRight_MidJoint.ry";
 connectAttr "armRight_MidJoint_orientConstraint1.crz" "armRight_MidJoint.rz";
 connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "armRight_MidJoint.IK";
 connectAttr "expression8.out[0]" "armRight_MidJoint.FK";
+connectAttr "joints.di" "armRight_MidJoint.do";
 connectAttr "armRight_MidJoint.s" "armRight_BigPincerJoint.is";
 connectAttr "armRight_BigPincerJoint_orientConstraint1.crx" "armRight_BigPincerJoint.rx"
 		;
@@ -17517,7 +17628,9 @@ connectAttr "armRight_BigPincerJoint_orientConstraint1.crz" "armRight_BigPincerJ
 		;
 connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "armRight_BigPincerJoint.IK";
 connectAttr "expression9.out[0]" "armRight_BigPincerJoint.FK";
+connectAttr "joints.di" "armRight_BigPincerJoint.do";
 connectAttr "armRight_BigPincerJoint.s" "armRight_SmallPincerJoint.is";
+connectAttr "joints.di" "armRight_SmallPincerJoint.do";
 connectAttr "armRight_BigPincerJoint.ro" "armRight_BigPincerJoint_orientConstraint1.cro"
 		;
 connectAttr "armRight_BigPincerJoint.pim" "armRight_BigPincerJoint_orientConstraint1.cpim"
@@ -17550,6 +17663,7 @@ connectAttr "armRight_BigPincerJoint.FK" "armRight_BigPincerJoint_orientConstrai
 		;
 connectAttr "armRight_BigPincerJoint.IK" "armRight_BigPincerJoint_orientConstraint1.w1"
 		;
+connectAttr "joints.di" "armRight_BigPincerJoint_orientConstraint1.do";
 connectAttr "armRight_MidJoint.ro" "armRight_MidJoint_orientConstraint1.cro";
 connectAttr "armRight_MidJoint.pim" "armRight_MidJoint_orientConstraint1.cpim";
 connectAttr "armRight_MidJoint.jo" "armRight_MidJoint_orientConstraint1.cjo";
@@ -17576,6 +17690,7 @@ connectAttr "armRight_MidJoint_orientConstraint1.w1" "armRight_MidJoint_orientCo
 		;
 connectAttr "armRight_MidJoint.FK" "armRight_MidJoint_orientConstraint1.w0";
 connectAttr "armRight_MidJoint.IK" "armRight_MidJoint_orientConstraint1.w1";
+connectAttr "joints.di" "armRight_MidJoint_orientConstraint1.do";
 connectAttr "armRight_UpperJoint1.ro" "armRight_UpperJoint1_orientConstraint1.cro"
 		;
 connectAttr "armRight_UpperJoint1.pim" "armRight_UpperJoint1_orientConstraint1.cpim"
@@ -17608,6 +17723,7 @@ connectAttr "armRight_UpperJoint1.FK" "armRight_UpperJoint1_orientConstraint1.w0
 		;
 connectAttr "armRight_UpperJoint1.IK" "armRight_UpperJoint1_orientConstraint1.w1"
 		;
+connectAttr "joints.di" "armRight_UpperJoint1_orientConstraint1.do";
 connectAttr "bodyFrontJoint.s" "armLeft_UpperJoint1.is";
 connectAttr "armLeft_UpperJoint1_orientConstraint1.crx" "armLeft_UpperJoint1.rx"
 		;
@@ -17617,12 +17733,14 @@ connectAttr "armLeft_UpperJoint1_orientConstraint1.crz" "armLeft_UpperJoint1.rz"
 		;
 connectAttr "IKFK_Switch_LeftArm.IKFKSwitch" "armLeft_UpperJoint1.IK";
 connectAttr "expression5.out[0]" "armLeft_UpperJoint1.FK";
+connectAttr "joints.di" "armLeft_UpperJoint1.do";
 connectAttr "armLeft_UpperJoint1.s" "armLeft_MidJoint.is";
 connectAttr "armLeft_MidJoint_orientConstraint1.crx" "armLeft_MidJoint.rx";
 connectAttr "armLeft_MidJoint_orientConstraint1.cry" "armLeft_MidJoint.ry";
 connectAttr "armLeft_MidJoint_orientConstraint1.crz" "armLeft_MidJoint.rz";
 connectAttr "IKFK_Switch_LeftArm.IKFKSwitch" "armLeft_MidJoint.IK";
 connectAttr "expression6.out[0]" "armLeft_MidJoint.FK";
+connectAttr "joints.di" "armLeft_MidJoint.do";
 connectAttr "armLeft_MidJoint.s" "armLeft_BigPincerJoint.is";
 connectAttr "armLeft_BigPincerJoint_orientConstraint1.crx" "armLeft_BigPincerJoint.rx"
 		;
@@ -17632,7 +17750,9 @@ connectAttr "armLeft_BigPincerJoint_orientConstraint1.crz" "armLeft_BigPincerJoi
 		;
 connectAttr "IKFK_Switch_LeftArm.IKFKSwitch" "armLeft_BigPincerJoint.IK";
 connectAttr "expression7.out[0]" "armLeft_BigPincerJoint.FK";
+connectAttr "joints.di" "armLeft_BigPincerJoint.do";
 connectAttr "armLeft_BigPincerJoint.s" "armLeft_SmallPincerJoint.is";
+connectAttr "joints.di" "armLeft_SmallPincerJoint.do";
 connectAttr "armLeft_BigPincerJoint.ro" "armLeft_BigPincerJoint_orientConstraint1.cro"
 		;
 connectAttr "armLeft_BigPincerJoint.pim" "armLeft_BigPincerJoint_orientConstraint1.cpim"
@@ -17665,6 +17785,7 @@ connectAttr "armLeft_BigPincerJoint.FK" "armLeft_BigPincerJoint_orientConstraint
 		;
 connectAttr "armLeft_BigPincerJoint.IK" "armLeft_BigPincerJoint_orientConstraint1.w1"
 		;
+connectAttr "joints.di" "armLeft_BigPincerJoint_orientConstraint1.do";
 connectAttr "armLeft_MidJoint.ro" "armLeft_MidJoint_orientConstraint1.cro";
 connectAttr "armLeft_MidJoint.pim" "armLeft_MidJoint_orientConstraint1.cpim";
 connectAttr "armLeft_MidJoint.jo" "armLeft_MidJoint_orientConstraint1.cjo";
@@ -17691,6 +17812,7 @@ connectAttr "armLeft_MidJoint_orientConstraint1.w1" "armLeft_MidJoint_orientCons
 		;
 connectAttr "armLeft_MidJoint.FK" "armLeft_MidJoint_orientConstraint1.w0";
 connectAttr "armLeft_MidJoint.IK" "armLeft_MidJoint_orientConstraint1.w1";
+connectAttr "joints.di" "armLeft_MidJoint_orientConstraint1.do";
 connectAttr "armLeft_UpperJoint1.ro" "armLeft_UpperJoint1_orientConstraint1.cro"
 		;
 connectAttr "armLeft_UpperJoint1.pim" "armLeft_UpperJoint1_orientConstraint1.cpim"
@@ -17720,6 +17842,7 @@ connectAttr "armLeft_UpperJoint1_orientConstraint1.w1" "armLeft_UpperJoint1_orie
 		;
 connectAttr "armLeft_UpperJoint1.FK" "armLeft_UpperJoint1_orientConstraint1.w0";
 connectAttr "armLeft_UpperJoint1.IK" "armLeft_UpperJoint1_orientConstraint1.w1";
+connectAttr "joints.di" "armLeft_UpperJoint1_orientConstraint1.do";
 connectAttr "rootJoint.ro" "rootJoint_parentConstraint1.cro";
 connectAttr "rootJoint.pim" "rootJoint_parentConstraint1.cpim";
 connectAttr "rootJoint.rp" "rootJoint_parentConstraint1.crp";
@@ -17734,8 +17857,73 @@ connectAttr "root_Control.s" "rootJoint_parentConstraint1.tg[0].ts";
 connectAttr "root_Control.pm" "rootJoint_parentConstraint1.tg[0].tpm";
 connectAttr "rootJoint_parentConstraint1.w0" "rootJoint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "joints.di" "rootJoint_parentConstraint1.do";
+connectAttr "controls.di" "root_Control.do";
+connectAttr "controls.di" "tail_Node.do";
+connectAttr "controls.di" "tail_Control.do";
+connectAttr "controls.di" "armControls.do";
+connectAttr "controls.di" "shoulderRight_Node.do";
+connectAttr "IKFK_Switch_RightArm.FKControlVisibility" "shoulderRight_Control.v"
+		;
+connectAttr "controls.di" "shoulderRight_Control.do";
+connectAttr "controls.di" "elbowRight_Node.do";
+connectAttr "IKFK_Switch_RightArm.FKControlVisibility" "elbowRight_Control.v";
+connectAttr "controls.di" "elbowRight_Control.do";
+connectAttr "IKFK_Switch_RightArm.FKControlVisibility" "bigClawRight_Control.v";
+connectAttr "controls.di" "bigClawRight_Control.do";
+connectAttr "controls.di" "smallClawRight_Control.do";
+connectAttr "controls.di" "shoulderLeft_Node.do";
+connectAttr "IKFK_Switch_LeftArm.FKControlVisibility" "shoulderLeft_Control.v";
+connectAttr "controls.di" "shoulderLeft_Control.do";
+connectAttr "controls.di" "elbowLeft_Node.do";
+connectAttr "IKFK_Switch_LeftArm.FKControlVisibility" "elbowLeft_Control.v";
+connectAttr "controls.di" "elbowLeft_Control.do";
+connectAttr "IKFK_Switch_LeftArm.FKControlVisibility" "bigClawLeft_Control.v";
+connectAttr "controls.di" "bigClawLeft_Control.do";
+connectAttr "controls.di" "smallClawLeft_Control.do";
+connectAttr "IKFK_Switch_LeftArm.IKFKSwitch" "bigClawLeft_IKControl.v";
+connectAttr "controls.di" "bigClawLeft_IKControl.do";
+connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "bigClawRight_IKControl.v";
+connectAttr "controls.di" "bigClawRight_IKControl.do";
+connectAttr "controls.di" "bodyFront_Node.do";
+connectAttr "controls.di" "|root_Control|bodyFront_Node|bodyFront_Control.do";
 connectAttr "transformGeometry1.og" "|root_Control|bodyFront_Node|bodyFront_Control|bodyFront_ControlShape.cr"
 		;
+connectAttr "controls.di" "bodyFront_Node1.do";
+connectAttr "controls.di" "|root_Control|bodyFront_Node1|bodyFront_Control.do";
+connectAttr "controls.di" "bodyFront_Node2.do";
+connectAttr "controls.di" "|root_Control|bodyFront_Node2|bodyFront_Control.do";
+connectAttr "controls.di" "legControls.do";
+connectAttr "controls.di" "backLegControls.do";
+connectAttr "controls.di" "legBackRight_Node.do";
+connectAttr "controls.di" "|root_Control|legControls|backLegControls|legBackRight_Node|legBackRight_Control.do"
+		;
+connectAttr "controls.di" "legBackRight_Node1.do";
+connectAttr "controls.di" "|root_Control|legControls|backLegControls|legBackRight_Node1|legBackRight_Control.do"
+		;
+connectAttr "controls.di" "frontLegControls.do";
+connectAttr "controls.di" "legFrontRight_Node1.do";
+connectAttr "controls.di" "|root_Control|legControls|frontLegControls|legFrontRight_Node1|legFrontRight_Control.do"
+		;
+connectAttr "controls.di" "|root_Control|legControls|frontLegControls|legFrontRight_Node1|legFrontRight_Control1.do"
+		;
+connectAttr "controls.di" "legFrontRight_Node.do";
+connectAttr "controls.di" "|root_Control|legControls|frontLegControls|legFrontRight_Node|legFrontRight_Control.do"
+		;
+connectAttr "controls.di" "|root_Control|legControls|frontLegControls|legFrontRight_Node|legFrontRight_Control1.do"
+		;
+connectAttr "controls.di" "middleLegControls.do";
+connectAttr "controls.di" "legMidRight_Node1.do";
+connectAttr "controls.di" "|root_Control|legControls|middleLegControls|legMidRight_Node1|legMidRight_Control.do"
+		;
+connectAttr "controls.di" "|root_Control|legControls|middleLegControls|legMidRight_Node1|legMidRight_Control1.do"
+		;
+connectAttr "controls.di" "legMidRight_Node.do";
+connectAttr "controls.di" "|root_Control|legControls|middleLegControls|legMidRight_Node|legMidRight_Control.do"
+		;
+connectAttr "controls.di" "|root_Control|legControls|middleLegControls|legMidRight_Node|legMidRight_Control1.do"
+		;
+connectAttr "controls.di" "ikHandles.do";
 connectAttr "legUpperBackRight_Joint.msg" "backRightLeg_IK.hsj";
 connectAttr "effector1.hp" "backRightLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "backRightLeg_IK.hsv";
@@ -17745,6 +17933,7 @@ connectAttr "ikHandle1_parentConstraint1.ctz" "backRightLeg_IK.tz";
 connectAttr "ikHandle1_parentConstraint1.crx" "backRightLeg_IK.rx";
 connectAttr "ikHandle1_parentConstraint1.cry" "backRightLeg_IK.ry";
 connectAttr "ikHandle1_parentConstraint1.crz" "backRightLeg_IK.rz";
+connectAttr "controls.di" "backRightLeg_IK.do";
 connectAttr "backRightLeg_IK.ro" "ikHandle1_parentConstraint1.cro";
 connectAttr "backRightLeg_IK.pim" "ikHandle1_parentConstraint1.cpim";
 connectAttr "backRightLeg_IK.rp" "ikHandle1_parentConstraint1.crp";
@@ -17765,6 +17954,7 @@ connectAttr "|root_Control|legControls|backLegControls|legBackRight_Node|legBack
 		;
 connectAttr "ikHandle1_parentConstraint1.w0" "ikHandle1_parentConstraint1.tg[0].tw"
 		;
+connectAttr "controls.di" "ikHandle1_parentConstraint1.do";
 connectAttr "legUpperMidRight_Joint.msg" "middleRightLeg_IK.hsj";
 connectAttr "effector2.hp" "middleRightLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "middleRightLeg_IK.hsv";
@@ -17774,6 +17964,7 @@ connectAttr "ikHandle2_parentConstraint1.ctz" "middleRightLeg_IK.tz";
 connectAttr "ikHandle2_parentConstraint1.crx" "middleRightLeg_IK.rx";
 connectAttr "ikHandle2_parentConstraint1.cry" "middleRightLeg_IK.ry";
 connectAttr "ikHandle2_parentConstraint1.crz" "middleRightLeg_IK.rz";
+connectAttr "controls.di" "middleRightLeg_IK.do";
 connectAttr "middleRightLeg_IK.ro" "ikHandle2_parentConstraint1.cro";
 connectAttr "middleRightLeg_IK.pim" "ikHandle2_parentConstraint1.cpim";
 connectAttr "middleRightLeg_IK.rp" "ikHandle2_parentConstraint1.crp";
@@ -17810,6 +18001,7 @@ connectAttr "|root_Control|legControls|middleLegControls|legMidRight_Node|legMid
 		;
 connectAttr "ikHandle2_parentConstraint1.w1" "ikHandle2_parentConstraint1.tg[1].tw"
 		;
+connectAttr "controls.di" "ikHandle2_parentConstraint1.do";
 connectAttr "legUpperFrontRight_Joint.msg" "frontRightLeg_IK.hsj";
 connectAttr "effector3.hp" "frontRightLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "frontRightLeg_IK.hsv";
@@ -17819,6 +18011,7 @@ connectAttr "ikHandle3_parentConstraint1.ctz" "frontRightLeg_IK.tz";
 connectAttr "ikHandle3_parentConstraint1.crx" "frontRightLeg_IK.rx";
 connectAttr "ikHandle3_parentConstraint1.cry" "frontRightLeg_IK.ry";
 connectAttr "ikHandle3_parentConstraint1.crz" "frontRightLeg_IK.rz";
+connectAttr "controls.di" "frontRightLeg_IK.do";
 connectAttr "frontRightLeg_IK.ro" "ikHandle3_parentConstraint1.cro";
 connectAttr "frontRightLeg_IK.pim" "ikHandle3_parentConstraint1.cpim";
 connectAttr "frontRightLeg_IK.rp" "ikHandle3_parentConstraint1.crp";
@@ -17855,6 +18048,7 @@ connectAttr "|root_Control|legControls|frontLegControls|legFrontRight_Node|legFr
 		;
 connectAttr "ikHandle3_parentConstraint1.w1" "ikHandle3_parentConstraint1.tg[1].tw"
 		;
+connectAttr "controls.di" "ikHandle3_parentConstraint1.do";
 connectAttr "legUpperBackLeft_Joint.msg" "backLeftLeg_IK.hsj";
 connectAttr "effector4.hp" "backLeftLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "backLeftLeg_IK.hsv";
@@ -17864,6 +18058,7 @@ connectAttr "ikHandle4_parentConstraint1.ctz" "backLeftLeg_IK.tz";
 connectAttr "ikHandle4_parentConstraint1.crx" "backLeftLeg_IK.rx";
 connectAttr "ikHandle4_parentConstraint1.cry" "backLeftLeg_IK.ry";
 connectAttr "ikHandle4_parentConstraint1.crz" "backLeftLeg_IK.rz";
+connectAttr "controls.di" "backLeftLeg_IK.do";
 connectAttr "backLeftLeg_IK.ro" "ikHandle4_parentConstraint1.cro";
 connectAttr "backLeftLeg_IK.pim" "ikHandle4_parentConstraint1.cpim";
 connectAttr "backLeftLeg_IK.rp" "ikHandle4_parentConstraint1.crp";
@@ -17884,6 +18079,7 @@ connectAttr "|root_Control|legControls|backLegControls|legBackRight_Node1|legBac
 		;
 connectAttr "ikHandle4_parentConstraint1.w0" "ikHandle4_parentConstraint1.tg[0].tw"
 		;
+connectAttr "controls.di" "ikHandle4_parentConstraint1.do";
 connectAttr "legUpperMidLeft_Joint.msg" "middleLeftLeg_IK.hsj";
 connectAttr "effector5.hp" "middleLeftLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "middleLeftLeg_IK.hsv";
@@ -17893,6 +18089,7 @@ connectAttr "ikHandle5_parentConstraint1.ctz" "middleLeftLeg_IK.tz";
 connectAttr "ikHandle5_parentConstraint1.crx" "middleLeftLeg_IK.rx";
 connectAttr "ikHandle5_parentConstraint1.cry" "middleLeftLeg_IK.ry";
 connectAttr "ikHandle5_parentConstraint1.crz" "middleLeftLeg_IK.rz";
+connectAttr "controls.di" "middleLeftLeg_IK.do";
 connectAttr "middleLeftLeg_IK.ro" "ikHandle5_parentConstraint1.cro";
 connectAttr "middleLeftLeg_IK.pim" "ikHandle5_parentConstraint1.cpim";
 connectAttr "middleLeftLeg_IK.rp" "ikHandle5_parentConstraint1.crp";
@@ -17929,6 +18126,7 @@ connectAttr "|root_Control|legControls|middleLegControls|legMidRight_Node1|legMi
 		;
 connectAttr "ikHandle5_parentConstraint1.w1" "ikHandle5_parentConstraint1.tg[1].tw"
 		;
+connectAttr "controls.di" "ikHandle5_parentConstraint1.do";
 connectAttr "legUpperFrontLeft_Joint.msg" "frontLeftLeg_IK.hsj";
 connectAttr "effector6.hp" "frontLeftLeg_IK.hee";
 connectAttr "ikRPsolver.msg" "frontLeftLeg_IK.hsv";
@@ -17938,6 +18136,7 @@ connectAttr "ikHandle6_parentConstraint1.ctz" "frontLeftLeg_IK.tz";
 connectAttr "ikHandle6_parentConstraint1.crx" "frontLeftLeg_IK.rx";
 connectAttr "ikHandle6_parentConstraint1.cry" "frontLeftLeg_IK.ry";
 connectAttr "ikHandle6_parentConstraint1.crz" "frontLeftLeg_IK.rz";
+connectAttr "controls.di" "frontLeftLeg_IK.do";
 connectAttr "frontLeftLeg_IK.ro" "ikHandle6_parentConstraint1.cro";
 connectAttr "frontLeftLeg_IK.pim" "ikHandle6_parentConstraint1.cpim";
 connectAttr "frontLeftLeg_IK.rp" "ikHandle6_parentConstraint1.crp";
@@ -17974,6 +18173,7 @@ connectAttr "|root_Control|legControls|frontLegControls|legFrontRight_Node1|legF
 		;
 connectAttr "ikHandle6_parentConstraint1.w1" "ikHandle6_parentConstraint1.tg[1].tw"
 		;
+connectAttr "controls.di" "ikHandle6_parentConstraint1.do";
 connectAttr "FK_armRight_UpperJoint_parentConstraint1.ctx" "FK_armRight_UpperJoint.tx"
 		;
 connectAttr "FK_armRight_UpperJoint_parentConstraint1.cty" "FK_armRight_UpperJoint.ty"
@@ -18366,6 +18566,8 @@ connectAttr "IKFK_Switch_RightArm_parentConstraint1.cry" "IKFK_Switch_RightArm.r
 		;
 connectAttr "IKFK_Switch_RightArm_parentConstraint1.crz" "IKFK_Switch_RightArm.rz"
 		;
+connectAttr "expression10.out[0]" "IKFK_Switch_RightArm.FKControlVisibility";
+connectAttr "controls.di" "IKFK_Switch_RightArm.do";
 connectAttr "IKFK_Switch_RightArm.ro" "IKFK_Switch_RightArm_parentConstraint1.cro"
 		;
 connectAttr "IKFK_Switch_RightArm.pim" "IKFK_Switch_RightArm_parentConstraint1.cpim"
@@ -18397,17 +18599,19 @@ connectAttr "armRight_BigPincerJoint.is" "IKFK_Switch_RightArm_parentConstraint1
 connectAttr "IKFK_Switch_RightArm_parentConstraint1.w0" "IKFK_Switch_RightArm_parentConstraint1.tg[0].tw"
 		;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.ctx" "IKFK_Switch_LeftArm.tx"
-		;
+		 -l on;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.cty" "IKFK_Switch_LeftArm.ty"
-		;
+		 -l on;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.ctz" "IKFK_Switch_LeftArm.tz"
-		;
+		 -l on;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.crx" "IKFK_Switch_LeftArm.rx"
-		;
+		 -l on;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.cry" "IKFK_Switch_LeftArm.ry"
-		;
+		 -l on;
 connectAttr "IKFK_Switch_LeftArm_parentConstraint1.crz" "IKFK_Switch_LeftArm.rz"
-		;
+		 -l on;
+connectAttr "expression11.out[0]" "IKFK_Switch_LeftArm.FKControlVisibility";
+connectAttr "controls.di" "IKFK_Switch_LeftArm.do";
 connectAttr "IKFK_Switch_LeftArm.ro" "IKFK_Switch_LeftArm_parentConstraint1.cro"
 		;
 connectAttr "IKFK_Switch_LeftArm.pim" "IKFK_Switch_LeftArm_parentConstraint1.cpim"
@@ -19216,366 +19420,6 @@ connectAttr "eyeLeftShape.iog.og[3]" "tweakSet30.dsm" -na;
 connectAttr "tweak30.msg" "tweakSet30.ub[0]";
 connectAttr "eyeLeftShapeOrig.w" "groupParts60.ig";
 connectAttr "groupId60.id" "groupParts60.gi";
-connectAttr "skinCluster31GroupParts.og" "skinCluster31.ip[0].ig";
-connectAttr "skinCluster31GroupId.id" "skinCluster31.ip[0].gi";
-connectAttr "bindPose54.msg" "skinCluster31.bp";
-connectAttr "FK_armRight_UpperJoint.wm" "skinCluster31.ma[0]";
-connectAttr "FK_armRight_UpperJoint.liw" "skinCluster31.lw[0]";
-connectAttr "FK_armRight_UpperJoint.obcc" "skinCluster31.ifcl[0]";
-connectAttr "groupParts62.og" "tweak31.ip[0].ig";
-connectAttr "groupId62.id" "tweak31.ip[0].gi";
-connectAttr "skinCluster31GroupId.msg" "skinCluster31Set.gn" -na;
-connectAttr "upperArmRightShape.iog.og[2]" "skinCluster31Set.dsm" -na;
-connectAttr "skinCluster31.msg" "skinCluster31Set.ub[0]";
-connectAttr "tweak31.og[0]" "skinCluster31GroupParts.ig";
-connectAttr "skinCluster31GroupId.id" "skinCluster31GroupParts.gi";
-connectAttr "groupId62.msg" "tweakSet31.gn" -na;
-connectAttr "upperArmRightShape.iog.og[3]" "tweakSet31.dsm" -na;
-connectAttr "tweak31.msg" "tweakSet31.ub[0]";
-connectAttr "upperArmRightShapeOrig.w" "groupParts62.ig";
-connectAttr "groupId62.id" "groupParts62.gi";
-connectAttr "rootJoint.msg" "bindPose54.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose54.m[1]";
-connectAttr "FK_armRight_UpperJoint.msg" "bindPose54.m[2]";
-connectAttr "bindPose54.w" "bindPose54.p[0]";
-connectAttr "bindPose54.m[0]" "bindPose54.p[1]";
-connectAttr "bindPose54.m[1]" "bindPose54.p[2]";
-connectAttr "skinCluster32GroupParts.og" "skinCluster32.ip[0].ig";
-connectAttr "skinCluster32GroupId.id" "skinCluster32.ip[0].gi";
-connectAttr "FK_armRight_UpperJoint.wm" "skinCluster32.ma[0]";
-connectAttr "FK_armRight_UpperJoint.liw" "skinCluster32.lw[0]";
-connectAttr "FK_armRight_UpperJoint.obcc" "skinCluster32.ifcl[0]";
-connectAttr "bindPose54.msg" "skinCluster32.bp";
-connectAttr "groupParts64.og" "tweak32.ip[0].ig";
-connectAttr "groupId64.id" "tweak32.ip[0].gi";
-connectAttr "skinCluster32GroupId.msg" "skinCluster32Set.gn" -na;
-connectAttr "innerArmUpperRightShape.iog.og[4]" "skinCluster32Set.dsm" -na;
-connectAttr "skinCluster32.msg" "skinCluster32Set.ub[0]";
-connectAttr "tweak32.og[0]" "skinCluster32GroupParts.ig";
-connectAttr "skinCluster32GroupId.id" "skinCluster32GroupParts.gi";
-connectAttr "groupId64.msg" "tweakSet32.gn" -na;
-connectAttr "innerArmUpperRightShape.iog.og[5]" "tweakSet32.dsm" -na;
-connectAttr "tweak32.msg" "tweakSet32.ub[0]";
-connectAttr "innerArmUpperRightShapeOrig.w" "groupParts64.ig";
-connectAttr "groupId64.id" "groupParts64.gi";
-connectAttr "skinCluster33GroupParts.og" "skinCluster33.ip[0].ig";
-connectAttr "skinCluster33GroupId.id" "skinCluster33.ip[0].gi";
-connectAttr "FK_armRight_UpperJoint.wm" "skinCluster33.ma[0]";
-connectAttr "FK_armRight_UpperJoint.liw" "skinCluster33.lw[0]";
-connectAttr "FK_armRight_UpperJoint.obcc" "skinCluster33.ifcl[0]";
-connectAttr "bindPose54.msg" "skinCluster33.bp";
-connectAttr "groupParts66.og" "tweak33.ip[0].ig";
-connectAttr "groupId66.id" "tweak33.ip[0].gi";
-connectAttr "skinCluster33GroupId.msg" "skinCluster33Set.gn" -na;
-connectAttr "armJointUpperRightShape.iog.og[4]" "skinCluster33Set.dsm" -na;
-connectAttr "skinCluster33.msg" "skinCluster33Set.ub[0]";
-connectAttr "tweak33.og[0]" "skinCluster33GroupParts.ig";
-connectAttr "skinCluster33GroupId.id" "skinCluster33GroupParts.gi";
-connectAttr "groupId66.msg" "tweakSet33.gn" -na;
-connectAttr "armJointUpperRightShape.iog.og[5]" "tweakSet33.dsm" -na;
-connectAttr "tweak33.msg" "tweakSet33.ub[0]";
-connectAttr "armJointUpperRightShapeOrig.w" "groupParts66.ig";
-connectAttr "groupId66.id" "groupParts66.gi";
-connectAttr "skinCluster34GroupParts.og" "skinCluster34.ip[0].ig";
-connectAttr "skinCluster34GroupId.id" "skinCluster34.ip[0].gi";
-connectAttr "bindPose55.msg" "skinCluster34.bp";
-connectAttr "FK_armRight_MidJoint.wm" "skinCluster34.ma[0]";
-connectAttr "FK_armRight_MidJoint.liw" "skinCluster34.lw[0]";
-connectAttr "FK_armRight_MidJoint.obcc" "skinCluster34.ifcl[0]";
-connectAttr "groupParts68.og" "tweak34.ip[0].ig";
-connectAttr "groupId68.id" "tweak34.ip[0].gi";
-connectAttr "skinCluster34GroupId.msg" "skinCluster34Set.gn" -na;
-connectAttr "armJointRightShape.iog.og[4]" "skinCluster34Set.dsm" -na;
-connectAttr "skinCluster34.msg" "skinCluster34Set.ub[0]";
-connectAttr "tweak34.og[0]" "skinCluster34GroupParts.ig";
-connectAttr "skinCluster34GroupId.id" "skinCluster34GroupParts.gi";
-connectAttr "groupId68.msg" "tweakSet34.gn" -na;
-connectAttr "armJointRightShape.iog.og[5]" "tweakSet34.dsm" -na;
-connectAttr "tweak34.msg" "tweakSet34.ub[0]";
-connectAttr "armJointRightShapeOrig.w" "groupParts68.ig";
-connectAttr "groupId68.id" "groupParts68.gi";
-connectAttr "rootJoint.msg" "bindPose55.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose55.m[1]";
-connectAttr "FK_armRight_UpperJoint.msg" "bindPose55.m[2]";
-connectAttr "FK_armRight_MidJoint.msg" "bindPose55.m[3]";
-connectAttr "bindPose55.w" "bindPose55.p[0]";
-connectAttr "bindPose55.m[0]" "bindPose55.p[1]";
-connectAttr "bindPose55.m[1]" "bindPose55.p[2]";
-connectAttr "bindPose55.m[2]" "bindPose55.p[3]";
-connectAttr "skinCluster35GroupParts.og" "skinCluster35.ip[0].ig";
-connectAttr "skinCluster35GroupId.id" "skinCluster35.ip[0].gi";
-connectAttr "FK_armRight_MidJoint.wm" "skinCluster35.ma[0]";
-connectAttr "FK_armRight_MidJoint.liw" "skinCluster35.lw[0]";
-connectAttr "FK_armRight_MidJoint.obcc" "skinCluster35.ifcl[0]";
-connectAttr "bindPose55.msg" "skinCluster35.bp";
-connectAttr "groupParts70.og" "tweak35.ip[0].ig";
-connectAttr "groupId70.id" "tweak35.ip[0].gi";
-connectAttr "skinCluster35GroupId.msg" "skinCluster35Set.gn" -na;
-connectAttr "lowerArmRightShape.iog.og[4]" "skinCluster35Set.dsm" -na;
-connectAttr "skinCluster35.msg" "skinCluster35Set.ub[0]";
-connectAttr "tweak35.og[0]" "skinCluster35GroupParts.ig";
-connectAttr "skinCluster35GroupId.id" "skinCluster35GroupParts.gi";
-connectAttr "groupId70.msg" "tweakSet35.gn" -na;
-connectAttr "lowerArmRightShape.iog.og[5]" "tweakSet35.dsm" -na;
-connectAttr "tweak35.msg" "tweakSet35.ub[0]";
-connectAttr "lowerArmRightShapeOrig.w" "groupParts70.ig";
-connectAttr "groupId70.id" "groupParts70.gi";
-connectAttr "skinCluster36GroupParts.og" "skinCluster36.ip[0].ig";
-connectAttr "skinCluster36GroupId.id" "skinCluster36.ip[0].gi";
-connectAttr "FK_armRight_MidJoint.wm" "skinCluster36.ma[0]";
-connectAttr "FK_armRight_MidJoint.liw" "skinCluster36.lw[0]";
-connectAttr "FK_armRight_MidJoint.obcc" "skinCluster36.ifcl[0]";
-connectAttr "bindPose55.msg" "skinCluster36.bp";
-connectAttr "groupParts72.og" "tweak36.ip[0].ig";
-connectAttr "groupId72.id" "tweak36.ip[0].gi";
-connectAttr "skinCluster36GroupId.msg" "skinCluster36Set.gn" -na;
-connectAttr "innerArmLowerRightShape.iog.og[4]" "skinCluster36Set.dsm" -na;
-connectAttr "skinCluster36.msg" "skinCluster36Set.ub[0]";
-connectAttr "tweak36.og[0]" "skinCluster36GroupParts.ig";
-connectAttr "skinCluster36GroupId.id" "skinCluster36GroupParts.gi";
-connectAttr "groupId72.msg" "tweakSet36.gn" -na;
-connectAttr "innerArmLowerRightShape.iog.og[5]" "tweakSet36.dsm" -na;
-connectAttr "tweak36.msg" "tweakSet36.ub[0]";
-connectAttr "innerArmLowerRightShapeOrig.w" "groupParts72.ig";
-connectAttr "groupId72.id" "groupParts72.gi";
-connectAttr "skinCluster37GroupParts.og" "skinCluster37.ip[0].ig";
-connectAttr "skinCluster37GroupId.id" "skinCluster37.ip[0].gi";
-connectAttr "bindPose56.msg" "skinCluster37.bp";
-connectAttr "FK_armRight_BigPincerJoint.wm" "skinCluster37.ma[0]";
-connectAttr "FK_armRight_BigPincerJoint.liw" "skinCluster37.lw[0]";
-connectAttr "FK_armRight_BigPincerJoint.obcc" "skinCluster37.ifcl[0]";
-connectAttr "groupParts74.og" "tweak37.ip[0].ig";
-connectAttr "groupId74.id" "tweak37.ip[0].gi";
-connectAttr "skinCluster37GroupId.msg" "skinCluster37Set.gn" -na;
-connectAttr "clawBigRightShape.iog.og[4]" "skinCluster37Set.dsm" -na;
-connectAttr "skinCluster37.msg" "skinCluster37Set.ub[0]";
-connectAttr "tweak37.og[0]" "skinCluster37GroupParts.ig";
-connectAttr "skinCluster37GroupId.id" "skinCluster37GroupParts.gi";
-connectAttr "groupId74.msg" "tweakSet37.gn" -na;
-connectAttr "clawBigRightShape.iog.og[5]" "tweakSet37.dsm" -na;
-connectAttr "tweak37.msg" "tweakSet37.ub[0]";
-connectAttr "clawBigRightShapeOrig.w" "groupParts74.ig";
-connectAttr "groupId74.id" "groupParts74.gi";
-connectAttr "rootJoint.msg" "bindPose56.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose56.m[1]";
-connectAttr "FK_armRight_UpperJoint.msg" "bindPose56.m[2]";
-connectAttr "FK_armRight_MidJoint.msg" "bindPose56.m[3]";
-connectAttr "FK_armRight_BigPincerJoint.msg" "bindPose56.m[4]";
-connectAttr "bindPose56.w" "bindPose56.p[0]";
-connectAttr "bindPose56.m[0]" "bindPose56.p[1]";
-connectAttr "bindPose56.m[1]" "bindPose56.p[2]";
-connectAttr "bindPose56.m[2]" "bindPose56.p[3]";
-connectAttr "bindPose56.m[3]" "bindPose56.p[4]";
-connectAttr "skinCluster38GroupParts.og" "skinCluster38.ip[0].ig";
-connectAttr "skinCluster38GroupId.id" "skinCluster38.ip[0].gi";
-connectAttr "bindPose57.msg" "skinCluster38.bp";
-connectAttr "FK_armRight_SmallPincerJoint.wm" "skinCluster38.ma[0]";
-connectAttr "FK_armRight_SmallPincerJoint.liw" "skinCluster38.lw[0]";
-connectAttr "FK_armRight_SmallPincerJoint.obcc" "skinCluster38.ifcl[0]";
-connectAttr "groupParts76.og" "tweak38.ip[0].ig";
-connectAttr "groupId76.id" "tweak38.ip[0].gi";
-connectAttr "skinCluster38GroupId.msg" "skinCluster38Set.gn" -na;
-connectAttr "clawSmallRightShape.iog.og[4]" "skinCluster38Set.dsm" -na;
-connectAttr "skinCluster38.msg" "skinCluster38Set.ub[0]";
-connectAttr "tweak38.og[0]" "skinCluster38GroupParts.ig";
-connectAttr "skinCluster38GroupId.id" "skinCluster38GroupParts.gi";
-connectAttr "groupId76.msg" "tweakSet38.gn" -na;
-connectAttr "clawSmallRightShape.iog.og[5]" "tweakSet38.dsm" -na;
-connectAttr "tweak38.msg" "tweakSet38.ub[0]";
-connectAttr "clawSmallRightShapeOrig.w" "groupParts76.ig";
-connectAttr "groupId76.id" "groupParts76.gi";
-connectAttr "rootJoint.msg" "bindPose57.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose57.m[1]";
-connectAttr "FK_armRight_UpperJoint.msg" "bindPose57.m[2]";
-connectAttr "FK_armRight_MidJoint.msg" "bindPose57.m[3]";
-connectAttr "FK_armRight_BigPincerJoint.msg" "bindPose57.m[4]";
-connectAttr "FK_armRight_SmallPincerJoint.msg" "bindPose57.m[5]";
-connectAttr "bindPose57.w" "bindPose57.p[0]";
-connectAttr "bindPose57.m[0]" "bindPose57.p[1]";
-connectAttr "bindPose57.m[1]" "bindPose57.p[2]";
-connectAttr "bindPose57.m[2]" "bindPose57.p[3]";
-connectAttr "bindPose57.m[3]" "bindPose57.p[4]";
-connectAttr "bindPose57.m[4]" "bindPose57.p[5]";
-connectAttr "skinCluster39GroupParts.og" "skinCluster39.ip[0].ig";
-connectAttr "skinCluster39GroupId.id" "skinCluster39.ip[0].gi";
-connectAttr "bindPose58.msg" "skinCluster39.bp";
-connectAttr "FK_armLeft_UpperJoint.wm" "skinCluster39.ma[0]";
-connectAttr "FK_armLeft_UpperJoint.liw" "skinCluster39.lw[0]";
-connectAttr "FK_armLeft_UpperJoint.obcc" "skinCluster39.ifcl[0]";
-connectAttr "groupParts78.og" "tweak39.ip[0].ig";
-connectAttr "groupId78.id" "tweak39.ip[0].gi";
-connectAttr "skinCluster39GroupId.msg" "skinCluster39Set.gn" -na;
-connectAttr "armJointUpperLeftShape.iog.og[4]" "skinCluster39Set.dsm" -na;
-connectAttr "skinCluster39.msg" "skinCluster39Set.ub[0]";
-connectAttr "tweak39.og[0]" "skinCluster39GroupParts.ig";
-connectAttr "skinCluster39GroupId.id" "skinCluster39GroupParts.gi";
-connectAttr "groupId78.msg" "tweakSet39.gn" -na;
-connectAttr "armJointUpperLeftShape.iog.og[5]" "tweakSet39.dsm" -na;
-connectAttr "tweak39.msg" "tweakSet39.ub[0]";
-connectAttr "armJointUpperLeftShapeOrig.w" "groupParts78.ig";
-connectAttr "groupId78.id" "groupParts78.gi";
-connectAttr "rootJoint.msg" "bindPose58.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose58.m[1]";
-connectAttr "FK_armLeft_UpperJoint.msg" "bindPose58.m[2]";
-connectAttr "bindPose58.w" "bindPose58.p[0]";
-connectAttr "bindPose58.m[0]" "bindPose58.p[1]";
-connectAttr "bindPose58.m[1]" "bindPose58.p[2]";
-connectAttr "skinCluster40GroupParts.og" "skinCluster40.ip[0].ig";
-connectAttr "skinCluster40GroupId.id" "skinCluster40.ip[0].gi";
-connectAttr "FK_armLeft_UpperJoint.wm" "skinCluster40.ma[0]";
-connectAttr "FK_armLeft_UpperJoint.liw" "skinCluster40.lw[0]";
-connectAttr "FK_armLeft_UpperJoint.obcc" "skinCluster40.ifcl[0]";
-connectAttr "bindPose58.msg" "skinCluster40.bp";
-connectAttr "groupParts80.og" "tweak40.ip[0].ig";
-connectAttr "groupId80.id" "tweak40.ip[0].gi";
-connectAttr "skinCluster40GroupId.msg" "skinCluster40Set.gn" -na;
-connectAttr "innerArmUpperLeftShape.iog.og[4]" "skinCluster40Set.dsm" -na;
-connectAttr "skinCluster40.msg" "skinCluster40Set.ub[0]";
-connectAttr "tweak40.og[0]" "skinCluster40GroupParts.ig";
-connectAttr "skinCluster40GroupId.id" "skinCluster40GroupParts.gi";
-connectAttr "groupId80.msg" "tweakSet40.gn" -na;
-connectAttr "innerArmUpperLeftShape.iog.og[5]" "tweakSet40.dsm" -na;
-connectAttr "tweak40.msg" "tweakSet40.ub[0]";
-connectAttr "innerArmUpperLeftShapeOrig.w" "groupParts80.ig";
-connectAttr "groupId80.id" "groupParts80.gi";
-connectAttr "skinCluster41GroupParts.og" "skinCluster41.ip[0].ig";
-connectAttr "skinCluster41GroupId.id" "skinCluster41.ip[0].gi";
-connectAttr "FK_armLeft_UpperJoint.wm" "skinCluster41.ma[0]";
-connectAttr "FK_armLeft_UpperJoint.liw" "skinCluster41.lw[0]";
-connectAttr "FK_armLeft_UpperJoint.obcc" "skinCluster41.ifcl[0]";
-connectAttr "bindPose58.msg" "skinCluster41.bp";
-connectAttr "groupParts82.og" "tweak41.ip[0].ig";
-connectAttr "groupId82.id" "tweak41.ip[0].gi";
-connectAttr "skinCluster41GroupId.msg" "skinCluster41Set.gn" -na;
-connectAttr "upperArmLeftShape.iog.og[4]" "skinCluster41Set.dsm" -na;
-connectAttr "skinCluster41.msg" "skinCluster41Set.ub[0]";
-connectAttr "tweak41.og[0]" "skinCluster41GroupParts.ig";
-connectAttr "skinCluster41GroupId.id" "skinCluster41GroupParts.gi";
-connectAttr "groupId82.msg" "tweakSet41.gn" -na;
-connectAttr "upperArmLeftShape.iog.og[5]" "tweakSet41.dsm" -na;
-connectAttr "tweak41.msg" "tweakSet41.ub[0]";
-connectAttr "upperArmLeftShapeOrig.w" "groupParts82.ig";
-connectAttr "groupId82.id" "groupParts82.gi";
-connectAttr "skinCluster42GroupParts.og" "skinCluster42.ip[0].ig";
-connectAttr "skinCluster42GroupId.id" "skinCluster42.ip[0].gi";
-connectAttr "bindPose59.msg" "skinCluster42.bp";
-connectAttr "FK_armLeft_MidJoint.wm" "skinCluster42.ma[0]";
-connectAttr "FK_armLeft_MidJoint.liw" "skinCluster42.lw[0]";
-connectAttr "FK_armLeft_MidJoint.obcc" "skinCluster42.ifcl[0]";
-connectAttr "groupParts84.og" "tweak42.ip[0].ig";
-connectAttr "groupId84.id" "tweak42.ip[0].gi";
-connectAttr "skinCluster42GroupId.msg" "skinCluster42Set.gn" -na;
-connectAttr "lowerArmLeftShape.iog.og[4]" "skinCluster42Set.dsm" -na;
-connectAttr "skinCluster42.msg" "skinCluster42Set.ub[0]";
-connectAttr "tweak42.og[0]" "skinCluster42GroupParts.ig";
-connectAttr "skinCluster42GroupId.id" "skinCluster42GroupParts.gi";
-connectAttr "groupId84.msg" "tweakSet42.gn" -na;
-connectAttr "lowerArmLeftShape.iog.og[5]" "tweakSet42.dsm" -na;
-connectAttr "tweak42.msg" "tweakSet42.ub[0]";
-connectAttr "lowerArmLeftShapeOrig.w" "groupParts84.ig";
-connectAttr "groupId84.id" "groupParts84.gi";
-connectAttr "rootJoint.msg" "bindPose59.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose59.m[1]";
-connectAttr "FK_armLeft_UpperJoint.msg" "bindPose59.m[2]";
-connectAttr "FK_armLeft_MidJoint.msg" "bindPose59.m[3]";
-connectAttr "bindPose59.w" "bindPose59.p[0]";
-connectAttr "bindPose59.m[0]" "bindPose59.p[1]";
-connectAttr "bindPose59.m[1]" "bindPose59.p[2]";
-connectAttr "bindPose59.m[2]" "bindPose59.p[3]";
-connectAttr "skinCluster43GroupParts.og" "skinCluster43.ip[0].ig";
-connectAttr "skinCluster43GroupId.id" "skinCluster43.ip[0].gi";
-connectAttr "FK_armLeft_MidJoint.wm" "skinCluster43.ma[0]";
-connectAttr "FK_armLeft_MidJoint.liw" "skinCluster43.lw[0]";
-connectAttr "FK_armLeft_MidJoint.obcc" "skinCluster43.ifcl[0]";
-connectAttr "bindPose59.msg" "skinCluster43.bp";
-connectAttr "groupParts86.og" "tweak43.ip[0].ig";
-connectAttr "groupId86.id" "tweak43.ip[0].gi";
-connectAttr "skinCluster43GroupId.msg" "skinCluster43Set.gn" -na;
-connectAttr "innerArmLowerLeftShape.iog.og[4]" "skinCluster43Set.dsm" -na;
-connectAttr "skinCluster43.msg" "skinCluster43Set.ub[0]";
-connectAttr "tweak43.og[0]" "skinCluster43GroupParts.ig";
-connectAttr "skinCluster43GroupId.id" "skinCluster43GroupParts.gi";
-connectAttr "groupId86.msg" "tweakSet43.gn" -na;
-connectAttr "innerArmLowerLeftShape.iog.og[5]" "tweakSet43.dsm" -na;
-connectAttr "tweak43.msg" "tweakSet43.ub[0]";
-connectAttr "innerArmLowerLeftShapeOrig.w" "groupParts86.ig";
-connectAttr "groupId86.id" "groupParts86.gi";
-connectAttr "skinCluster44GroupParts.og" "skinCluster44.ip[0].ig";
-connectAttr "skinCluster44GroupId.id" "skinCluster44.ip[0].gi";
-connectAttr "FK_armLeft_MidJoint.wm" "skinCluster44.ma[0]";
-connectAttr "FK_armLeft_MidJoint.liw" "skinCluster44.lw[0]";
-connectAttr "FK_armLeft_MidJoint.obcc" "skinCluster44.ifcl[0]";
-connectAttr "bindPose59.msg" "skinCluster44.bp";
-connectAttr "groupParts88.og" "tweak44.ip[0].ig";
-connectAttr "groupId88.id" "tweak44.ip[0].gi";
-connectAttr "skinCluster44GroupId.msg" "skinCluster44Set.gn" -na;
-connectAttr "armJointLeftShape.iog.og[4]" "skinCluster44Set.dsm" -na;
-connectAttr "skinCluster44.msg" "skinCluster44Set.ub[0]";
-connectAttr "tweak44.og[0]" "skinCluster44GroupParts.ig";
-connectAttr "skinCluster44GroupId.id" "skinCluster44GroupParts.gi";
-connectAttr "groupId88.msg" "tweakSet44.gn" -na;
-connectAttr "armJointLeftShape.iog.og[5]" "tweakSet44.dsm" -na;
-connectAttr "tweak44.msg" "tweakSet44.ub[0]";
-connectAttr "armJointLeftShapeOrig.w" "groupParts88.ig";
-connectAttr "groupId88.id" "groupParts88.gi";
-connectAttr "skinCluster45GroupParts.og" "skinCluster45.ip[0].ig";
-connectAttr "skinCluster45GroupId.id" "skinCluster45.ip[0].gi";
-connectAttr "bindPose60.msg" "skinCluster45.bp";
-connectAttr "FK_armLeft_BigPincerJoint.wm" "skinCluster45.ma[0]";
-connectAttr "FK_armLeft_BigPincerJoint.liw" "skinCluster45.lw[0]";
-connectAttr "FK_armLeft_BigPincerJoint.obcc" "skinCluster45.ifcl[0]";
-connectAttr "groupParts90.og" "tweak45.ip[0].ig";
-connectAttr "groupId90.id" "tweak45.ip[0].gi";
-connectAttr "skinCluster45GroupId.msg" "skinCluster45Set.gn" -na;
-connectAttr "clawBigLeftShape.iog.og[4]" "skinCluster45Set.dsm" -na;
-connectAttr "skinCluster45.msg" "skinCluster45Set.ub[0]";
-connectAttr "tweak45.og[0]" "skinCluster45GroupParts.ig";
-connectAttr "skinCluster45GroupId.id" "skinCluster45GroupParts.gi";
-connectAttr "groupId90.msg" "tweakSet45.gn" -na;
-connectAttr "clawBigLeftShape.iog.og[5]" "tweakSet45.dsm" -na;
-connectAttr "tweak45.msg" "tweakSet45.ub[0]";
-connectAttr "clawBigLeftShapeOrig.w" "groupParts90.ig";
-connectAttr "groupId90.id" "groupParts90.gi";
-connectAttr "rootJoint.msg" "bindPose60.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose60.m[1]";
-connectAttr "FK_armLeft_UpperJoint.msg" "bindPose60.m[2]";
-connectAttr "FK_armLeft_MidJoint.msg" "bindPose60.m[3]";
-connectAttr "FK_armLeft_BigPincerJoint.msg" "bindPose60.m[4]";
-connectAttr "bindPose60.w" "bindPose60.p[0]";
-connectAttr "bindPose60.m[0]" "bindPose60.p[1]";
-connectAttr "bindPose60.m[1]" "bindPose60.p[2]";
-connectAttr "bindPose60.m[2]" "bindPose60.p[3]";
-connectAttr "bindPose60.m[3]" "bindPose60.p[4]";
-connectAttr "skinCluster46GroupParts.og" "skinCluster46.ip[0].ig";
-connectAttr "skinCluster46GroupId.id" "skinCluster46.ip[0].gi";
-connectAttr "bindPose61.msg" "skinCluster46.bp";
-connectAttr "FK_armLeft_SmallPincerJoint.wm" "skinCluster46.ma[0]";
-connectAttr "FK_armLeft_SmallPincerJoint.liw" "skinCluster46.lw[0]";
-connectAttr "FK_armLeft_SmallPincerJoint.obcc" "skinCluster46.ifcl[0]";
-connectAttr "groupParts92.og" "tweak46.ip[0].ig";
-connectAttr "groupId92.id" "tweak46.ip[0].gi";
-connectAttr "skinCluster46GroupId.msg" "skinCluster46Set.gn" -na;
-connectAttr "clawSmallLeftShape.iog.og[4]" "skinCluster46Set.dsm" -na;
-connectAttr "skinCluster46.msg" "skinCluster46Set.ub[0]";
-connectAttr "tweak46.og[0]" "skinCluster46GroupParts.ig";
-connectAttr "skinCluster46GroupId.id" "skinCluster46GroupParts.gi";
-connectAttr "groupId92.msg" "tweakSet46.gn" -na;
-connectAttr "clawSmallLeftShape.iog.og[5]" "tweakSet46.dsm" -na;
-connectAttr "tweak46.msg" "tweakSet46.ub[0]";
-connectAttr "clawSmallLeftShapeOrig.w" "groupParts92.ig";
-connectAttr "groupId92.id" "groupParts92.gi";
-connectAttr "rootJoint.msg" "bindPose61.m[0]";
-connectAttr "bodyFrontJoint.msg" "bindPose61.m[1]";
-connectAttr "FK_armLeft_UpperJoint.msg" "bindPose61.m[2]";
-connectAttr "FK_armLeft_MidJoint.msg" "bindPose61.m[3]";
-connectAttr "FK_armLeft_BigPincerJoint.msg" "bindPose61.m[4]";
-connectAttr "FK_armLeft_SmallPincerJoint.msg" "bindPose61.m[5]";
-connectAttr "bindPose61.w" "bindPose61.p[0]";
-connectAttr "bindPose61.m[0]" "bindPose61.p[1]";
-connectAttr "bindPose61.m[1]" "bindPose61.p[2]";
-connectAttr "bindPose61.m[2]" "bindPose61.p[3]";
-connectAttr "bindPose61.m[3]" "bindPose61.p[4]";
-connectAttr "bindPose61.m[4]" "bindPose61.p[5]";
 connectAttr ":time1.o" "expression1.tim";
 connectAttr "armRight_UpperJoint1.msg" "expression1.obm";
 connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "expression2.in[0]";
@@ -19602,6 +19446,374 @@ connectAttr "armRight_MidJoint.msg" "expression8.obm";
 connectAttr "armRight_BigPincerJoint.IK" "expression9.in[0]";
 connectAttr ":time1.o" "expression9.tim";
 connectAttr "armRight_BigPincerJoint.msg" "expression9.obm";
+connectAttr "IKFK_Switch_RightArm.IKFKSwitch" "expression10.in[0]";
+connectAttr ":time1.o" "expression10.tim";
+connectAttr "IKFK_Switch_RightArm.msg" "expression10.obm";
+connectAttr "IKFK_Switch_LeftArm.IKFKSwitch" "expression11.in[0]";
+connectAttr ":time1.o" "expression11.tim";
+connectAttr "IKFK_Switch_LeftArm.msg" "expression11.obm";
+connectAttr "layerManager.dli[2]" "joints.id";
+connectAttr "layerManager.dli[3]" "controls.id";
+connectAttr "skinCluster31GroupParts.og" "skinCluster31.ip[0].ig";
+connectAttr "skinCluster31GroupId.id" "skinCluster31.ip[0].gi";
+connectAttr "bindPose54.msg" "skinCluster31.bp";
+connectAttr "armRight_UpperJoint1.wm" "skinCluster31.ma[0]";
+connectAttr "armRight_UpperJoint1.liw" "skinCluster31.lw[0]";
+connectAttr "armRight_UpperJoint1.obcc" "skinCluster31.ifcl[0]";
+connectAttr "groupParts62.og" "tweak31.ip[0].ig";
+connectAttr "groupId62.id" "tweak31.ip[0].gi";
+connectAttr "skinCluster31GroupId.msg" "skinCluster31Set.gn" -na;
+connectAttr "innerArmUpperRightShape.iog.og[6]" "skinCluster31Set.dsm" -na;
+connectAttr "skinCluster31.msg" "skinCluster31Set.ub[0]";
+connectAttr "tweak31.og[0]" "skinCluster31GroupParts.ig";
+connectAttr "skinCluster31GroupId.id" "skinCluster31GroupParts.gi";
+connectAttr "groupId62.msg" "tweakSet31.gn" -na;
+connectAttr "innerArmUpperRightShape.iog.og[7]" "tweakSet31.dsm" -na;
+connectAttr "tweak31.msg" "tweakSet31.ub[0]";
+connectAttr "innerArmUpperRightShapeOrig.w" "groupParts62.ig";
+connectAttr "groupId62.id" "groupParts62.gi";
+connectAttr "rootJoint.msg" "bindPose54.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose54.m[1]";
+connectAttr "armRight_UpperJoint1.msg" "bindPose54.m[2]";
+connectAttr "bindPose54.w" "bindPose54.p[0]";
+connectAttr "bindPose54.m[0]" "bindPose54.p[1]";
+connectAttr "bindPose54.m[1]" "bindPose54.p[2]";
+connectAttr "skinCluster32GroupParts.og" "skinCluster32.ip[0].ig";
+connectAttr "skinCluster32GroupId.id" "skinCluster32.ip[0].gi";
+connectAttr "armRight_UpperJoint1.wm" "skinCluster32.ma[0]";
+connectAttr "armRight_UpperJoint1.liw" "skinCluster32.lw[0]";
+connectAttr "armRight_UpperJoint1.obcc" "skinCluster32.ifcl[0]";
+connectAttr "bindPose54.msg" "skinCluster32.bp";
+connectAttr "groupParts64.og" "tweak32.ip[0].ig";
+connectAttr "groupId64.id" "tweak32.ip[0].gi";
+connectAttr "skinCluster32GroupId.msg" "skinCluster32Set.gn" -na;
+connectAttr "upperArmRightShape.iog.og[4]" "skinCluster32Set.dsm" -na;
+connectAttr "skinCluster32.msg" "skinCluster32Set.ub[0]";
+connectAttr "tweak32.og[0]" "skinCluster32GroupParts.ig";
+connectAttr "skinCluster32GroupId.id" "skinCluster32GroupParts.gi";
+connectAttr "groupId64.msg" "tweakSet32.gn" -na;
+connectAttr "upperArmRightShape.iog.og[5]" "tweakSet32.dsm" -na;
+connectAttr "tweak32.msg" "tweakSet32.ub[0]";
+connectAttr "upperArmRightShapeOrig.w" "groupParts64.ig";
+connectAttr "groupId64.id" "groupParts64.gi";
+connectAttr "skinCluster33GroupParts.og" "skinCluster33.ip[0].ig";
+connectAttr "skinCluster33GroupId.id" "skinCluster33.ip[0].gi";
+connectAttr "armRight_UpperJoint1.wm" "skinCluster33.ma[0]";
+connectAttr "armRight_UpperJoint1.liw" "skinCluster33.lw[0]";
+connectAttr "armRight_UpperJoint1.obcc" "skinCluster33.ifcl[0]";
+connectAttr "bindPose54.msg" "skinCluster33.bp";
+connectAttr "groupParts66.og" "tweak33.ip[0].ig";
+connectAttr "groupId66.id" "tweak33.ip[0].gi";
+connectAttr "skinCluster33GroupId.msg" "skinCluster33Set.gn" -na;
+connectAttr "armJointUpperRightShape.iog.og[6]" "skinCluster33Set.dsm" -na;
+connectAttr "skinCluster33.msg" "skinCluster33Set.ub[0]";
+connectAttr "tweak33.og[0]" "skinCluster33GroupParts.ig";
+connectAttr "skinCluster33GroupId.id" "skinCluster33GroupParts.gi";
+connectAttr "groupId66.msg" "tweakSet33.gn" -na;
+connectAttr "armJointUpperRightShape.iog.og[7]" "tweakSet33.dsm" -na;
+connectAttr "tweak33.msg" "tweakSet33.ub[0]";
+connectAttr "armJointUpperRightShapeOrig.w" "groupParts66.ig";
+connectAttr "groupId66.id" "groupParts66.gi";
+connectAttr "skinCluster34GroupParts.og" "skinCluster34.ip[0].ig";
+connectAttr "skinCluster34GroupId.id" "skinCluster34.ip[0].gi";
+connectAttr "bindPose55.msg" "skinCluster34.bp";
+connectAttr "armRight_MidJoint.wm" "skinCluster34.ma[0]";
+connectAttr "armRight_MidJoint.liw" "skinCluster34.lw[0]";
+connectAttr "armRight_MidJoint.obcc" "skinCluster34.ifcl[0]";
+connectAttr "groupParts68.og" "tweak34.ip[0].ig";
+connectAttr "groupId68.id" "tweak34.ip[0].gi";
+connectAttr "skinCluster34GroupId.msg" "skinCluster34Set.gn" -na;
+connectAttr "innerArmLowerRightShape.iog.og[6]" "skinCluster34Set.dsm" -na;
+connectAttr "skinCluster34.msg" "skinCluster34Set.ub[0]";
+connectAttr "tweak34.og[0]" "skinCluster34GroupParts.ig";
+connectAttr "skinCluster34GroupId.id" "skinCluster34GroupParts.gi";
+connectAttr "groupId68.msg" "tweakSet34.gn" -na;
+connectAttr "innerArmLowerRightShape.iog.og[7]" "tweakSet34.dsm" -na;
+connectAttr "tweak34.msg" "tweakSet34.ub[0]";
+connectAttr "innerArmLowerRightShapeOrig.w" "groupParts68.ig";
+connectAttr "groupId68.id" "groupParts68.gi";
+connectAttr "rootJoint.msg" "bindPose55.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose55.m[1]";
+connectAttr "armRight_UpperJoint1.msg" "bindPose55.m[2]";
+connectAttr "armRight_MidJoint.msg" "bindPose55.m[3]";
+connectAttr "bindPose55.w" "bindPose55.p[0]";
+connectAttr "bindPose55.m[0]" "bindPose55.p[1]";
+connectAttr "bindPose55.m[1]" "bindPose55.p[2]";
+connectAttr "bindPose55.m[2]" "bindPose55.p[3]";
+connectAttr "skinCluster35GroupParts.og" "skinCluster35.ip[0].ig";
+connectAttr "skinCluster35GroupId.id" "skinCluster35.ip[0].gi";
+connectAttr "armRight_MidJoint.wm" "skinCluster35.ma[0]";
+connectAttr "armRight_MidJoint.liw" "skinCluster35.lw[0]";
+connectAttr "armRight_MidJoint.obcc" "skinCluster35.ifcl[0]";
+connectAttr "bindPose55.msg" "skinCluster35.bp";
+connectAttr "groupParts70.og" "tweak35.ip[0].ig";
+connectAttr "groupId70.id" "tweak35.ip[0].gi";
+connectAttr "skinCluster35GroupId.msg" "skinCluster35Set.gn" -na;
+connectAttr "armJointRightShape.iog.og[6]" "skinCluster35Set.dsm" -na;
+connectAttr "skinCluster35.msg" "skinCluster35Set.ub[0]";
+connectAttr "tweak35.og[0]" "skinCluster35GroupParts.ig";
+connectAttr "skinCluster35GroupId.id" "skinCluster35GroupParts.gi";
+connectAttr "groupId70.msg" "tweakSet35.gn" -na;
+connectAttr "armJointRightShape.iog.og[7]" "tweakSet35.dsm" -na;
+connectAttr "tweak35.msg" "tweakSet35.ub[0]";
+connectAttr "armJointRightShapeOrig.w" "groupParts70.ig";
+connectAttr "groupId70.id" "groupParts70.gi";
+connectAttr "skinCluster36GroupParts.og" "skinCluster36.ip[0].ig";
+connectAttr "skinCluster36GroupId.id" "skinCluster36.ip[0].gi";
+connectAttr "armRight_MidJoint.wm" "skinCluster36.ma[0]";
+connectAttr "armRight_MidJoint.liw" "skinCluster36.lw[0]";
+connectAttr "armRight_MidJoint.obcc" "skinCluster36.ifcl[0]";
+connectAttr "bindPose55.msg" "skinCluster36.bp";
+connectAttr "groupParts72.og" "tweak36.ip[0].ig";
+connectAttr "groupId72.id" "tweak36.ip[0].gi";
+connectAttr "skinCluster36GroupId.msg" "skinCluster36Set.gn" -na;
+connectAttr "lowerArmRightShape.iog.og[6]" "skinCluster36Set.dsm" -na;
+connectAttr "skinCluster36.msg" "skinCluster36Set.ub[0]";
+connectAttr "tweak36.og[0]" "skinCluster36GroupParts.ig";
+connectAttr "skinCluster36GroupId.id" "skinCluster36GroupParts.gi";
+connectAttr "groupId72.msg" "tweakSet36.gn" -na;
+connectAttr "lowerArmRightShape.iog.og[7]" "tweakSet36.dsm" -na;
+connectAttr "tweak36.msg" "tweakSet36.ub[0]";
+connectAttr "lowerArmRightShapeOrig.w" "groupParts72.ig";
+connectAttr "groupId72.id" "groupParts72.gi";
+connectAttr "skinCluster37GroupParts.og" "skinCluster37.ip[0].ig";
+connectAttr "skinCluster37GroupId.id" "skinCluster37.ip[0].gi";
+connectAttr "bindPose56.msg" "skinCluster37.bp";
+connectAttr "armRight_BigPincerJoint.wm" "skinCluster37.ma[0]";
+connectAttr "armRight_BigPincerJoint.liw" "skinCluster37.lw[0]";
+connectAttr "armRight_BigPincerJoint.obcc" "skinCluster37.ifcl[0]";
+connectAttr "groupParts74.og" "tweak37.ip[0].ig";
+connectAttr "groupId74.id" "tweak37.ip[0].gi";
+connectAttr "skinCluster37GroupId.msg" "skinCluster37Set.gn" -na;
+connectAttr "clawBigRightShape.iog.og[6]" "skinCluster37Set.dsm" -na;
+connectAttr "skinCluster37.msg" "skinCluster37Set.ub[0]";
+connectAttr "tweak37.og[0]" "skinCluster37GroupParts.ig";
+connectAttr "skinCluster37GroupId.id" "skinCluster37GroupParts.gi";
+connectAttr "groupId74.msg" "tweakSet37.gn" -na;
+connectAttr "clawBigRightShape.iog.og[7]" "tweakSet37.dsm" -na;
+connectAttr "tweak37.msg" "tweakSet37.ub[0]";
+connectAttr "clawBigRightShapeOrig.w" "groupParts74.ig";
+connectAttr "groupId74.id" "groupParts74.gi";
+connectAttr "rootJoint.msg" "bindPose56.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose56.m[1]";
+connectAttr "armRight_UpperJoint1.msg" "bindPose56.m[2]";
+connectAttr "armRight_MidJoint.msg" "bindPose56.m[3]";
+connectAttr "armRight_BigPincerJoint.msg" "bindPose56.m[4]";
+connectAttr "bindPose56.w" "bindPose56.p[0]";
+connectAttr "bindPose56.m[0]" "bindPose56.p[1]";
+connectAttr "bindPose56.m[1]" "bindPose56.p[2]";
+connectAttr "bindPose56.m[2]" "bindPose56.p[3]";
+connectAttr "bindPose56.m[3]" "bindPose56.p[4]";
+connectAttr "skinCluster38GroupParts.og" "skinCluster38.ip[0].ig";
+connectAttr "skinCluster38GroupId.id" "skinCluster38.ip[0].gi";
+connectAttr "bindPose57.msg" "skinCluster38.bp";
+connectAttr "armRight_SmallPincerJoint.wm" "skinCluster38.ma[0]";
+connectAttr "armRight_SmallPincerJoint.liw" "skinCluster38.lw[0]";
+connectAttr "armRight_SmallPincerJoint.obcc" "skinCluster38.ifcl[0]";
+connectAttr "groupParts76.og" "tweak38.ip[0].ig";
+connectAttr "groupId76.id" "tweak38.ip[0].gi";
+connectAttr "skinCluster38GroupId.msg" "skinCluster38Set.gn" -na;
+connectAttr "clawSmallRightShape.iog.og[6]" "skinCluster38Set.dsm" -na;
+connectAttr "skinCluster38.msg" "skinCluster38Set.ub[0]";
+connectAttr "tweak38.og[0]" "skinCluster38GroupParts.ig";
+connectAttr "skinCluster38GroupId.id" "skinCluster38GroupParts.gi";
+connectAttr "groupId76.msg" "tweakSet38.gn" -na;
+connectAttr "clawSmallRightShape.iog.og[7]" "tweakSet38.dsm" -na;
+connectAttr "tweak38.msg" "tweakSet38.ub[0]";
+connectAttr "clawSmallRightShapeOrig.w" "groupParts76.ig";
+connectAttr "groupId76.id" "groupParts76.gi";
+connectAttr "rootJoint.msg" "bindPose57.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose57.m[1]";
+connectAttr "armRight_UpperJoint1.msg" "bindPose57.m[2]";
+connectAttr "armRight_MidJoint.msg" "bindPose57.m[3]";
+connectAttr "armRight_BigPincerJoint.msg" "bindPose57.m[4]";
+connectAttr "armRight_SmallPincerJoint.msg" "bindPose57.m[5]";
+connectAttr "bindPose57.w" "bindPose57.p[0]";
+connectAttr "bindPose57.m[0]" "bindPose57.p[1]";
+connectAttr "bindPose57.m[1]" "bindPose57.p[2]";
+connectAttr "bindPose57.m[2]" "bindPose57.p[3]";
+connectAttr "bindPose57.m[3]" "bindPose57.p[4]";
+connectAttr "bindPose57.m[4]" "bindPose57.p[5]";
+connectAttr "skinCluster39GroupParts.og" "skinCluster39.ip[0].ig";
+connectAttr "skinCluster39GroupId.id" "skinCluster39.ip[0].gi";
+connectAttr "bindPose58.msg" "skinCluster39.bp";
+connectAttr "armLeft_UpperJoint1.wm" "skinCluster39.ma[0]";
+connectAttr "armLeft_UpperJoint1.liw" "skinCluster39.lw[0]";
+connectAttr "armLeft_UpperJoint1.obcc" "skinCluster39.ifcl[0]";
+connectAttr "groupParts78.og" "tweak39.ip[0].ig";
+connectAttr "groupId78.id" "tweak39.ip[0].gi";
+connectAttr "skinCluster39GroupId.msg" "skinCluster39Set.gn" -na;
+connectAttr "innerArmUpperLeftShape.iog.og[6]" "skinCluster39Set.dsm" -na;
+connectAttr "skinCluster39.msg" "skinCluster39Set.ub[0]";
+connectAttr "tweak39.og[0]" "skinCluster39GroupParts.ig";
+connectAttr "skinCluster39GroupId.id" "skinCluster39GroupParts.gi";
+connectAttr "groupId78.msg" "tweakSet39.gn" -na;
+connectAttr "innerArmUpperLeftShape.iog.og[7]" "tweakSet39.dsm" -na;
+connectAttr "tweak39.msg" "tweakSet39.ub[0]";
+connectAttr "innerArmUpperLeftShapeOrig.w" "groupParts78.ig";
+connectAttr "groupId78.id" "groupParts78.gi";
+connectAttr "rootJoint.msg" "bindPose58.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose58.m[1]";
+connectAttr "armLeft_UpperJoint1.msg" "bindPose58.m[2]";
+connectAttr "bindPose58.w" "bindPose58.p[0]";
+connectAttr "bindPose58.m[0]" "bindPose58.p[1]";
+connectAttr "bindPose58.m[1]" "bindPose58.p[2]";
+connectAttr "skinCluster40GroupParts.og" "skinCluster40.ip[0].ig";
+connectAttr "skinCluster40GroupId.id" "skinCluster40.ip[0].gi";
+connectAttr "armLeft_UpperJoint1.wm" "skinCluster40.ma[0]";
+connectAttr "armLeft_UpperJoint1.liw" "skinCluster40.lw[0]";
+connectAttr "armLeft_UpperJoint1.obcc" "skinCluster40.ifcl[0]";
+connectAttr "bindPose58.msg" "skinCluster40.bp";
+connectAttr "groupParts80.og" "tweak40.ip[0].ig";
+connectAttr "groupId80.id" "tweak40.ip[0].gi";
+connectAttr "skinCluster40GroupId.msg" "skinCluster40Set.gn" -na;
+connectAttr "upperArmLeftShape.iog.og[6]" "skinCluster40Set.dsm" -na;
+connectAttr "skinCluster40.msg" "skinCluster40Set.ub[0]";
+connectAttr "tweak40.og[0]" "skinCluster40GroupParts.ig";
+connectAttr "skinCluster40GroupId.id" "skinCluster40GroupParts.gi";
+connectAttr "groupId80.msg" "tweakSet40.gn" -na;
+connectAttr "upperArmLeftShape.iog.og[7]" "tweakSet40.dsm" -na;
+connectAttr "tweak40.msg" "tweakSet40.ub[0]";
+connectAttr "upperArmLeftShapeOrig.w" "groupParts80.ig";
+connectAttr "groupId80.id" "groupParts80.gi";
+connectAttr "skinCluster41GroupParts.og" "skinCluster41.ip[0].ig";
+connectAttr "skinCluster41GroupId.id" "skinCluster41.ip[0].gi";
+connectAttr "armLeft_UpperJoint1.wm" "skinCluster41.ma[0]";
+connectAttr "armLeft_UpperJoint1.liw" "skinCluster41.lw[0]";
+connectAttr "armLeft_UpperJoint1.obcc" "skinCluster41.ifcl[0]";
+connectAttr "bindPose58.msg" "skinCluster41.bp";
+connectAttr "groupParts82.og" "tweak41.ip[0].ig";
+connectAttr "groupId82.id" "tweak41.ip[0].gi";
+connectAttr "skinCluster41GroupId.msg" "skinCluster41Set.gn" -na;
+connectAttr "armJointUpperLeftShape.iog.og[6]" "skinCluster41Set.dsm" -na;
+connectAttr "skinCluster41.msg" "skinCluster41Set.ub[0]";
+connectAttr "tweak41.og[0]" "skinCluster41GroupParts.ig";
+connectAttr "skinCluster41GroupId.id" "skinCluster41GroupParts.gi";
+connectAttr "groupId82.msg" "tweakSet41.gn" -na;
+connectAttr "armJointUpperLeftShape.iog.og[7]" "tweakSet41.dsm" -na;
+connectAttr "tweak41.msg" "tweakSet41.ub[0]";
+connectAttr "armJointUpperLeftShapeOrig.w" "groupParts82.ig";
+connectAttr "groupId82.id" "groupParts82.gi";
+connectAttr "skinCluster42GroupParts.og" "skinCluster42.ip[0].ig";
+connectAttr "skinCluster42GroupId.id" "skinCluster42.ip[0].gi";
+connectAttr "bindPose59.msg" "skinCluster42.bp";
+connectAttr "armLeft_MidJoint.wm" "skinCluster42.ma[0]";
+connectAttr "armLeft_MidJoint.liw" "skinCluster42.lw[0]";
+connectAttr "armLeft_MidJoint.obcc" "skinCluster42.ifcl[0]";
+connectAttr "groupParts84.og" "tweak42.ip[0].ig";
+connectAttr "groupId84.id" "tweak42.ip[0].gi";
+connectAttr "skinCluster42GroupId.msg" "skinCluster42Set.gn" -na;
+connectAttr "innerArmLowerLeftShape.iog.og[6]" "skinCluster42Set.dsm" -na;
+connectAttr "skinCluster42.msg" "skinCluster42Set.ub[0]";
+connectAttr "tweak42.og[0]" "skinCluster42GroupParts.ig";
+connectAttr "skinCluster42GroupId.id" "skinCluster42GroupParts.gi";
+connectAttr "groupId84.msg" "tweakSet42.gn" -na;
+connectAttr "innerArmLowerLeftShape.iog.og[7]" "tweakSet42.dsm" -na;
+connectAttr "tweak42.msg" "tweakSet42.ub[0]";
+connectAttr "innerArmLowerLeftShapeOrig.w" "groupParts84.ig";
+connectAttr "groupId84.id" "groupParts84.gi";
+connectAttr "rootJoint.msg" "bindPose59.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose59.m[1]";
+connectAttr "armLeft_UpperJoint1.msg" "bindPose59.m[2]";
+connectAttr "armLeft_MidJoint.msg" "bindPose59.m[3]";
+connectAttr "bindPose59.w" "bindPose59.p[0]";
+connectAttr "bindPose59.m[0]" "bindPose59.p[1]";
+connectAttr "bindPose59.m[1]" "bindPose59.p[2]";
+connectAttr "bindPose59.m[2]" "bindPose59.p[3]";
+connectAttr "skinCluster43GroupParts.og" "skinCluster43.ip[0].ig";
+connectAttr "skinCluster43GroupId.id" "skinCluster43.ip[0].gi";
+connectAttr "armLeft_MidJoint.wm" "skinCluster43.ma[0]";
+connectAttr "armLeft_MidJoint.liw" "skinCluster43.lw[0]";
+connectAttr "armLeft_MidJoint.obcc" "skinCluster43.ifcl[0]";
+connectAttr "bindPose59.msg" "skinCluster43.bp";
+connectAttr "groupParts86.og" "tweak43.ip[0].ig";
+connectAttr "groupId86.id" "tweak43.ip[0].gi";
+connectAttr "skinCluster43GroupId.msg" "skinCluster43Set.gn" -na;
+connectAttr "lowerArmLeftShape.iog.og[6]" "skinCluster43Set.dsm" -na;
+connectAttr "skinCluster43.msg" "skinCluster43Set.ub[0]";
+connectAttr "tweak43.og[0]" "skinCluster43GroupParts.ig";
+connectAttr "skinCluster43GroupId.id" "skinCluster43GroupParts.gi";
+connectAttr "groupId86.msg" "tweakSet43.gn" -na;
+connectAttr "lowerArmLeftShape.iog.og[7]" "tweakSet43.dsm" -na;
+connectAttr "tweak43.msg" "tweakSet43.ub[0]";
+connectAttr "lowerArmLeftShapeOrig.w" "groupParts86.ig";
+connectAttr "groupId86.id" "groupParts86.gi";
+connectAttr "skinCluster44GroupParts.og" "skinCluster44.ip[0].ig";
+connectAttr "skinCluster44GroupId.id" "skinCluster44.ip[0].gi";
+connectAttr "armLeft_MidJoint.wm" "skinCluster44.ma[0]";
+connectAttr "armLeft_MidJoint.liw" "skinCluster44.lw[0]";
+connectAttr "armLeft_MidJoint.obcc" "skinCluster44.ifcl[0]";
+connectAttr "bindPose59.msg" "skinCluster44.bp";
+connectAttr "groupParts88.og" "tweak44.ip[0].ig";
+connectAttr "groupId88.id" "tweak44.ip[0].gi";
+connectAttr "skinCluster44GroupId.msg" "skinCluster44Set.gn" -na;
+connectAttr "armJointLeftShape.iog.og[6]" "skinCluster44Set.dsm" -na;
+connectAttr "skinCluster44.msg" "skinCluster44Set.ub[0]";
+connectAttr "tweak44.og[0]" "skinCluster44GroupParts.ig";
+connectAttr "skinCluster44GroupId.id" "skinCluster44GroupParts.gi";
+connectAttr "groupId88.msg" "tweakSet44.gn" -na;
+connectAttr "armJointLeftShape.iog.og[7]" "tweakSet44.dsm" -na;
+connectAttr "tweak44.msg" "tweakSet44.ub[0]";
+connectAttr "armJointLeftShapeOrig.w" "groupParts88.ig";
+connectAttr "groupId88.id" "groupParts88.gi";
+connectAttr "skinCluster45GroupParts.og" "skinCluster45.ip[0].ig";
+connectAttr "skinCluster45GroupId.id" "skinCluster45.ip[0].gi";
+connectAttr "bindPose60.msg" "skinCluster45.bp";
+connectAttr "armLeft_BigPincerJoint.wm" "skinCluster45.ma[0]";
+connectAttr "armLeft_BigPincerJoint.liw" "skinCluster45.lw[0]";
+connectAttr "armLeft_BigPincerJoint.obcc" "skinCluster45.ifcl[0]";
+connectAttr "groupParts90.og" "tweak45.ip[0].ig";
+connectAttr "groupId90.id" "tweak45.ip[0].gi";
+connectAttr "skinCluster45GroupId.msg" "skinCluster45Set.gn" -na;
+connectAttr "clawBigLeftShape.iog.og[6]" "skinCluster45Set.dsm" -na;
+connectAttr "skinCluster45.msg" "skinCluster45Set.ub[0]";
+connectAttr "tweak45.og[0]" "skinCluster45GroupParts.ig";
+connectAttr "skinCluster45GroupId.id" "skinCluster45GroupParts.gi";
+connectAttr "groupId90.msg" "tweakSet45.gn" -na;
+connectAttr "clawBigLeftShape.iog.og[7]" "tweakSet45.dsm" -na;
+connectAttr "tweak45.msg" "tweakSet45.ub[0]";
+connectAttr "clawBigLeftShapeOrig.w" "groupParts90.ig";
+connectAttr "groupId90.id" "groupParts90.gi";
+connectAttr "rootJoint.msg" "bindPose60.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose60.m[1]";
+connectAttr "armLeft_UpperJoint1.msg" "bindPose60.m[2]";
+connectAttr "armLeft_MidJoint.msg" "bindPose60.m[3]";
+connectAttr "armLeft_BigPincerJoint.msg" "bindPose60.m[4]";
+connectAttr "bindPose60.w" "bindPose60.p[0]";
+connectAttr "bindPose60.m[0]" "bindPose60.p[1]";
+connectAttr "bindPose60.m[1]" "bindPose60.p[2]";
+connectAttr "bindPose60.m[2]" "bindPose60.p[3]";
+connectAttr "bindPose60.m[3]" "bindPose60.p[4]";
+connectAttr "skinCluster46GroupParts.og" "skinCluster46.ip[0].ig";
+connectAttr "skinCluster46GroupId.id" "skinCluster46.ip[0].gi";
+connectAttr "bindPose61.msg" "skinCluster46.bp";
+connectAttr "armLeft_SmallPincerJoint.wm" "skinCluster46.ma[0]";
+connectAttr "armLeft_SmallPincerJoint.liw" "skinCluster46.lw[0]";
+connectAttr "armLeft_SmallPincerJoint.obcc" "skinCluster46.ifcl[0]";
+connectAttr "groupParts92.og" "tweak46.ip[0].ig";
+connectAttr "groupId92.id" "tweak46.ip[0].gi";
+connectAttr "skinCluster46GroupId.msg" "skinCluster46Set.gn" -na;
+connectAttr "clawSmallLeftShape.iog.og[6]" "skinCluster46Set.dsm" -na;
+connectAttr "skinCluster46.msg" "skinCluster46Set.ub[0]";
+connectAttr "tweak46.og[0]" "skinCluster46GroupParts.ig";
+connectAttr "skinCluster46GroupId.id" "skinCluster46GroupParts.gi";
+connectAttr "groupId92.msg" "tweakSet46.gn" -na;
+connectAttr "clawSmallLeftShape.iog.og[7]" "tweakSet46.dsm" -na;
+connectAttr "tweak46.msg" "tweakSet46.ub[0]";
+connectAttr "clawSmallLeftShapeOrig.w" "groupParts92.ig";
+connectAttr "groupId92.id" "groupParts92.gi";
+connectAttr "rootJoint.msg" "bindPose61.m[0]";
+connectAttr "bodyFrontJoint.msg" "bindPose61.m[1]";
+connectAttr "armLeft_UpperJoint1.msg" "bindPose61.m[2]";
+connectAttr "armLeft_MidJoint.msg" "bindPose61.m[3]";
+connectAttr "armLeft_BigPincerJoint.msg" "bindPose61.m[4]";
+connectAttr "armLeft_SmallPincerJoint.msg" "bindPose61.m[5]";
+connectAttr "bindPose61.w" "bindPose61.p[0]";
+connectAttr "bindPose61.m[0]" "bindPose61.p[1]";
+connectAttr "bindPose61.m[1]" "bindPose61.p[2]";
+connectAttr "bindPose61.m[2]" "bindPose61.p[3]";
+connectAttr "bindPose61.m[3]" "bindPose61.p[4]";
+connectAttr "bindPose61.m[4]" "bindPose61.p[5]";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "bodyFrontShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "bodyMidShape.iog" ":initialShadingGroup.dsm" -na;
