@@ -1,0 +1,7 @@
+if (`window -ex win_pasteAnim`){
+    deleteUI -window win_pasteAnim;
+}
+
+window -t "Transfer Animation Tool" -wh 500 100 -bgc 0.3 0.3 0.3 win_pasteAnim;
+
+showWindow win_pasteAnim;
