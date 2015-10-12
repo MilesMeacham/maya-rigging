@@ -1,7 +1,46 @@
-if (`window -ex win_pasteAnim`){
-    deleteUI -window win_pasteAnim;
+string $sel[] = `ls -sl`;
+
+if (size($sel) != 1){
+    warning "Must select one animated object";
+}else{
+    copyKey -time ":";
+
+    //close window when trying to open new window to avoid duplicates
+    if (`window -ex win_pasteAnim`){
+        deleteUI -window win_pasteAnim;
+    }
+    
+    window -t "Transfer Animation Tool" -wh 500 100 -bgc 0.3 0.3 0.3 win_pasteAnim;
+    
+    columnLayout -adj true;
+    
+    textFieldGrp -l "Source Object" -editable false -tx $sel[0] tx_src;
+    
+    intFieldGrp -l "Frame Offset Amount" -v1 0 int_offset;
+    
+    button -l "Paste Animation" -c "pasteAnimKeys" -bgc 0.1 0.1 0.1 btn1;
+    
+    button -l "Close Window" -c "deleteUI -window win_pasteAnim" -bgc 0.1 0.1 0.1 btn2;
+    
+    showWindow win_pasteAnim;
+    
+    global proc pasteAnimKeys(){
+        int $offsetTime = `intFieldGrp -q -v1 int_offset`;
+        string $selObj_pasteKeys[] = `ls -sl`;
+        
+        for ($objQuant = 0; $objQuant < size($selObj_pasteKeys); $objQuant++){
+            int $currentTime = `currentTime -q`;
+            
+            int $time = $currentTime + $offsetTime;
+            
+            currentTime $time;
+            
+            select $selObj_pasteKeys[$objQuant];
+            
+            pasteKey -time $time -float 1 -option merge -copies 1 -connect 1 -timeOffset 0 -floatOffset 0 -valueOffset 0;
+        }
+        
+    
+    }
+
 }
-
-window -t "Transfer Animation Tool" -wh 500 100 -bgc 0.3 0.3 0.3 win_pasteAnim;
-
-showWindow win_pasteAnim;
