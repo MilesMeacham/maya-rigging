@@ -28,11 +28,11 @@ ikHandle -sol ikRPsolver;
 
 //creates nurbs circle
 circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1;
-select -r ikHandle1 ;
-select -tgl nurbsCircle1 ;
 
 //position circle around the IK handle using a pointConstraint
 //then delete pointConstraint
+select -r ikHandle1 ;
+select -tgl nurbsCircle1 ;
 doCreatePointConstraintArgList 1 { "0","0","0","0","0","0","0","1","","1" };
 pointConstraint -offset 0 0 0 -weight 1;
 select -r nurbsCircle1_pointConstraint1 ;
