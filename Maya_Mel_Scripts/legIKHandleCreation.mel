@@ -1,4 +1,11 @@
+/*
+Leg Creation and IK Handle Tool
+-This tool will create a basic leg out of joints
+ and then ad and IK handle to it. It will end
+ by adding a control to the IK handle
+*/
 
+//place first joint
 joint -p 0 4.975517 0 ;
 joint -p 0 2.957409 0.26013 ;
 //orient previous joint to new joint NOTE: yup puts the Y against gravity
@@ -7,6 +14,12 @@ joint -p 0 0.353896 0 ;
 joint -e -zso -oj xyz -sao yup joint2;
 joint -p 0 0 1.215265 ;
 joint -e -zso -oj xyz -sao yup joint3;
+joint -p 0 0 2 ;
+joint -e -zso -oj xyz -sao yup joint4;
+
+//delete the tip joint used to orient joint4
+select -r joint5 ;
+doDelete;
 
 //creates IK handle
 select -r joint1.rotatePivot ;
@@ -30,5 +43,9 @@ select -r nurbsCircle1 ;
 select -tgl ikHandle1 ;
 doCreateParentConstraintArgList 1 { "1","0","0","0","0","0","0","1","","1" };
 parentConstraint -mo -weight 1;
+
+//Hide The IK handle
+select -r ikHandle1 ;
+HideSelectedObjects ;
 
 
