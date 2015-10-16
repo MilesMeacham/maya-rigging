@@ -1,0 +1,46 @@
+string $sel[] = `ls -sl`;
+
+drawUI();
+
+global proc drawUI(){
+    //create a window to contain tool and add buttons and fields
+    if (`window -ex win_LockAttribute`){
+        deleteUI -window win_LockAttribute;
+    } else {
+        window -t "Lock and Hide Attributes" -wh 500 120 -bgc 0.3 0.3 0.3 win_LockAttribute;
+        columnLayout -adj true;
+        checkBoxGrp -l "Lock Attibutes" ;
+        showWindow win_LockAttribute;
+    }
+}
+
+/*
+global proc lockAndHide(){
+    for( $i = 0; $i < size($sel); $i++){
+        string $name = $sel[$i];
+    
+    
+        if($lockTranslate == true){
+            setAttr -lock true -keyable false -channelBox false ($name + ".tx";
+            setAttr -lock true -keyable false -channelBox false ($name + ".ty";
+            setAttr -lock true -keyable false -channelBox false ($name + ".tz";
+        }
+        
+        if($lockRotate == true){
+            setAttr -lock true -keyable false -channelBox false ($name + ".rx";
+            setAttr -lock true -keyable false -channelBox false ($name + ".ry";
+            setAttr -lock true -keyable false -channelBox false ($name + ".rz";
+        }
+        
+        if($lockScale == true){
+            setAttr -lock true -keyable false -channelBox false ($name + ".sx";
+            setAttr -lock true -keyable false -channelBox false ($name + ".sy";
+            setAttr -lock true -keyable false -channelBox false ($name + ".sz";
+        }
+        
+        if($lockVisibility == true){
+            setAttr -lock true -keyable false -channelBox false ($name + ".v";
+        }
+    }
+}
+
