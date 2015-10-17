@@ -1,46 +1,68 @@
-string $sel[] = `ls -sl`;
-
 drawUI();
 
 global proc drawUI(){
     //create a window to contain tool and add buttons and fields
     if (`window -ex win_LockAttribute`){
         deleteUI -window win_LockAttribute;
+        drawUI();
     } else {
-        window -t "Lock and Hide Attributes" -wh 500 120 -bgc 0.3 0.3 0.3 win_LockAttribute;
+        window -t "Lock and Hide Attributes" -wh 500 120 -rtf on -bgc 0.3 0.3 0.3 win_LockAttribute;
         columnLayout -adj true;
-        checkBoxGrp -l "Lock Attibutes" ;
+        radioButtonGrp -numberOfRadioButtons 2 -l "Attibutes: " -labelArray3 "Lock" "Unlock" radio1;
+        radioButtonGrp -numberOfRadioButtons 2 -l " " -labelArray3 "Hide" "Show" radio2;
+        checkBoxGrp -numberOfCheckBoxes 4 -label "What: " 
+                    -labelArray4 "Translate" "Rotate" "Scale" "Visibility" whatToLock;
+        button -l "Lock and/or Hide Selected" -c "lockAndHide" -bgc 0.1 0.1 0.1 btn0;
+        button -l "Unlock and Show Selected" -c "unlockAndShow" -bgc 0.1 0.1 0.1 btn1;
         showWindow win_LockAttribute;
     }
 }
 
-/*
+
 global proc lockAndHide(){
+    string $sel[] = `ls -sl`;
+
+}
+/*    
     for( $i = 0; $i < size($sel); $i++){
         string $name = $sel[$i];
-    
-    
+        $lockAttributes = `checkBoxGrp -q -v1 check1`;
+        $hideAttributes = `checkBoxGrp -q -v1 check2`;
+        $lockTranslate = `checkBoxGrp -q -v1 whatToLock`;
+        $lockRotate = `checkBoxGrp -q -v2 whatToLock`;
+        $lockScale = `checkBoxGrp -q -v3 whatToLock`;
+        $lockVisibility = `checkBoxGrp -q -v4 whatToLock`;
+        $keyable = true;
+        
+        if($lockAttributes == true){
+            $keyable = false;
+        }
+        
+        if($hideAttributes == true){
+            $hideAttributes = false;
+        }
+        
         if($lockTranslate == true){
-            setAttr -lock true -keyable false -channelBox false ($name + ".tx";
-            setAttr -lock true -keyable false -channelBox false ($name + ".ty";
-            setAttr -lock true -keyable false -channelBox false ($name + ".tz";
+            setAttr -lock $lockAttributes -keyable $keyable -channelBox $hideAttributes ($name + ".tx");
+            setAttr -lock $lockAttributes -keyable $keyable -channelBox $hideAttributes ($name + ".ty");
+            setAttr -lock $lockAttributes -keyable $keyable -channelBox $hideAttributes ($name + ".tz");
         }
         
         if($lockRotate == true){
-            setAttr -lock true -keyable false -channelBox false ($name + ".rx";
-            setAttr -lock true -keyable false -channelBox false ($name + ".ry";
-            setAttr -lock true -keyable false -channelBox false ($name + ".rz";
+            setAttr -lock true -keyable false -channelBox false ($name + ".rx");
+            setAttr -lock true -keyable false -channelBox false ($name + ".ry");
+            setAttr -lock true -keyable false -channelBox false ($name + ".rz");
         }
         
         if($lockScale == true){
-            setAttr -lock true -keyable false -channelBox false ($name + ".sx";
-            setAttr -lock true -keyable false -channelBox false ($name + ".sy";
-            setAttr -lock true -keyable false -channelBox false ($name + ".sz";
+            setAttr -lock true -keyable false -channelBox false ($name + ".sx");
+            setAttr -lock true -keyable false -channelBox false ($name + ".sy");
+            setAttr -lock true -keyable false -channelBox false ($name + ".sz");
         }
         
         if($lockVisibility == true){
-            setAttr -lock true -keyable false -channelBox false ($name + ".v";
+            setAttr -lock true -keyable false -channelBox false ($name + ".v");
         }
-    }
-}
+    } //for loop end
+} //proc end
 
